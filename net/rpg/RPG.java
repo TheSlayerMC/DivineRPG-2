@@ -15,8 +15,9 @@ import cpw.mods.fml.common.network.NetworkMod;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
-public class RPG {
-
+public class RPG
+{
+	
 	@Instance(Reference.MOD_ID)
 	public static RPG instance;
 
@@ -29,18 +30,4 @@ public class RPG {
 	 * health bar, and the player item looking one is for extra accesories...
 	 **/
 	
-	@EventHandler
-	public static void preInit(FMLPreInitializationEvent event){
-		
-	}
-	
-	@EventHandler
-	public static void init(FMLInitializationEvent event){
-		
-	}
-	
-	@EventHandler
-	public static void postInit(FMLPostInitializationEvent event){
-		
-	}
 }
