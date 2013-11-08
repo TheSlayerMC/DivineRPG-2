@@ -24,19 +24,11 @@ public class RPG
 	@SidedProxy(clientSide = Util.CLIENT_PROXY, serverSide = Util.SERVER_PROXY)
 	public static ServerProxy proxy;
 	
-	public static GuiHelper GUI_HELPER;
-	public static EventHelper EVENT_HELPER;
-	public static TickHelper TICK_HELPER;
-	public static KeyHelper KEY_HELPER;
-	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		
-		GUI_HELPER = new GuiHelper();
-		EVENT_HELPER = new EventHelper();
-		TICK_HELPER = new TickHelper();
-		KEY_HELPER = new KeyHelper();
+
 		
 	}
 	
