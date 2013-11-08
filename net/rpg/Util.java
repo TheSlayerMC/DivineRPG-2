@@ -1,19 +1,107 @@
 package net.rpg;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import cpw.mods.fml.common.FMLLog;
+
 public class Util
 {
 	
-	public static final String MOD_ID = "rpg";
-	public static final String MOD_NAME = "RPG";
-	public static final String MOD_VERSION = "1.0";
-	public static final String CLIENT_PROXY = "net.rpg.ClientProxy";
-	public static final String SERVER_PROXY = "net.rpg.ServerProxy";
-	public static final String RESOURCE_START = "rpg:";
+	private static Logger log = Logger.getLogger(Reference.MOD_ID);
 	
-	public static final void print(String text)
+	private static boolean initialized = false;
+	
+	public static void init()
 	{
 		
-		System.out.println("[" + MOD_NAME + "]" + text);
+		log.setParent(FMLLog.getLogger());
+		
+		initialized = true;
+		
+	}
+	
+	public static final void severe(String text)
+	{
+		
+		if(!initialized)
+		{
+			
+			init();
+			
+		}
+		
+		log.log(Level.SEVERE, text);
+		
+	}
+	
+	public static final void warn(String text)
+	{
+		
+		if(!initialized)
+		{
+			
+			init();
+			
+		}
+		
+		log.log(Level.WARNING, text);
+		
+	}
+	
+	public static final void fine(String text)
+	{
+		
+		if(!initialized)
+		{
+			
+			init();
+			
+		}
+		
+		log.log(Level.FINE, text);
+		
+	}
+	
+	public static final void finer(String text)
+	{
+		
+		if(!initialized)
+		{
+			
+			init();
+			
+		}
+		
+		log.log(Level.FINER, text);
+		
+	}
+	
+	public static final void finest(String text)
+	{
+		
+		if(!initialized)
+		{
+			
+			init();
+			
+		}
+		
+		log.log(Level.FINEST, text);
+		
+	}
+	
+	public static final void info(String text)
+	{
+		
+		if(!initialized)
+		{
+			
+			init();
+			
+		}
+		
+		log.log(Level.INFO, text);
 		
 	}
 	

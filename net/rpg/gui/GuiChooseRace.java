@@ -2,7 +2,7 @@ package net.rpg.gui;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
-import net.rpg.Util;
+import net.rpg.Reference;
 
 import org.lwjgl.opengl.GL11;
 
@@ -16,7 +16,7 @@ public class GuiChooseRace extends GuiScreen
     protected int xSize = 176;
     protected int ySize = 166;
 	
-	private static final ResourceLocation texture = new ResourceLocation(Util.RESOURCE_START + "/new_player");
+	private static final ResourceLocation texture = new ResourceLocation(Reference.RESOURCE_START + "/new_player");
 	
 	public GuiChooseRace()
 	{
@@ -27,8 +27,6 @@ public class GuiChooseRace extends GuiScreen
 	
 	protected void drawGuiContainerForegroundLayer(int par1, int par2)
 	{
-		
-		Util.print("HELLO?");
 		
 		this.fontRenderer.drawString("Choose your race:", 8, 6, 4210752);
 		

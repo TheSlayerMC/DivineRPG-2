@@ -59,7 +59,7 @@ public class ExtendedPlayerHandler implements IExtendedEntityProperties
 		
 		this.race = properties.getString("Race");
 		
-		Util.print("Race loaded from NBT: " + this.race);
+		Util.finest("Race loaded. Race: " + this.race);
 		
 	}
 	
