@@ -1,22 +1,15 @@
 RPG
 ===
 
-This mod is considered the revamped DivineRPG, or "DivineRPG Reloaded".
-This time around, the mod actually contains a level of RPG (or I suppose RPM since it's a mod, not a game?)
+RPG Mod. The end.
 
-Team Members: (TODO)
-	Coders:
-		-The_Slayer
-		-BossLetsPlays
-		-Mazetar
-		-TLHPoE
-	Modlers:
-		-Declan (UKdeccy)
+Team Members:
+Coders: The_Slayer, BossLetsPlays (fgt), Mazetar, TLHPoE
+
+Modlers: Declan (UKdeccy)
     
 This Mod contains:
-  //TODO: List basics/major features of the mod, then link to wiki/website?
+Absolutely nothing about RPG features.
   
 Links:
-  Official DivineRPG Website:  http://www.divinerpg.net
-  Boss's Channel:  http://www.youtube.com/BossLetsPlays
-  //TODO:  Anyone else wants to add their links?
+oss's Channel:  http://www.youtube.com/BossLetsPlays
