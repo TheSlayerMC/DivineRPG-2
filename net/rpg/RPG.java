@@ -28,4 +28,19 @@ public class RPG {
 	 * your 'Mana Bar' (if you class has mana) The Red one is for the bosses
 	 * health bar, and the player item looking one is for extra accesories...
 	 **/
+	
+	@EventHandler
+	public static void preInit(FMLPreInitializationEvent event){
+		
+	}
+	
+	@EventHandler
+	public static void init(FMLInitializationEvent event){
+		
+	}
+	
+	@EventHandler
+	public static void postInit(FMLPostInitializationEvent event){
+		
+	}
 }
