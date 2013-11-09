@@ -16,7 +16,7 @@ public class GuiChooseRace extends GuiScreen
     protected int xSize = 176;
     protected int ySize = 166;
 	
-	private static final ResourceLocation texture = new ResourceLocation(Reference.RESOURCE_START + "/new_player");
+	private static final ResourceLocation texture = new ResourceLocation(Reference.RESOURCE_PREFIX + "/new_player");
 	
 	public GuiChooseRace()
 	{

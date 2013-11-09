@@ -4,9 +4,9 @@ RPG
 RPG Mod. The end.
 
 Team Members:
-Coders: The_Slayer, BossLetsPlays, Mazetar, TLHPoE
+Coders: The_Slayer, BossLetsPlays, Mazetar, TLHPoE(fgt)
 
-Modlers: Declan (UKdeccy)
+Modelers: Declan (UKdeccy)
     
 This Mod contains:
 Absolutely nothing about RPG features.

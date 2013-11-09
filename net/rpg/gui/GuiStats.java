@@ -25,7 +25,7 @@ public class GuiStats extends GuiScreen
     private EntityPlayer player;
     private ExtendedPlayerHandler extendedPlayer;
     
-	private static final ResourceLocation texture = new ResourceLocation(Reference.RESOURCE_START + "/stats");
+	private static final ResourceLocation texture = new ResourceLocation(Reference.RESOURCE_PREFIX + "/stats");
 	
 	public GuiStats(EntityPlayer player)
 	{
@@ -154,7 +154,7 @@ public class GuiStats extends GuiScreen
     {
         super.updateScreen();
         
-        ++this.coolDown;
+        this.coolDown++;
         GuiButton guibutton;
 
         if (this.coolDown == 20)

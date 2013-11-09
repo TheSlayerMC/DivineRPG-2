@@ -26,7 +26,7 @@ public class StatsKeyHandler extends KeyHandler
 	public String getLabel()
 	{
 
-		return "N/A";
+		return "RPG Tick Handler";
 
 	}
 
