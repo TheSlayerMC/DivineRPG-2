@@ -3,6 +3,7 @@ package net.rpg.gui;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
 import net.rpg.Reference;
+import net.rpg.Util;
 
 import org.lwjgl.opengl.GL11;
 
@@ -10,7 +11,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class GuiChooseRace extends GuiScreen
+public class GuiCharacterCreation extends GuiScreen
 {
 	
     protected int xSize = 176;
@@ -18,10 +19,10 @@ public class GuiChooseRace extends GuiScreen
 	
 	private static final ResourceLocation texture = new ResourceLocation(Reference.RESOURCE_PREFIX + "/new_player");
 	
-	public GuiChooseRace()
+	public GuiCharacterCreation()
 	{
 		
-		
+		Util.info("Whats up?");
 		
 	}
 	

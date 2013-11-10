@@ -11,7 +11,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.rpg.Reference;
-import net.rpg.handler.ExtendedPlayerHandler;
 
 import org.lwjgl.opengl.GL11;
 
@@ -23,7 +22,6 @@ public class GuiStats extends GuiScreen
     private int ySize = 166;
 	
     private EntityPlayer player;
-    private ExtendedPlayerHandler extendedPlayer;
     
 	private static final ResourceLocation texture = new ResourceLocation(Reference.RESOURCE_PREFIX + "/stats");
 	
@@ -31,19 +29,6 @@ public class GuiStats extends GuiScreen
 	{
 		
 		this.player = player;
-		
-		try
-		{
-			
-			this.extendedPlayer = (ExtendedPlayerHandler)player.getExtendedProperties(ExtendedPlayerHandler.EXT_PROP_NAME);
-			
-		}
-		catch(Exception e)
-		{
-			
-			//Util.print("Couldn't get stats for " + player.username + "!!!");
-			
-		}
 		
 	}
 	

@@ -1,13 +1,19 @@
 package net.rpg.handler;
 
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.util.EnumSet;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.packet.Packet250CustomPayload;
 import net.rpg.RPG;
-import net.rpg.Reference;
+import net.rpg.Util;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
+import cpw.mods.fml.common.network.PacketDispatcher;
 
 public class PlayerTickHandler implements ITickHandler
 {
@@ -57,14 +63,62 @@ public class PlayerTickHandler implements ITickHandler
 		if(Minecraft.getMinecraft().currentScreen != null)
 		{
 			
-			StatsKeyHandler.pressed = false;
+			//StatsKeyHandler.pressed = false;
 			
 		}
 		
 		if(StatsKeyHandler.pressed)
 		{
 			
-			player.openGui(RPG.instance, 0, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
+			if(player.worldObj.isRemote)
+			{
+				
+				player.openGui(RPG.instance, 0, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
+				
+			}
+			
+			NBTTagCompound nbt = player.getEntityData();
+			
+			if(player.isSneaking())
+			{
+				
+				//nbt.setString("Race", "ur mom");
+				
+				Util.finest("WEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+				
+				Packet250CustomPayload packet = new Packet250CustomPayload();
+				
+				ByteArrayOutputStream bos = new ByteArrayOutputStream(8);
+				DataOutputStream output = new DataOutputStream(bos);
+				
+				try
+				{
+					
+					output.writeInt(1);
+					
+				}
+				catch(Exception e)
+				{
+					
+					Util.severe("Couldn't write to packet! Aborting...");
+					
+					return;
+					
+				}
+				
+				packet.channel = "RPG";
+				packet.data = bos.toByteArray();
+				packet.length = bos.size();
+				
+				PacketDispatcher.sendPacketToServer(packet);
+				
+			}
+			else
+			{
+				
+				//player.addChatMessage("Race: " + nbt.getString("Race"));
+				
+			}
 			
 			StatsKeyHandler.pressed = false;
 

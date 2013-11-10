@@ -1,5 +1,7 @@
 package net.rpg;
 
+import java.util.HashMap;
+
 import net.rpg.helper.ConfigHelper;
 import net.rpg.helper.EventHelper;
 import net.rpg.helper.GuiHelper;
@@ -9,11 +11,11 @@ import net.rpg.helper.TickHelper;
 public class ServerProxy
 {
 	
-	public static ConfigHelper CONFIG_HELPER;
-	public static GuiHelper GUI_HELPER;
-	public static EventHelper EVENT_HELPER;
-	public static TickHelper TICK_HELPER;
-	public static KeyHelper KEY_HELPER;
+	public ConfigHelper CONFIG_HELPER;
+	public GuiHelper GUI_HELPER;
+	public EventHelper EVENT_HELPER;
+	public TickHelper TICK_HELPER;
+
 	
 	public ServerProxy()
 	{
@@ -25,8 +27,34 @@ public class ServerProxy
 		GUI_HELPER = new GuiHelper();
 		EVENT_HELPER = new EventHelper();
 		TICK_HELPER = new TickHelper();
-		KEY_HELPER = new KeyHelper();
 		CONFIG_HELPER.save();
+		
+	}
+	
+	public HashMap<String, Object> data = new HashMap<String, Object>();
+	
+	public void storeData(String name, Object obj)
+	{
+		
+		this.data.put(name, obj);
+		
+	}
+	
+	public Object getData(String name)
+	{
+		
+		if(this.data.get(name) == null)
+		{
+			
+			return null;
+			
+		}
+		else
+		{
+			
+			return this.data.get(name);
+			
+		}
 		
 	}
 	

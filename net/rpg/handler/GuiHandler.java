@@ -2,10 +2,9 @@ package net.rpg.handler;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import net.rpg.Reference;
-import net.rpg.gui.GuiChooseRace;
+import net.rpg.Util;
+import net.rpg.gui.GuiCharacterCreation;
 import net.rpg.gui.GuiStats;
-import net.rpg.helper.GuiHelper;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler
@@ -29,6 +28,8 @@ public class GuiHandler implements IGuiHandler
 		case(0):
 		{
 			
+			Util.finest("YAY");
+			
 			return new GuiStats(player);
 			
 		}
@@ -36,7 +37,7 @@ public class GuiHandler implements IGuiHandler
 		case(1):
 		{
 			
-			return new GuiChooseRace();
+			return new GuiCharacterCreation();
 			
 		}
 		
