@@ -3,36 +3,53 @@ package net.rpg.entity.render;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.boss.BossStatus;
 import net.minecraft.util.ResourceLocation;
 import net.rpg.entity.EntityRPG;
+import net.rpg.entity.EntityTestBoss;
+import net.rpg.helper.boss.BossBar;
 
 import org.lwjgl.opengl.GL11;
 
-public class RenderRPGMob extends RenderLiving{
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-	static ResourceLocation Texture;
-	
-	public RenderRPGMob(ModelBase par1ModelBase, float par2, ResourceLocation texture) {
-		super(par1ModelBase, par2);
-		Texture = texture;
-	}
+@SideOnly(Side.CLIENT)
+public class RenderRPGMob extends RenderLiving
+{
 
-	//static String playerUsername = Minecraft.getMinecraft().thePlayer.username;
+    public RenderRPGMob(ModelBase var1)
+    {
+        super(var1, 0.5F);
+    }
+
+    public void renderCow(EntityTestBoss var1, double var2, double var4, double var6, float var8, float var9)
+    {
+        BossBar.setBossStatus(var1, true);
+        drawHealthBar((EntityTestBoss)var1, var2, var4, var6, var8, var9, true);
+        super.doRenderLiving(var1, var2, var4, var6, var8, var9);
+    }
+
+    @Override
+    public void doRenderLiving(EntityLiving var1, double var2, double var4, double var6, float var8, float var9)
+    {
+        this.renderCow((EntityTestBoss)var1, var2, var4, var6, var8, var9);
+    }
+
+    @Override
+    public void doRender(Entity var1, double var2, double var4, double var6, float var8, float var9)
+    {
+        this.renderCow((EntityTestBoss)var1, var2, var4, var6, var8, var9);
+    }
 
 	@Override
-	public void doRender(Entity entity, double d0, double d1, double d2, float f, float f1) {
-
+	protected ResourceLocation getEntityTexture(Entity entity) {
+		return new ResourceLocation("");
 	}
 	
-	public void doRenderLiving(EntityLiving entityLiving, double d, double d1, double d2, float f, float f1) {
-		drawHealthBar((EntityRPG)entityLiving, d, d1, d2, f, f1, true);
-	}
-
 	public void drawHealthBar(EntityLiving entityLiving, double d, double d1, double d2, float f, float f1, boolean owned) {
 		float f2 = 1.6F;
 		float f3 = 0.01666667F * f2;
@@ -86,10 +103,4 @@ public class RenderRPGMob extends RenderLiving{
 			GL11.glPopMatrix();
 		}
 	}
-
-	@Override
-	protected ResourceLocation getEntityTexture(Entity entity) {
-		return Texture;
-	}
-
 }
