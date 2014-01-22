@@ -4,12 +4,6 @@ import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
 
 public class Util {
-	private static boolean initialized = false;
-
-	public static void init() {
-		initialized = true;
-	}
-
 	public static final void severe(String text) {
 		System.out.println(text);
 	}

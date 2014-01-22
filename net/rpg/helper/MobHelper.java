@@ -6,7 +6,7 @@ import net.rpg.RPG;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-public class RPGMobRegistry {
+public class MobHelper {
 	static int eggID = 25;
 	static int projectileID = 350;
 

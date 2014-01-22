@@ -5,7 +5,7 @@ import net.rpg.handler.PlayerEventHandler;
 import cpw.mods.fml.common.eventhandler.EventBus;
 
 public class EventHelper {
-	public EventHelper() {
+	public static void init() {
 		EventBus funBus = MinecraftForge.EVENT_BUS;
 		funBus.register(new PlayerEventHandler());
 	}

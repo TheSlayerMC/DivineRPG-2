@@ -8,15 +8,15 @@ import net.rpg.Reference;
 public class ConfigHelper {
 	public static Configuration config;
 
-	public ConfigHelper() {
+	public static void init() {
 		ConfigHelper.config = new Configuration(new File("./" + Reference.MOD_NAME + "/configuration.cfg"));
 	}
 
-	public void load() {
+	public static void load() {
 		ConfigHelper.config.load();
 	}
 
-	public void save() {
+	public static void save() {
 		ConfigHelper.config.save();
 	}
 }
