@@ -1,7 +1,7 @@
 package net.rpg.helper;
 
-import net.minecraft.entity.EntityEggInfo;
 import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityList.EntityEggInfo;
 import net.rpg.RPG;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -16,7 +16,7 @@ public class RPGMobRegistry {
 		EntityRegistry.registerGlobalEntityID(entityClass, entityName, ID);
 		LanguageRegistry.instance().addStringLocalization("entity." + entityName + ".name", entityName);
 		EntityList.IDtoClassMapping.put(ID, entityClass);
-		EntityList.entityEggs .put(ID, new EntityEggInfo(ID, 0x000000, 0xFFFFFF));
+		EntityList.entityEggs.put(ID, new EntityEggInfo(ID, 0x000000, 0xFFFFFF));
 		EntityRegistry.registerModEntity(entityClass, entityName, ID, RPG.instance, 250, 5, false);
 	}
 

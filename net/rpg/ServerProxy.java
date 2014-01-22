@@ -2,16 +2,12 @@ package net.rpg;
 
 import java.util.HashMap;
 
-import cpw.mods.fml.common.registry.TickRegistry;
-import cpw.mods.fml.relauncher.Side;
 import net.rpg.helper.ConfigHelper;
 import net.rpg.helper.EventHelper;
 import net.rpg.helper.GuiHelper;
-import net.rpg.helper.KeyHelper;
 import net.rpg.helper.TickHelper;
 
 public class ServerProxy {
-
 	public ConfigHelper CONFIG_HELPER;
 	public GuiHelper GUI_HELPER;
 	public EventHelper EVENT_HELPER;
@@ -19,12 +15,11 @@ public class ServerProxy {
 
 	public ServerProxy() {
 		Util.info("Starting Server Proxy!");
-
 		CONFIG_HELPER = new ConfigHelper();
 		CONFIG_HELPER.load();
-		GUI_HELPER = new GuiHelper();
+		//GUI_HELPER = new GuiHelper();
 		EVENT_HELPER = new EventHelper();
-		TICK_HELPER = new TickHelper();
+		//TICK_HELPER = new TickHelper();
 		CONFIG_HELPER.save();
 	}
 
@@ -35,10 +30,8 @@ public class ServerProxy {
 	}
 
 	public Object getData(String name) {
-
-		if (this.data.get(name) == null) {
+		if(this.data.get(name) == null) {
 			return null;
-
 		} else {
 			return this.data.get(name);
 		}

@@ -2,33 +2,21 @@ package net.rpg.helper;
 
 import java.io.File;
 
-import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.config.Configuration;
 import net.rpg.Reference;
 
-public class ConfigHelper
-{
-	
+public class ConfigHelper {
 	public static Configuration config;
-	
-	public ConfigHelper()
-	{
-		
-		this.config = new Configuration(new File("./" + Reference.MOD_NAME + "/Configuration.cfg"));
-		
+
+	public ConfigHelper() {
+		ConfigHelper.config = new Configuration(new File("./" + Reference.MOD_NAME + "/configuration.cfg"));
 	}
-	
-	public void load()
-	{
-		
-		this.config.load();
-		
+
+	public void load() {
+		ConfigHelper.config.load();
 	}
-	
-	public void save()
-	{
-		
-		this.config.save();
-		
+
+	public void save() {
+		ConfigHelper.config.save();
 	}
-	
 }

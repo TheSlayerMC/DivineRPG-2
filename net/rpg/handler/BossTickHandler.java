@@ -12,48 +12,38 @@ import net.rpg.helper.boss.BossBar;
 
 import org.lwjgl.opengl.GL11;
 
-import cpw.mods.fml.common.ITickHandler;
-import cpw.mods.fml.common.TickType;
-
 public class BossTickHandler extends Helper implements ITickHandler {
-
 	Minecraft mc = Minecraft.getMinecraft();
-	ResourceLocation bar = addGUI("BossBar");	
+	ResourceLocation bar = addGUI("BossBar");
 
 	@Override
 	public void tickStart(EnumSet type, Object... tickData) {
-
 	}
 
 	@Override
 	public void tickEnd(EnumSet type, Object... tickData) {
-		if (type.equals(EnumSet.of(TickType.RENDER))){
+		if(type.equals(EnumSet.of(TickType.RENDER))) {
 			onBossTick();
 		}
 	}
 
-	public void onBossTick(){
+	public void onBossTick() {
 		GuiIngame gig = mc.ingameGUI;
-		
-		if(mc.currentScreen != null){
-			if (BossBar.bossName != null && BossBar.statusBarLength > 0)
-			{
+		if(mc.currentScreen != null) {
+			if(BossBar.bossName != null && BossBar.statusBarLength > 0) {
 				--BossBar.statusBarLength;
 				FontRenderer fontrenderer = this.mc.fontRenderer;
 				ScaledResolution scaledresolution = new ScaledResolution(this.mc.gameSettings, this.mc.displayWidth, this.mc.displayHeight);
 				int i = scaledresolution.getScaledWidth();
 				short short1 = 182;
 				int j = i / 2 - short1 / 2;
-				int k = (int)(BossBar.healthScale * (float)(short1 + 1));
+				int k = (int) (BossBar.healthScale * (float) (short1 + 1));
 				byte b0 = 12;
 				gig.drawTexturedModalRect(j, b0, 0, 0, short1, 10);
 				gig.drawTexturedModalRect(j, b0, 0, 10, short1, 10);
-
-				if (k > 0){
-
+				if(k > 0) {
 					gig.drawTexturedModalRect(j, b0, 0, 0, k, 10);
 				}
-
 				GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 				this.mc.getTextureManager().bindTexture(bar);
 			}
@@ -69,5 +59,4 @@ public class BossTickHandler extends Helper implements ITickHandler {
 	public String getLabel() {
 		return "RPG Boss Health Bar Tick Handler";
 	}
-
 }

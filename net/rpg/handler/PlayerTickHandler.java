@@ -5,125 +5,66 @@ import java.io.DataOutputStream;
 import java.util.EnumSet;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.packet.Packet250CustomPayload;
 import net.rpg.RPG;
 import net.rpg.Util;
-import cpw.mods.fml.common.ITickHandler;
-import cpw.mods.fml.common.TickType;
-import cpw.mods.fml.common.network.PacketDispatcher;
 
-public class PlayerTickHandler implements ITickHandler
-{
-	
+public class PlayerTickHandler implements ITickHandler {
 	private final EnumSet<TickType> ticksToGet;
 
-	public PlayerTickHandler(EnumSet<TickType> ticksToGet)
-	{
-
+	public PlayerTickHandler(EnumSet<TickType> ticksToGet) {
 		this.ticksToGet = ticksToGet;
-
 	}
 
 	@Override
-	public void tickStart(EnumSet<TickType> type, Object... tickData)
-	{
-
+	public void tickStart(EnumSet<TickType> type, Object... tickData) {
 		playerTick((EntityPlayer) tickData[0]);
-
 	}
 
 	@Override
-	public void tickEnd(EnumSet<TickType> type, Object... tickData)
-	{
-
+	public void tickEnd(EnumSet<TickType> type, Object... tickData) {
 	}
 
 	@Override
-	public EnumSet<TickType> ticks()
-	{
-
+	public EnumSet<TickType> ticks() {
 		return ticksToGet;
-
 	}
 
 	@Override
-	public String getLabel()
-	{
-
+	public String getLabel() {
 		return "N/A";
-
 	}
 
-	public void playerTick(EntityPlayer player)
-	{
-		
-		if(Minecraft.getMinecraft().currentScreen != null)
-		{
-			
+	public void playerTick(EntityPlayer player) {
+		if(Minecraft.getMinecraft().currentScreen != null) {
 			//StatsKeyHandler.pressed = false;
-			
 		}
-		
-		if(StatsKeyHandler.pressed)
-		{
-			
-			if(player.worldObj.isRemote)
-			{
-				
+		if(StatsKeyHandler.pressed) {
+			if(player.worldObj.isRemote) {
 				player.openGui(RPG.instance, 0, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
-				
 			}
-			
 			NBTTagCompound nbt = player.getEntityData();
-			
-			if(player.isSneaking())
-			{
-				
+			if(player.isSneaking()) {
 				//nbt.setString("Race", "ur mom");
-				
 				Util.finest("WEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-				
 				Packet250CustomPayload packet = new Packet250CustomPayload();
-				
 				ByteArrayOutputStream bos = new ByteArrayOutputStream(8);
 				DataOutputStream output = new DataOutputStream(bos);
-				
-				try
-				{
-					
+				try {
 					output.writeInt(1);
-					
-				}
-				catch(Exception e)
-				{
-					
+				} catch(Exception e) {
 					Util.severe("Couldn't write to packet! Aborting...");
-					
 					return;
-					
 				}
-				
 				packet.channel = "RPG";
 				packet.data = bos.toByteArray();
 				packet.length = bos.size();
-				
 				PacketDispatcher.sendPacketToServer(packet);
-				
-			}
-			else
-			{
-				
+			} else {
 				//player.addChatMessage("Race: " + nbt.getString("Race"));
-				
 			}
-			
 			StatsKeyHandler.pressed = false;
-
 		}
-		
 	}
-	
 }

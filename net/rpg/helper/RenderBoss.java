@@ -6,7 +6,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderBoss extends RenderLiving {
-
 	public RenderBoss(ModelBiped par1ModelBiped) {
 		super(par1ModelBiped, 0.5F);
 	}
@@ -15,5 +14,4 @@ public class RenderBoss extends RenderLiving {
 	protected ResourceLocation getEntityTexture(Entity entity) {
 		return new ResourceLocation("");
 	}
-
 }

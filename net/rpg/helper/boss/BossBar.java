@@ -1,9 +1,5 @@
 package net.rpg.helper.boss;
-
-import net.minecraft.entity.boss.IBossDisplayData;
-
 public class BossBar {
-	
 	public int health;
 
 	public BossBar(int health) {
