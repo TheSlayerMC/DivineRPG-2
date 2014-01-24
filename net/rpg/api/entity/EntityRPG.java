@@ -1,7 +1,5 @@
 package net.rpg.api.entity;
 
-import net.divinerpg.helper.DivineAPI;
-import net.divinerpg.helper.config.ConfigurationHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -14,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+import net.rpg.Util;
 
 public abstract class EntityRPG extends EntityCreature {
 	public EntityRPG(World par1World) {
@@ -68,10 +67,9 @@ public abstract class EntityRPG extends EntityCreature {
 	public abstract String getName();
 
 	public void onDeath(DamageSource d) {
+		super.onDeath(d);
 		EntityPlayer p = Minecraft.getMinecraft().thePlayer;
-		if(ConfigurationHelper.canShowDeathChat) {
-			p.func_145747_a(DivineAPI.addChatMessage(EnumChatFormatting.DARK_AQUA, p.getDisplayName() + " Has Slain A " + getName() + "."));
-		}
+		p.func_145747_a(Util.addChatMessage(EnumChatFormatting.DARK_AQUA, p.getDisplayName() + " has slain a " + getName() + "."));
 	}
 
 	@Override
