@@ -1,4 +1,4 @@
-package net.rpg.api.entity.render;
+package net.rpg.core.entity.render;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
-import net.rpg.api.entity.EntityRPG;
+import net.rpg.core.entity.EntityRPG;
 
 import org.lwjgl.opengl.GL11;
 
