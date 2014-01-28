@@ -1,4 +1,4 @@
-package net.rpg.core;
+package net.rpg;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -17,6 +17,8 @@ public class RPG {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
+		proxy.doClient();
+		proxy.doServer();
 	}
 
 	@EventHandler

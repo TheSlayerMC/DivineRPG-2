@@ -1,4 +1,4 @@
-package net.rpg.core;
+package net.rpg;
 
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;

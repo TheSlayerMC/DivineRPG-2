@@ -1,6 +1,6 @@
-package net.rpg.core;
+package net.rpg;
 public class ClientProxy extends ServerProxy {
 	@Override
-	public void doClientStuff() {
+	public void doClient() {
 	}
 }
