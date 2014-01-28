@@ -1,14 +1,12 @@
 package net.rpg.helper;
 
 import net.minecraftforge.common.MinecraftForge;
-import net.rpg.handler.PlayerEventHandler;
-import net.rpg.handler.WorldEventHandler;
+import net.rpg.handler.ClientEventHandler;
 import cpw.mods.fml.common.eventhandler.EventBus;
 
-public class EventHelper {
+public class ClientEventHelper {
 	public static void init() {
 		EventBus funBus = MinecraftForge.EVENT_BUS;
-		funBus.register(new PlayerEventHandler());
-		funBus.register(new WorldEventHandler());
+		funBus.register(new ClientEventHandler());
 	}
 }

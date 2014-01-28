@@ -2,8 +2,9 @@ package net.rpg;
 
 import net.rpg.helper.BlockHelper;
 import net.rpg.helper.ConfigHelper;
-import net.rpg.helper.EventHelper;
+import net.rpg.helper.GuiHelper;
 import net.rpg.helper.ItemHelper;
+import net.rpg.helper.ServerEventHelper;
 
 public class ServerProxy {
 	public void doServer() {
@@ -11,7 +12,8 @@ public class ServerProxy {
 		ConfigHelper.load();
 		ItemHelper.init();
 		BlockHelper.init();
-		EventHelper.init();
+		ServerEventHelper.init();
+		GuiHelper.init();
 		ConfigHelper.save();
 	}
 

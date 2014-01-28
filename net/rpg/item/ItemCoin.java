@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemAppleGold;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.rpg.helper.CoinHelper;
+import net.rpg.helper.DataHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -19,10 +19,10 @@ public class ItemCoin extends Item {
 				EntityPlayer p = (EntityPlayer) e;
 				if(is.stackSize == 0) {
 					p.inventory.setInventorySlotContents(par4, null);
-					CoinHelper.setCoins(p.getDisplayName(), CoinHelper.getCoins(p.getDisplayName()) + 1);
+					DataHelper.setCoins(p.getDisplayName(), DataHelper.getCoins(p.getDisplayName()) + 1);
 				} else {
 					is.stackSize--;
-					CoinHelper.setCoins(p.getDisplayName(), CoinHelper.getCoins(p.getDisplayName()) + 1);
+					DataHelper.setCoins(p.getDisplayName(), DataHelper.getCoins(p.getDisplayName()) + 1);
 				}
 			} else {
 				is.stackSize--;

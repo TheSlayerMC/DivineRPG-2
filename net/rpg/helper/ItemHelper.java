@@ -6,6 +6,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.rpg.item.ItemCoin;
+import net.rpg.item.ItemTest;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemHelper {
@@ -13,6 +14,7 @@ public class ItemHelper {
 
 	public static void init() {
 		addItem("coin", new ItemCoin());
+		addItem("test", new ItemTest());
 	}
 
 	public static void addItem(String n, Item i) {
