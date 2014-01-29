@@ -10,7 +10,7 @@ public class ItemTest extends Item {
 	@Override
 	public ItemStack onItemRightClick(ItemStack is, World w, EntityPlayer p) {
 		if(!w.isRemote) {
-			p.openGui(RPG.instance, 0, w, p.serverPosX, p.serverPosY, p.serverPosZ);
+			p.openGui(RPG.instance, 0, w, (int) p.posX, (int) p.posY, (int) p.posZ);
 		}
 		return is;
 	}

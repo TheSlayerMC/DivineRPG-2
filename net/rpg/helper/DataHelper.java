@@ -18,11 +18,29 @@ public class DataHelper {
 	}
 
 	public static void setCoins(String n, int amt) {
-		data.get(n, "Coins", 0).set(amt);
+		data.get(n.toLowerCase(), "Coins", 0).set(amt);
 		save();
 	}
 
 	public static int getCoins(String n) {
-		return data.get(n, "Coins", 0).getInt();
+		return data.get(n.toLowerCase(), "Coins", 0).getInt();
+	}
+
+	public static void setAttack(String n, int amt) {
+		data.get(n.toLowerCase(), "Attack", 0).set(amt);
+		save();
+	}
+
+	public static int getAttack(String n) {
+		return data.get(n.toLowerCase(), "Attack", 0).getInt();
+	}
+
+	public static void setDefense(String n, int amt) {
+		data.get(n.toLowerCase(), "Defense", 0).set(amt);
+		save();
+	}
+
+	public static int getDefense(String n) {
+		return data.get(n.toLowerCase(), "Defense", 0).getInt();
 	}
 }

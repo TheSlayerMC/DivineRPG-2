@@ -19,7 +19,6 @@ public class ItemCoin extends Item {
 				EntityPlayer p = (EntityPlayer) e;
 				if(is.stackSize == 0) {
 					p.inventory.setInventorySlotContents(par4, null);
-					DataHelper.setCoins(p.getDisplayName(), DataHelper.getCoins(p.getDisplayName()) + 1);
 				} else {
 					is.stackSize--;
 					DataHelper.setCoins(p.getDisplayName(), DataHelper.getCoins(p.getDisplayName()) + 1);

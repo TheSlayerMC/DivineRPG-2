@@ -1,5 +1,7 @@
 package net.rpg;
 
+import net.rpg.handler.PacketHandler;
+import net.rpg.network.PacketStats;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -14,6 +16,7 @@ public class RPG {
 	public static RPG instance;
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
 	public static ServerProxy proxy;
+	public static final PacketHandler packetHandler = new PacketHandler();
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
@@ -23,9 +26,14 @@ public class RPG {
 
 	@EventHandler
 	public void init(FMLInitializationEvent e) {
+		packetHandler.init();
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
+		packetHandler.registerPacket(PacketStats.class);
+		packetHandler.postInit();
 	}
+
+	public static int coins, attack, defense;
 }
