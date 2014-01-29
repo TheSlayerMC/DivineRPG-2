@@ -1,7 +1,7 @@
 package net.rpg;
 
 import net.rpg.handler.PacketHandler;
-import net.rpg.network.PacketOpenStats;
+import net.rpg.network.PacketOpenGui;
 import net.rpg.network.PacketRace;
 import net.rpg.network.PacketStatsToClient;
 import cpw.mods.fml.common.Mod;
@@ -35,7 +35,7 @@ public class RPG {
 	public void postInit(FMLPostInitializationEvent e) {
 		packetHandler.registerPacket(PacketStatsToClient.class);
 		packetHandler.registerPacket(PacketRace.class);
-		packetHandler.registerPacket(PacketOpenStats.class);
+		packetHandler.registerPacket(PacketOpenGui.class);
 		packetHandler.postInit();
 	}
 

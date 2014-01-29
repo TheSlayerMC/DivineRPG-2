@@ -3,7 +3,7 @@ package net.rpg.handler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.rpg.RPG;
-import net.rpg.network.PacketOpenStats;
+import net.rpg.network.PacketOpenGui;
 
 import org.lwjgl.input.Keyboard;
 
@@ -22,7 +22,7 @@ public class KeyHandler {
 	public void KeyInputEvent(KeyInputEvent event) {
 		if(stats.func_151468_f()) {
 			if(Minecraft.getMinecraft().currentScreen == null) {
-				RPG.instance.packetHandler.sendToServer(new PacketOpenStats());
+				RPG.instance.packetHandler.sendToServer(new PacketOpenGui(1));
 			}
 		}
 	}

@@ -13,9 +13,9 @@ public class GuiHandler implements IGuiHandler {
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		switch(ID) {
 		case (0):
-			return new ContainerStats(player);
-		case (1):
 			return new ContainerRaceSelection(player);
+		case (1):
+			return new ContainerStats(player);
 		}
 		return null;
 	}
@@ -24,9 +24,9 @@ public class GuiHandler implements IGuiHandler {
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		switch(ID) {
 		case (0):
-			return new GuiStats(player);
-		case (1):
 			return new GuiRaceSelection(player);
+		case (1):
+			return new GuiStats(player);
 		}
 		return null;
 	}
