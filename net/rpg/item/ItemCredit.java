@@ -10,7 +10,7 @@ import net.rpg.helper.DataHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemCoin extends Item {
+public class ItemCredit extends Item {
 	@Override
 	public void onUpdate(ItemStack is, World w, Entity e, int par4, boolean par5) {
 		if(!w.isRemote) {
@@ -18,13 +18,11 @@ public class ItemCoin extends Item {
 			if(e instanceof EntityPlayer) {
 				EntityPlayer p = (EntityPlayer) e;
 				if(is.stackSize == 0) {
+					DataHelper.setCredits(p.getDisplayName(), DataHelper.getCredits(p.getDisplayName()) + is.stackSize);
 					p.inventory.setInventorySlotContents(par4, null);
-				} else {
-					is.stackSize--;
-					DataHelper.setCoins(p.getDisplayName(), DataHelper.getCoins(p.getDisplayName()) + 1);
 				}
 			} else {
-				is.stackSize--;
+				is = null;
 			}
 		}
 	}

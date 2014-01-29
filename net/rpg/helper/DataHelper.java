@@ -17,13 +17,13 @@ public class DataHelper {
 		data.save();
 	}
 
-	public static void setCoins(String n, int amt) {
-		data.get(n.toLowerCase(), "Coins", 0).set(amt);
+	public static void setCredits(String n, int amt) {
+		data.get(n.toLowerCase(), "Credits", 0).set(amt);
 		save();
 	}
 
-	public static int getCoins(String n) {
-		return data.get(n.toLowerCase(), "Coins", 0).getInt();
+	public static int getCredits(String n) {
+		return data.get(n.toLowerCase(), "Credits", 0).getInt();
 	}
 
 	public static void setAttack(String n, int amt) {
