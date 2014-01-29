@@ -15,7 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class GuiStats extends GuiContainer {
-	private static final ResourceLocation texture = new ResourceLocation("rpg:textures/gui/stats.png");
+	private static final ResourceLocation texture = new ResourceLocation("rpg:textures/gui/blank.png");
 	private EntityPlayer p;
 	public int credits, attack, defense;
 
@@ -28,7 +28,7 @@ public class GuiStats extends GuiContainer {
 	protected void func_146979_b(int p_146979_1_, int p_146979_2_) {
 		String s = "Stats";
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 6, 4210752);
-		s = "~~~~~~~~~~~~~~~~~~~~~~~~";
+		s = "~~~~~~~~~~~~~~~~~~~~~~";
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 17, 4210752);
 		s = EnumChatFormatting.LIGHT_PURPLE + "Race: " + EnumChatFormatting.WHITE + Reference.translateRace(RPG.race);
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 22, 4210752);

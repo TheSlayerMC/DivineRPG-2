@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
 import net.rpg.RPG;
 import net.rpg.helper.DataHelper;
-import net.rpg.network.PacketStats;
+import net.rpg.network.PacketStatsToClient;
 
 public class ContainerStats extends Container {
 	public int coins, attack, defense;
@@ -13,7 +13,7 @@ public class ContainerStats extends Container {
 	public ContainerStats(EntityPlayer p) {
 		if(!p.worldObj.isRemote) {
 			EntityPlayerMP mp = (EntityPlayerMP) p;
-			PacketStats ps = new PacketStats();
+			PacketStatsToClient ps = new PacketStatsToClient();
 			String n = p.getDisplayName();
 			ps.race = DataHelper.getRace(n);
 			ps.credits = DataHelper.getCredits(n);

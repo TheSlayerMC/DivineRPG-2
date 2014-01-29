@@ -14,13 +14,17 @@ public class ItemCredit extends Item {
 	@Override
 	public void onUpdate(ItemStack is, World w, Entity e, int par4, boolean par5) {
 		if(!w.isRemote) {
-			new ItemAppleGold(par4, par4, par5);
 			if(e instanceof EntityPlayer) {
 				EntityPlayer p = (EntityPlayer) e;
-				if(is.stackSize == 0) {
-					DataHelper.setCredits(p.getDisplayName(), DataHelper.getCredits(p.getDisplayName()) + is.stackSize);
-					p.inventory.setInventorySlotContents(par4, null);
-				}
+				DataHelper.setCredits(p.getDisplayName(), DataHelper.getCredits(p.getDisplayName()) + is.stackSize);
+				p.inventory.setInventorySlotContents(par4, null);
+			} else {
+				is = null;
+			}
+		} else {
+			if(e instanceof EntityPlayer) {
+				EntityPlayer p = (EntityPlayer) e;
+				p.inventory.setInventorySlotContents(par4, null);
 			} else {
 				is = null;
 			}

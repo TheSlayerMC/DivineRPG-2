@@ -1,4 +1,7 @@
 package net.rpg;
+
+import java.util.Random;
+
 public class Reference {
 	public static final String MOD_ID = "rpg";
 	public static final String MOD_NAME = "RPG";
@@ -7,6 +10,7 @@ public class Reference {
 	public static final String SERVER_PROXY = "net.rpg.ServerProxy";
 	public static final String RESOURCE_PREFIX = "RPG:";
 	public static final String[] RACES = { "Steve", "Villager", "Zombie Pigman", "Cyclops", "Plankling", "Catmen", "Galroid", "Boheimite" };
+	public static final Random RANDOM = new Random();
 
 	public static String translateRace(int race) {
 		return RACES[race];

@@ -17,6 +17,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
+import net.rpg.Reference;
 import net.rpg.network.AbstractPacket;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.FMLEmbeddedChannel;
@@ -100,7 +101,7 @@ public class PacketHandler extends MessageToMessageCodec<FMLProxyPacket, Abstrac
 
 	// Method to call from FMLInitializationEvent
 	public void init() {
-		this.channels = NetworkRegistry.INSTANCE.newChannel("RPG", this);
+		this.channels = NetworkRegistry.INSTANCE.newChannel(Reference.MOD_ID, this);
 	}
 
 	// Method to call from FMLPostInitializationEvent

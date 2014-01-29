@@ -2,6 +2,7 @@ package net.rpg.handler;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.rpg.RPG;
 import net.rpg.helper.DataHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 

@@ -1,7 +1,9 @@
 package net.rpg;
 
 import net.rpg.handler.PacketHandler;
-import net.rpg.network.PacketStats;
+import net.rpg.network.PacketOpenStats;
+import net.rpg.network.PacketRace;
+import net.rpg.network.PacketStatsToClient;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -20,8 +22,8 @@ public class RPG {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
-		proxy.doClient();
 		proxy.doServer();
+		proxy.doClient();
 	}
 
 	@EventHandler
@@ -31,7 +33,9 @@ public class RPG {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
-		packetHandler.registerPacket(PacketStats.class);
+		packetHandler.registerPacket(PacketStatsToClient.class);
+		packetHandler.registerPacket(PacketRace.class);
+		packetHandler.registerPacket(PacketOpenStats.class);
 		packetHandler.postInit();
 	}
 
