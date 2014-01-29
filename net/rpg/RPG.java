@@ -35,5 +35,5 @@ public class RPG {
 		packetHandler.postInit();
 	}
 
-	public static int credits, attack, defense;
+	public static int race, credits, attack, defense;
 }

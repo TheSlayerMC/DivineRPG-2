@@ -6,10 +6,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.rpg.RPG;
 
 public class PacketStats extends AbstractPacket {
-	public int credits, attack, defense;
+	public int race, credits, attack, defense;
 
 	@Override
 	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
+		buffer.writeInt(race);
 		buffer.writeInt(credits);
 		buffer.writeInt(attack);
 		buffer.writeInt(defense);
@@ -17,6 +18,7 @@ public class PacketStats extends AbstractPacket {
 
 	@Override
 	public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
+		race = buffer.readInt();
 		credits = buffer.readInt();
 		attack = buffer.readInt();
 		defense = buffer.readInt();
@@ -24,6 +26,7 @@ public class PacketStats extends AbstractPacket {
 
 	@Override
 	public void handleClientSide(EntityPlayer player) {
+		RPG.race = race;
 		RPG.credits = credits;
 		RPG.attack = attack;
 		RPG.defense = defense;

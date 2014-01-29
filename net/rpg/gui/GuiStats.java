@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.rpg.RPG;
+import net.rpg.Reference;
 import net.rpg.container.ContainerStats;
 
 import org.lwjgl.opengl.GL11;
@@ -27,12 +28,16 @@ public class GuiStats extends GuiContainer {
 	protected void func_146979_b(int p_146979_1_, int p_146979_2_) {
 		String s = "Stats";
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 6, 4210752);
-		s = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.WHITE + RPG.credits;
+		s = "~~~~~~~~~~~~~~~~~~~~~~~~";
+		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 17, 4210752);
+		s = EnumChatFormatting.LIGHT_PURPLE + "Race: " + EnumChatFormatting.WHITE + Reference.translateRace(RPG.race);
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 22, 4210752);
-		s = EnumChatFormatting.DARK_RED + "Attack: " + EnumChatFormatting.WHITE + RPG.attack;
+		s = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.WHITE + RPG.credits;
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 32, 4210752);
-		s = EnumChatFormatting.DARK_BLUE + "Defense: " + EnumChatFormatting.WHITE + RPG.defense;
+		s = EnumChatFormatting.DARK_RED + "Attack: " + EnumChatFormatting.WHITE + RPG.attack;
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 42, 4210752);
+		s = EnumChatFormatting.DARK_BLUE + "Defense: " + EnumChatFormatting.WHITE + RPG.defense;
+		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 52, 4210752);
 	}
 
 	@Override

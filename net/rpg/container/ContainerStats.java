@@ -14,9 +14,11 @@ public class ContainerStats extends Container {
 		if(!p.worldObj.isRemote) {
 			EntityPlayerMP mp = (EntityPlayerMP) p;
 			PacketStats ps = new PacketStats();
-			ps.credits = DataHelper.getCredits(p.getDisplayName());
-			ps.attack = DataHelper.getAttack(p.getDisplayName());
-			ps.defense = DataHelper.getDefense(p.getDisplayName());
+			String n = p.getDisplayName();
+			ps.race = DataHelper.getRace(n);
+			ps.credits = DataHelper.getCredits(n);
+			ps.attack = DataHelper.getAttack(n);
+			ps.defense = DataHelper.getDefense(n);
 			RPG.packetHandler.sendTo(ps, mp);
 		}
 	}

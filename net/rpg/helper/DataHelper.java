@@ -17,6 +17,15 @@ public class DataHelper {
 		data.save();
 	}
 
+	public static void setRace(String n, int amt) {
+		data.get(n.toLowerCase(), "Race", 0).set(amt);
+		save();
+	}
+
+	public static int getRace(String n) {
+		return data.get(n.toLowerCase(), "Race", 0).getInt();
+	}
+
 	public static void setCredits(String n, int amt) {
 		data.get(n.toLowerCase(), "Credits", 0).set(amt);
 		save();
