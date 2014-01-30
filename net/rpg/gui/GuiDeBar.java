@@ -15,7 +15,7 @@ public class GuiDeBar extends Gui {
 			return;
 		}
 		Minecraft mc = Minecraft.getMinecraft();
-		if(!mc.playerController.shouldDrawHUD()) {
+		if(mc.playerController.shouldDrawHUD()) {
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			mc.getTextureManager().bindTexture(texture);
 			drawTexturedModalRect(0, 0, 0, 0, 128, 16);
