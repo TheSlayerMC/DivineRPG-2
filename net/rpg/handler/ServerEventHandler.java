@@ -1,11 +1,14 @@
 package net.rpg.handler;
 
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.rpg.helper.DataHelper;
 import net.rpg.helper.ItemHelper;
@@ -14,15 +17,10 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 public class ServerEventHandler {
 	@SubscribeEvent
 	public void EntityConstructionEvent(EntityConstructing event) {
-		if(event.entity instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) event.entity;
-			if(!player.worldObj.isRemote) {
-			}
-		}
 	}
 
 	@SubscribeEvent
-	public void EntityJoinEvent(EntityJoinWorldEvent event) {
+	public void EntityJoinWorldEvent(EntityJoinWorldEvent event) {
 		if(event.entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entity;
 			if(!player.worldObj.isRemote) {
@@ -36,25 +34,25 @@ public class ServerEventHandler {
 	}
 
 	@SubscribeEvent
-	public void EntityDeathEvent(LivingDeathEvent event) {
-		if(event.entity instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) event.entity;
-		}
+	public void LivingDeathEvent(LivingDeathEvent event) {
 	}
 
 	@SubscribeEvent
-	public void EntityHurtEvent(LivingHurtEvent event) {
-		if(event.entity instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) event.entity;
-			player.heal(DataHelper.getDefense(player.getDisplayName()) / 4);
-		}
-	}
-
-	@SubscribeEvent
-	public void EntityAttackEvent(LivingAttackEvent event) {
-		if(event.source.getSourceOfDamage() instanceof EntityPlayer) {
+	public void LivingHurtEvent(LivingHurtEvent event) {
+		if(event.entityLiving instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) event.entityLiving;
+			event.ammount -= (event.ammount * (DataHelper.getDefense(player.getDisplayName()) / 100));
+		} else {
 			EntityPlayer player = (EntityPlayer) event.source.getSourceOfDamage();
-			event.entity.attackEntityFrom(event.source, DataHelper.getAttack(player.getDisplayName()) / 4);
+			event.ammount += (event.ammount * (DataHelper.getAttack(player.getDisplayName()) / 100));
+		}
+	}
+
+	@SubscribeEvent
+	public void LivingDropsEvent(LivingDropsEvent event) {
+		EntityLivingBase e = event.entityLiving;
+		if(e instanceof EntityMob) {
+			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1 + e.worldObj.rand.nextInt(4))));
 		}
 	}
 }

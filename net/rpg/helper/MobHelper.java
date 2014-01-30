@@ -14,7 +14,6 @@ public class MobHelper {
 		int ID = getUniqueID();
 		int entityID = EntityRegistry.findGlobalUniqueEntityId();
 		EntityRegistry.registerGlobalEntityID(entityClass, entityName, ID);
-		LanguageRegistry.instance().addStringLocalization("entity." + entityName + ".name", entityName);
 		EntityList.IDtoClassMapping.put(ID, entityClass);
 		EntityList.entityEggs.put(ID, new EntityEggInfo(ID, 0x000000, 0xFFFFFF));
 		EntityRegistry.registerModEntity(entityClass, entityName, ID, RPG.instance, 250, 5, false);
@@ -24,7 +23,6 @@ public class MobHelper {
 		int ID = getProjectileID();
 		EntityRegistry.registerGlobalEntityID(entityClass, entityName, ID);
 		EntityRegistry.registerModEntity(entityClass, entityName, ID, RPG.instance, 250, 5, true);
-		LanguageRegistry.instance().addStringLocalization("entity." + entityName + ".name", entityName);
 	}
 
 	private static int getUniqueID() {
