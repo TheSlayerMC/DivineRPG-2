@@ -36,13 +36,13 @@ public class GuiStats extends GuiContainer {
 			s = EnumChatFormatting.DARK_RED + "to begin your adventure!";
 			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 32, 4210752);
 		} else {
-			s = EnumChatFormatting.LIGHT_PURPLE + "Race: " + EnumChatFormatting.WHITE + Reference.translateRace(RPG.race);
+			s = EnumChatFormatting.DARK_PURPLE + "Race: " + EnumChatFormatting.WHITE + Reference.translateRace(RPG.race);
 			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 22, 4210752);
-			s = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.WHITE + RPG.credits;
+			s = EnumChatFormatting.DARK_BLUE + "Credits: " + EnumChatFormatting.WHITE + RPG.credits;
 			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 32, 4210752);
 			s = EnumChatFormatting.DARK_RED + "Attack: " + EnumChatFormatting.WHITE + RPG.attack;
 			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 42, 4210752);
-			s = EnumChatFormatting.DARK_BLUE + "Defense: " + EnumChatFormatting.WHITE + RPG.defense;
+			s = EnumChatFormatting.DARK_AQUA + "Defense: " + EnumChatFormatting.WHITE + RPG.defense;
 			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 52, 4210752);
 		}
 	}
