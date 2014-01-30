@@ -5,8 +5,6 @@ import java.io.File;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.relauncher.Side;
 
 public class DataHelper {
 	private static Configuration data;
@@ -22,6 +20,13 @@ public class DataHelper {
 
 	public static void save() {
 		data.save();
+	}
+
+	public static void loadPlayer(String n) {
+		data.get(n.toLowerCase(), "Race", -1);
+		data.get(n.toLowerCase(), "Credits", 0);
+		data.get(n.toLowerCase(), "Attack", 0);
+		data.get(n.toLowerCase(), "Defense", 0);
 	}
 
 	public static void setRace(String n, int race) {

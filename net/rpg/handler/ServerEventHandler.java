@@ -25,6 +25,7 @@ public class ServerEventHandler {
 			EntityPlayer player = (EntityPlayer) event.entity;
 			if(!player.worldObj.isRemote) {
 				DataHelper.load(player.worldObj);
+				DataHelper.loadPlayer(player.getDisplayName());
 				if(DataHelper.getRace(player.getDisplayName()) == -1 && !player.inventory.func_146028_b(ItemHelper.getItem("raceStone"))) {
 					int es = player.inventory.getFirstEmptyStack();
 					player.inventory.setInventorySlotContents(es, new ItemStack(ItemHelper.getItem("raceStone"), 1));
