@@ -42,7 +42,7 @@ public class ServerEventHandler {
 		if(event.entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entityLiving;
 			event.ammount -= (event.ammount * (DataHelper.getDefense(player.getDisplayName()) / 100));
-		} else {
+		} else if(event.source.getSourceOfDamage() instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.source.getSourceOfDamage();
 			event.ammount += (event.ammount * (DataHelper.getAttack(player.getDisplayName()) / 100));
 		}
