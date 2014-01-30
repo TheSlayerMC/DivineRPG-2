@@ -25,8 +25,8 @@ public class ServerEventHandler {
 			EntityPlayer player = (EntityPlayer) event.entity;
 			if(!player.worldObj.isRemote) {
 				DataHelper.load(player.worldObj);
-				DataHelper.loadPlayer(player.getDisplayName());
-				if(DataHelper.getRace(player.getDisplayName()) == -1 && !player.inventory.func_146028_b(ItemHelper.getItem("raceStone"))) {
+				DataHelper.loadPlayer(player);
+				if(DataHelper.getRace(player) == -1 && !player.inventory.func_146028_b(ItemHelper.getItem("raceStone"))) {
 					int es = player.inventory.getFirstEmptyStack();
 					player.inventory.setInventorySlotContents(es, new ItemStack(ItemHelper.getItem("raceStone"), 1));
 				}
@@ -42,10 +42,10 @@ public class ServerEventHandler {
 	public void LivingHurtEvent(LivingHurtEvent event) {
 		if(event.entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entityLiving;
-			event.ammount -= (event.ammount * (DataHelper.getDefense(player.getDisplayName()) / 100));
+			event.ammount -= (event.ammount * (DataHelper.getDefense(player) / 100));
 		} else if(event.source.getSourceOfDamage() instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.source.getSourceOfDamage();
-			event.ammount += (event.ammount * (DataHelper.getAttack(player.getDisplayName()) / 100));
+			event.ammount += (event.ammount * (DataHelper.getAttack(player) / 100));
 		}
 	}
 

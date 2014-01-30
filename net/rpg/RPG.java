@@ -41,5 +41,5 @@ public class RPG {
 		packetHandler.postInit();
 	}
 
-	public static int race = -1, credits, attack, defense;
+	public static int race = -1, maxHp, de, maxDe, credits, attack, defense;
 }

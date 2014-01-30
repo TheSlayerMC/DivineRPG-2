@@ -16,7 +16,7 @@ public class ItemCredit extends Item {
 		if(!w.isRemote) {
 			if(e instanceof EntityPlayer) {
 				EntityPlayer p = (EntityPlayer) e;
-				DataHelper.setCredits(p.getDisplayName(), DataHelper.getCredits(p.getDisplayName()) + is.stackSize);
+				DataHelper.setCredits(p, DataHelper.getCredits(p) + is.stackSize);
 				p.inventory.setInventorySlotContents(par4, null);
 			} else {
 				is = null;

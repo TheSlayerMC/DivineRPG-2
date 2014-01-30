@@ -14,12 +14,13 @@ public class ContainerStats extends Container {
 		if(!p.worldObj.isRemote) {
 			EntityPlayerMP mp = (EntityPlayerMP) p;
 			PacketStatsToClient ps = new PacketStatsToClient();
-			String n = p.getDisplayName();
-			ps.race = DataHelper.getRace(n);
-			ps.credits = DataHelper.getCredits(n);
-			ps.attack = DataHelper.getAttack(n);
-			ps.defense = DataHelper.getDefense(n);
-			RPG.packetHandler.sendTo(ps, mp);
+			ps.race = DataHelper.getRace(p);
+			ps.maxHp = DataHelper.getMaxHp(p);
+			ps.de = DataHelper.getDe(p);
+			ps.maxDe = DataHelper.getMaxDe(p);
+			ps.credits = DataHelper.getCredits(p);
+			ps.attack = DataHelper.getAttack(p);
+			ps.defense = DataHelper.getDefense(p);
 		}
 	}
 

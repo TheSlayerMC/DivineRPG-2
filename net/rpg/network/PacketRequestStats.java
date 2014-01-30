@@ -23,11 +23,13 @@ public class PacketRequestStats extends AbstractPacket {
 	@Override
 	public void handleServerSide(EntityPlayer player) {
 		PacketStatsToClient packet = new PacketStatsToClient();
-		String n = player.getDisplayName();
-		packet.race = DataHelper.getRace(n);
-		packet.credits = DataHelper.getCredits(n);
-		packet.attack = DataHelper.getAttack(n);
-		packet.defense = DataHelper.getDefense(n);
+		packet.race = DataHelper.getRace(player);
+		packet.maxHp = DataHelper.getMaxHp(player);
+		packet.de = DataHelper.getDe(player);
+		packet.maxDe = DataHelper.getMaxDe(player);
+		packet.credits = DataHelper.getCredits(player);
+		packet.attack = DataHelper.getAttack(player);
+		packet.defense = DataHelper.getDefense(player);
 		RPG.packetHandler.sendTo(packet, (EntityPlayerMP) player);
 	}
 }

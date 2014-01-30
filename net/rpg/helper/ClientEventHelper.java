@@ -10,6 +10,7 @@ public class ClientEventHelper {
 	public static void init() {
 		EventBus funBus = FMLCommonHandler.instance().bus();
 		funBus.register(new KeyHandler());
+		funBus = MinecraftForge.EVENT_BUS;
 		funBus.register(new ClientEventHandler());
 	}
 }
