@@ -9,7 +9,6 @@ import net.rpg.RPG;
 import net.rpg.container.ContainerRaceSelection;
 import net.rpg.helper.ItemHelper;
 import net.rpg.network.PacketRace;
-import net.rpg.network.PacketRequestStats;
 
 import org.lwjgl.opengl.GL11;
 
@@ -20,6 +19,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class GuiRaceSelection extends GuiContainer {
 	private static final ResourceLocation texture = new ResourceLocation("rpg:textures/gui/blank.png");
 	private EntityPlayer p;
+	private int page;
 
 	public GuiRaceSelection(EntityPlayer p) {
 		super(new ContainerRaceSelection(p));
@@ -46,11 +46,7 @@ public class GuiRaceSelection extends GuiContainer {
 	@Override
 	public void initGui() {
 		super.initGui();
-		this.field_146292_n.add(new GuiButton(0, this.field_146294_l / 2 - 75, 65, 150, 20, "Steve"));
-		this.field_146292_n.add(new GuiButton(1, this.field_146294_l / 2 - 75, 86, 150, 20, "Vilager"));
-		this.field_146292_n.add(new GuiButton(2, this.field_146294_l / 2 - 75, 107, 150, 20, "Zombie Pigman"));
-		this.field_146292_n.add(new GuiButton(3, this.field_146294_l / 2 - 75, 128, 150, 20, "Cyclops"));
-		this.field_146292_n.add(new GuiButton(4, this.field_146294_l / 2 - 75, 149, 150, 20, "Plankling"));
+		page1();
 	}
 
 	@Override
@@ -58,20 +54,66 @@ public class GuiRaceSelection extends GuiContainer {
 		switch(p_146284_1_.field_146127_k) {
 		case 0:
 			sendPacket(0);
-			break;
+			return;
 		case 1:
 			sendPacket(1);
-			break;
+			return;
 		case 2:
 			sendPacket(2);
-			break;
+			return;
 		case 3:
 			sendPacket(3);
-			break;
+			return;
 		case 4:
 			sendPacket(4);
-			break;
+			return;
+		case 7:
+			sendPacket(6);
+			return;
+		case 8:
+			sendPacket(7);
+			return;
+		case 9:
+			sendPacket(8);
+			return;
+		case 10:
+			sendPacket(9);
+			return;
+		case 11:
+			sendPacket(10);
+			return;
+		case 5:
+			page2();
+			return;
+		case 6:
+			page1();
+			return;
 		}
+	}
+
+	private void page1() {
+		this.field_146292_n.clear();
+		this.field_146292_n.add(new GuiButton(0, this.field_146294_l / 2 - 75, 65, 150, 20, "Steve"));
+		this.field_146292_n.add(new GuiButton(1, this.field_146294_l / 2 - 75, 86, 150, 20, "Vilager"));
+		this.field_146292_n.add(new GuiButton(2, this.field_146294_l / 2 - 75, 107, 150, 20, "Zombie Pigman"));
+		this.field_146292_n.add(new GuiButton(3, this.field_146294_l / 2 - 75, 128, 150, 20, "Cyclops"));
+		this.field_146292_n.add(new GuiButton(4, this.field_146294_l / 2 - 75, 149, 150, 20, "Plankling"));
+		addMoveButtons();
+	}
+
+	private void page2() {
+		this.field_146292_n.clear();
+		this.field_146292_n.add(new GuiButton(6, this.field_146294_l / 2 - 75, 65, 150, 20, "Galroid"));
+		this.field_146292_n.add(new GuiButton(7, this.field_146294_l / 2 - 75, 86, 150, 20, "Boheimite"));
+		//this.field_146292_n.add(new GuiButton(8, this.field_146294_l / 2 - 75, 107, 150, 20, ""));
+		//this.field_146292_n.add(new GuiButton(9, this.field_146294_l / 2 - 75, 128, 150, 20, ""));
+		//this.field_146292_n.add(new GuiButton(10, this.field_146294_l / 2 - 75, 149, 150, 20, ""));
+		addMoveButtons();
+	}
+
+	private void addMoveButtons() {
+		this.field_146292_n.add(new GuiButton(5, this.field_146294_l / 2, 170, 75, 20, ">>>"));
+		this.field_146292_n.add(new GuiButton(6, this.field_146294_l / 2 - 75, 170, 76, 20, "<<<"));
 	}
 
 	private void sendPacket(int race) {
