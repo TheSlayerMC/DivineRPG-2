@@ -4,8 +4,10 @@ import java.io.File;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
+import net.rpg.RPG;
 import net.rpg.network.PacketStatsToClient;
 
 public class DataHelper {
@@ -44,14 +46,15 @@ public class DataHelper {
 		ps.credits = DataHelper.getCredits(player);
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
+		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
 	}
 
 	public static int getRace(EntityPlayer player) {
 		return data.get(player.getDisplayName().toLowerCase(), "Race", -1).getInt();
 	}
 
-	public static void setMaxHp(EntityPlayer player, int MaxHp) {
-		data.get(player.getDisplayName().toLowerCase(), "Max Health", 20).set(MaxHp);
+	public static void setMaxHp(EntityPlayer player, int maxHp) {
+		data.get(player.getDisplayName().toLowerCase(), "Max Health", 20).set(maxHp);
 		save();
 		PacketStatsToClient ps = new PacketStatsToClient();
 		ps.race = DataHelper.getRace(player);
@@ -61,14 +64,15 @@ public class DataHelper {
 		ps.credits = DataHelper.getCredits(player);
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
+		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
 	}
 
 	public static int getMaxHp(EntityPlayer player) {
 		return data.get(player.getDisplayName().toLowerCase(), "Max Health", 20).getInt();
 	}
 
-	public static void setDe(EntityPlayer player, int MaxHp) {
-		data.get(player.getDisplayName().toLowerCase(), "Divine Energy", 20).set(MaxHp);
+	public static void setDe(EntityPlayer player, int de) {
+		data.get(player.getDisplayName().toLowerCase(), "Divine Energy", 20).set(de);
 		save();
 		PacketStatsToClient ps = new PacketStatsToClient();
 		ps.race = DataHelper.getRace(player);
@@ -78,14 +82,15 @@ public class DataHelper {
 		ps.credits = DataHelper.getCredits(player);
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
+		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
 	}
 
 	public static int getDe(EntityPlayer player) {
 		return data.get(player.getDisplayName().toLowerCase(), "Divine Energy", 20).getInt();
 	}
 
-	public static void setMaxDe(EntityPlayer player, int MaxHp) {
-		data.get(player.getDisplayName().toLowerCase(), "Max Divine Energy", 20).set(MaxHp);
+	public static void setMaxDe(EntityPlayer player, int maxDe) {
+		data.get(player.getDisplayName().toLowerCase(), "Max Divine Energy", 20).set(maxDe);
 		save();
 		PacketStatsToClient ps = new PacketStatsToClient();
 		ps.race = DataHelper.getRace(player);
@@ -95,6 +100,7 @@ public class DataHelper {
 		ps.credits = DataHelper.getCredits(player);
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
+		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
 	}
 
 	public static int getMaxDe(EntityPlayer player) {
@@ -112,6 +118,7 @@ public class DataHelper {
 		ps.credits = DataHelper.getCredits(player);
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
+		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
 	}
 
 	public static int getCredits(EntityPlayer player) {
@@ -129,6 +136,7 @@ public class DataHelper {
 		ps.credits = DataHelper.getCredits(player);
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
+		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
 	}
 
 	public static int getAttack(EntityPlayer player) {
@@ -146,6 +154,7 @@ public class DataHelper {
 		ps.credits = DataHelper.getCredits(player);
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
+		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
 	}
 
 	public static int getDefense(EntityPlayer player) {
