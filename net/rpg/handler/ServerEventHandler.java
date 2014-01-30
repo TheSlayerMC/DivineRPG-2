@@ -1,25 +1,23 @@
 package net.rpg.handler;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.management.ServerConfigurationManager;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.rpg.RPG;
 import net.rpg.helper.DataHelper;
+import net.rpg.helper.ItemHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.relauncher.Side;
 
-public class EntityEventHandler {
+public class ServerEventHandler {
 	@SubscribeEvent
 	public void EntityConstructionEvent(EntityConstructing event) {
 		if(event.entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entity;
+			if(!player.worldObj.isRemote) {
+			}
 		}
 	}
 
@@ -29,6 +27,10 @@ public class EntityEventHandler {
 			EntityPlayer player = (EntityPlayer) event.entity;
 			if(!player.worldObj.isRemote) {
 				DataHelper.load(player.worldObj);
+				if(DataHelper.getRace(player.getDisplayName()) == -1 && !player.inventory.func_146028_b(ItemHelper.getItem("raceStone"))) {
+					int es = player.inventory.getFirstEmptyStack();
+					player.inventory.setInventorySlotContents(es, new ItemStack(ItemHelper.getItem("raceStone"), 1));
+				}
 			}
 		}
 	}

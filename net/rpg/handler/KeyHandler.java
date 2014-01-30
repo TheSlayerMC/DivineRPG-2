@@ -22,7 +22,7 @@ public class KeyHandler {
 	public void KeyInputEvent(KeyInputEvent event) {
 		if(stats.func_151468_f()) {
 			if(Minecraft.getMinecraft().currentScreen == null) {
-				RPG.instance.packetHandler.sendToServer(new PacketOpenGui(1));
+				RPG.instance.packetHandler.sendToServer(new PacketOpenGui().setID(1));
 			}
 		}
 	}

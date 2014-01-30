@@ -30,14 +30,21 @@ public class GuiStats extends GuiContainer {
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 6, 4210752);
 		s = "~~~~~~~~~~~~~~~~~~~~~~";
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 17, 4210752);
-		s = EnumChatFormatting.LIGHT_PURPLE + "Race: " + EnumChatFormatting.WHITE + Reference.translateRace(RPG.race);
-		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 22, 4210752);
-		s = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.WHITE + RPG.credits;
-		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 32, 4210752);
-		s = EnumChatFormatting.DARK_RED + "Attack: " + EnumChatFormatting.WHITE + RPG.attack;
-		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 42, 4210752);
-		s = EnumChatFormatting.DARK_BLUE + "Defense: " + EnumChatFormatting.WHITE + RPG.defense;
-		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 52, 4210752);
+		if(RPG.race == -1) {
+			s = EnumChatFormatting.DARK_RED + "Use the Race Stone";
+			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 22, 4210752);
+			s = EnumChatFormatting.DARK_RED + "to begin your adventure!";
+			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 32, 4210752);
+		} else {
+			s = EnumChatFormatting.LIGHT_PURPLE + "Race: " + EnumChatFormatting.WHITE + Reference.translateRace(RPG.race);
+			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 22, 4210752);
+			s = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.WHITE + RPG.credits;
+			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 32, 4210752);
+			s = EnumChatFormatting.DARK_RED + "Attack: " + EnumChatFormatting.WHITE + RPG.attack;
+			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 42, 4210752);
+			s = EnumChatFormatting.DARK_BLUE + "Defense: " + EnumChatFormatting.WHITE + RPG.defense;
+			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 52, 4210752);
+		}
 	}
 
 	@Override

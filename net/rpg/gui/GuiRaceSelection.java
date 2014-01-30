@@ -4,12 +4,12 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemSword;
 import net.minecraft.util.ResourceLocation;
 import net.rpg.RPG;
 import net.rpg.container.ContainerRaceSelection;
+import net.rpg.helper.ItemHelper;
 import net.rpg.network.PacketRace;
+import net.rpg.network.PacketRequestStats;
 
 import org.lwjgl.opengl.GL11;
 
@@ -24,7 +24,6 @@ public class GuiRaceSelection extends GuiContainer {
 	public GuiRaceSelection(EntityPlayer p) {
 		super(new ContainerRaceSelection(p));
 		this.p = p;
-		ItemSword newSword = new ItemSword(ToolMaterial.EMERALD);
 	}
 
 	@Override
@@ -47,11 +46,11 @@ public class GuiRaceSelection extends GuiContainer {
 	@Override
 	public void initGui() {
 		super.initGui();
-		this.field_146292_n.add(new GuiButton(0, this.field_146294_l / 2 - 75, 64, 150, 20, "Steve"));
-		this.field_146292_n.add(new GuiButton(1, this.field_146294_l / 2 - 75, 85, 150, 20, "Vilager"));
-		this.field_146292_n.add(new GuiButton(2, this.field_146294_l / 2 - 75, 106, 150, 20, "Zombie Pigman"));
-		this.field_146292_n.add(new GuiButton(3, this.field_146294_l / 2 - 75, 127, 150, 20, "Cyclops"));
-		this.field_146292_n.add(new GuiButton(4, this.field_146294_l / 2 - 75, 148, 150, 20, "Plankling"));
+		this.field_146292_n.add(new GuiButton(0, this.field_146294_l / 2 - 75, 65, 150, 20, "Steve"));
+		this.field_146292_n.add(new GuiButton(1, this.field_146294_l / 2 - 75, 86, 150, 20, "Vilager"));
+		this.field_146292_n.add(new GuiButton(2, this.field_146294_l / 2 - 75, 107, 150, 20, "Zombie Pigman"));
+		this.field_146292_n.add(new GuiButton(3, this.field_146294_l / 2 - 75, 128, 150, 20, "Cyclops"));
+		this.field_146292_n.add(new GuiButton(4, this.field_146294_l / 2 - 75, 149, 150, 20, "Plankling"));
 	}
 
 	@Override
@@ -79,6 +78,9 @@ public class GuiRaceSelection extends GuiContainer {
 		PacketRace packet = new PacketRace();
 		packet.race = race;
 		RPG.packetHandler.sendToServer(packet);
+		if(p.inventory.func_146028_b(ItemHelper.getItem("raceStone"))) {
+			p.inventory.func_146026_a(ItemHelper.getItem("raceStone"));
+		}
 		this.field_146297_k.func_147108_a((GuiScreen) null);
 	}
 }
