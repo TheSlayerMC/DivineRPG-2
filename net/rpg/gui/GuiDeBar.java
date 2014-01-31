@@ -16,7 +16,6 @@ public class GuiDeBar extends Gui {
 		}
 		Minecraft mc = Minecraft.getMinecraft();
 		if(mc.playerController.shouldDrawHUD()) {
-			System.err.println("DOING SOME DRAWING");
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			GL11.glDisable(GL11.GL_LIGHTING);
 			mc.getTextureManager().bindTexture(texture);

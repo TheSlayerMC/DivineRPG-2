@@ -39,7 +39,6 @@ public class PacketStatsToClient extends AbstractPacket {
 		RPG.credits = credits;
 		RPG.attack = attack;
 		RPG.defense = defense;
-		RPG.applyStats(player);
 	}
 
 	@Override

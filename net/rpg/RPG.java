@@ -5,6 +5,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.rpg.handler.PacketHandler;
+import net.rpg.helper.DataHelper;
 import net.rpg.network.PacketOpenGui;
 import net.rpg.network.PacketRace;
 import net.rpg.network.PacketRequestStats;
@@ -16,6 +17,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
 public class RPG {
@@ -45,10 +48,11 @@ public class RPG {
 		packetHandler.postInit();
 	}
 
+	@SideOnly(Side.CLIENT)
 	public static int race = -1, maxHp, de, maxDe, credits, attack, defense;
 
 	public static void applyStats(EntityPlayer player) {
-		final AttributeModifier health = new AttributeModifier(player.getPersistentID(), "rpg_health", maxHp, 1);
+		final AttributeModifier health = new AttributeModifier(player.getPersistentID(), "rpg_health", DataHelper.getMaxHp(player) / 10, 1);
 		IAttributeInstance iai = player.getEntityAttribute(SharedMonsterAttributes.maxHealth);
 		if(iai.getModifier(health.getID()) == null) {
 			iai.applyModifier(health);

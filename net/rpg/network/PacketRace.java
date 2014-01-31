@@ -42,5 +42,6 @@ public class PacketRace extends AbstractPacket {
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
 		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
+		RPG.applyStats(player);
 	}
 }

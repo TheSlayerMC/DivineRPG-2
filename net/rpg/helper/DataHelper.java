@@ -47,6 +47,7 @@ public class DataHelper {
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
 		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
+		RPG.applyStats(player);
 	}
 
 	public static int getRace(EntityPlayer player) {
@@ -65,6 +66,7 @@ public class DataHelper {
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
 		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
+		RPG.applyStats(player);
 	}
 
 	public static int getMaxHp(EntityPlayer player) {
@@ -83,6 +85,7 @@ public class DataHelper {
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
 		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
+		RPG.applyStats(player);
 	}
 
 	public static int getDe(EntityPlayer player) {
@@ -101,6 +104,7 @@ public class DataHelper {
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
 		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
+		RPG.applyStats(player);
 	}
 
 	public static int getMaxDe(EntityPlayer player) {
@@ -119,6 +123,7 @@ public class DataHelper {
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
 		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
+		RPG.applyStats(player);
 	}
 
 	public static int getCredits(EntityPlayer player) {
@@ -137,6 +142,7 @@ public class DataHelper {
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
 		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
+		RPG.applyStats(player);
 	}
 
 	public static int getAttack(EntityPlayer player) {
@@ -155,6 +161,7 @@ public class DataHelper {
 		ps.attack = DataHelper.getAttack(player);
 		ps.defense = DataHelper.getDefense(player);
 		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
+		RPG.applyStats(player);
 	}
 
 	public static int getDefense(EntityPlayer player) {
