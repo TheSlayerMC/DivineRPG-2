@@ -52,7 +52,7 @@ public class RPG {
 	public static int race = -1, maxHp, de, maxDe, credits, attack, defense;
 
 	public static void applyStats(EntityPlayer player) {
-		final AttributeModifier health = new AttributeModifier(player.getPersistentID(), "rpg_health", DataHelper.getMaxHp(player) / 10, 1);
+		final AttributeModifier health = new AttributeModifier(player.getPersistentID(), "rpg_health", (((double) DataHelper.getMaxHp(player)) / 10) - 1, 1);
 		IAttributeInstance iai = player.getEntityAttribute(SharedMonsterAttributes.maxHealth);
 		if(iai.getModifier(health.getID()) == null) {
 			iai.applyModifier(health);

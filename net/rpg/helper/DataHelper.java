@@ -28,7 +28,7 @@ public class DataHelper {
 
 	public static void loadPlayer(EntityPlayer player) {
 		data.get(player.getDisplayName().toLowerCase(), "Race", -1);
-		data.get(player.getDisplayName().toLowerCase(), "Max Health", 20);
+		data.get(player.getDisplayName().toLowerCase(), "Max Health", 10);
 		data.get(player.getDisplayName().toLowerCase(), "Max Divine Energy", 20);
 		data.get(player.getDisplayName().toLowerCase(), "Credits", 0);
 		data.get(player.getDisplayName().toLowerCase(), "Attack", 0);
@@ -55,7 +55,7 @@ public class DataHelper {
 	}
 
 	public static void setMaxHp(EntityPlayer player, int maxHp) {
-		data.get(player.getDisplayName().toLowerCase(), "Max Health", 20).set(maxHp);
+		data.get(player.getDisplayName().toLowerCase(), "Max Health", 10).set(maxHp);
 		save();
 		PacketStatsToClient ps = new PacketStatsToClient();
 		ps.race = DataHelper.getRace(player);
@@ -70,7 +70,7 @@ public class DataHelper {
 	}
 
 	public static int getMaxHp(EntityPlayer player) {
-		return data.get(player.getDisplayName().toLowerCase(), "Max Health", 20).getInt();
+		return data.get(player.getDisplayName().toLowerCase(), "Max Health", 10).getInt();
 	}
 
 	public static void setDe(EntityPlayer player, int de) {
