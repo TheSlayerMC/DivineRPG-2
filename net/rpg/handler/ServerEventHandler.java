@@ -10,8 +10,10 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.rpg.RPG;
 import net.rpg.helper.DataHelper;
 import net.rpg.helper.ItemHelper;
+import net.rpg.network.PacketRequestStats;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class ServerEventHandler {
@@ -26,6 +28,7 @@ public class ServerEventHandler {
 			if(!player.worldObj.isRemote) {
 				DataHelper.load(player.worldObj);
 				DataHelper.loadPlayer(player);
+				RPG.packetHandler.sendToServer(new PacketRequestStats());
 				if(DataHelper.getRace(player) == -1 && !player.inventory.func_146028_b(ItemHelper.getItem("raceStone"))) {
 					int es = player.inventory.getFirstEmptyStack();
 					player.inventory.setInventorySlotContents(es, new ItemStack(ItemHelper.getItem("raceStone"), 1));

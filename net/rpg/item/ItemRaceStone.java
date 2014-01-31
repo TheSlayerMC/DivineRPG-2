@@ -6,8 +6,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.rpg.RPG;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemRaceStone extends Item {
 	@Override
@@ -16,12 +14,6 @@ public class ItemRaceStone extends Item {
 			par3EntityPlayer.openGui(RPG.instance, 0, par2World, (int) par3EntityPlayer.posX, (int) par3EntityPlayer.posY, (int) par3EntityPlayer.posZ);
 		}
 		return par1ItemStack;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean hasEffect(ItemStack par1ItemStack) {
-		return true;
 	}
 
 	@Override

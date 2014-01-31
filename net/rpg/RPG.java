@@ -1,5 +1,9 @@
 package net.rpg;
 
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
+import net.minecraft.entity.player.EntityPlayer;
 import net.rpg.handler.PacketHandler;
 import net.rpg.network.PacketOpenGui;
 import net.rpg.network.PacketRace;
@@ -42,4 +46,15 @@ public class RPG {
 	}
 
 	public static int race = -1, maxHp, de, maxDe, credits, attack, defense;
+
+	public static void applyStats(EntityPlayer player) {
+		final AttributeModifier health = new AttributeModifier(player.getPersistentID(), "rpg_health", maxHp, 1);
+		IAttributeInstance iai = player.getEntityAttribute(SharedMonsterAttributes.maxHealth);
+		if(iai.getModifier(health.getID()) == null) {
+			iai.applyModifier(health);
+		} else {
+			iai.removeModifier(health);
+			iai.applyModifier(health);
+		}
+	}
 }
