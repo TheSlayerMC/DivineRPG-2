@@ -31,9 +31,6 @@ public class DataHelper {
 	}
 
 	public static void setRace(EntityPlayer player, int race) {
-		if(data == null) {
-			System.err.println("NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-		}
 		data.get(player.getDisplayName().toLowerCase(), "Race", -1).set(race);
 		save();
 		PacketStatsToClient ps = new PacketStatsToClient();
