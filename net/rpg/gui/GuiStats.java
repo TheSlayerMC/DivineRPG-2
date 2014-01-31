@@ -16,12 +16,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class GuiStats extends GuiContainer {
 	private static final ResourceLocation texture = new ResourceLocation("rpg:textures/gui/blank.png");
-	private EntityPlayer p;
 	public int credits, attack, defense;
 
 	public GuiStats(EntityPlayer p) {
 		super(new ContainerStats(p));
-		this.p = p;
 	}
 
 	@Override

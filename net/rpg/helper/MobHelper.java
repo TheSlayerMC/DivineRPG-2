@@ -4,7 +4,6 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityList.EntityEggInfo;
 import net.rpg.RPG;
 import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class MobHelper {
 	static int eggID = 25;

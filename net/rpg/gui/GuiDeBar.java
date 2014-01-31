@@ -22,6 +22,8 @@ public class GuiDeBar extends Gui {
 			drawTexturedModalRect(0, 0, 0, 0, 128, 16);
 			int w = (int) (121 * ((float) RPG.de / RPG.maxDe));
 			drawTexturedModalRect(2, 2, 0, 16, w, 9);
+			GL11.glEnable(GL11.GL_LIGHTING);
+			GL11.glPopMatrix();
 		}
 	}
 }

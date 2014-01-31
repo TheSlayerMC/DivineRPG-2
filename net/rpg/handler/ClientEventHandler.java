@@ -1,6 +1,5 @@
 package net.rpg.handler;
 
-import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.rpg.gui.GuiDeBar;

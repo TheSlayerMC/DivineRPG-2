@@ -19,7 +19,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class GuiRaceSelection extends GuiContainer {
 	private static final ResourceLocation texture = new ResourceLocation("rpg:textures/gui/blank.png");
 	private EntityPlayer p;
-	private int page;
 
 	public GuiRaceSelection(EntityPlayer p) {
 		super(new ContainerRaceSelection(p));

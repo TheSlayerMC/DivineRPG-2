@@ -5,9 +5,9 @@ import java.util.HashMap;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.rpg.item.ItemCredit;
 import net.rpg.item.ItemEnergyStaff;
 import net.rpg.item.ItemRaceStone;
-import net.rpg.item.ItemCredit;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemHelper {

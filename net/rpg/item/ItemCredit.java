@@ -3,7 +3,6 @@ package net.rpg.item;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemAppleGold;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.rpg.helper.DataHelper;

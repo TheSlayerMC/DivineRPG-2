@@ -1,9 +1,7 @@
 package net.rpg.container;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
-import net.rpg.RPG;
 import net.rpg.helper.DataHelper;
 import net.rpg.network.PacketStatsToClient;
 
@@ -12,7 +10,6 @@ public class ContainerStats extends Container {
 
 	public ContainerStats(EntityPlayer p) {
 		if(!p.worldObj.isRemote) {
-			EntityPlayerMP mp = (EntityPlayerMP) p;
 			PacketStatsToClient ps = new PacketStatsToClient();
 			ps.race = DataHelper.getRace(p);
 			ps.maxHp = DataHelper.getMaxHp(p);
