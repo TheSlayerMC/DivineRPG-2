@@ -92,27 +92,37 @@ public class GuiRaceSelection extends GuiContainer {
 
 	private void page1() {
 		this.field_146292_n.clear();
-		this.field_146292_n.add(new GuiButton(0, this.field_146294_l / 2 - 75, 65, 150, 20, "Steve"));
-		this.field_146292_n.add(new GuiButton(1, this.field_146294_l / 2 - 75, 86, 150, 20, "Vilager"));
-		this.field_146292_n.add(new GuiButton(2, this.field_146294_l / 2 - 75, 107, 150, 20, "Zombie Pigman"));
-		this.field_146292_n.add(new GuiButton(3, this.field_146294_l / 2 - 75, 128, 150, 20, "Cyclops"));
-		this.field_146292_n.add(new GuiButton(4, this.field_146294_l / 2 - 75, 149, 150, 20, "Plankling"));
+		final int x = this.field_146294_l / 2 - 75;
+		final int w = 150;
+		final int h = 20;
+		addButton(new GuiButton(0, x, 65, w, h, "Steve"));
+		addButton(new GuiButton(1, x, 86, w, h, "Villager"));
+		addButton(new GuiButton(2, x, 107, w, h, "Zombie Pigman"));
+		addButton(new GuiButton(3, x, 128, w, h, "Cyclops"));
+		addButton(new GuiButton(4, x, 149, w, h, "Plankling"));
 		addMoveButtons();
 	}
 
 	private void page2() {
 		this.field_146292_n.clear();
-		this.field_146292_n.add(new GuiButton(7, this.field_146294_l / 2 - 75, 65, 150, 20, "Galroid"));
-		this.field_146292_n.add(new GuiButton(8, this.field_146294_l / 2 - 75, 86, 150, 20, "Boheimite"));
-		//this.field_146292_n.add(new GuiButton(8, this.field_146294_l / 2 - 75, 107, 150, 20, ""));
-		//this.field_146292_n.add(new GuiButton(9, this.field_146294_l / 2 - 75, 128, 150, 20, ""));
-		//this.field_146292_n.add(new GuiButton(10, this.field_146294_l / 2 - 75, 149, 150, 20, ""));
+		final int x = this.field_146294_l / 2 - 75;
+		final int w = 150;
+		final int h = 20;
+		addButton(new GuiButton(7, x, 65, w, h, "Galroid"));
+		addButton(new GuiButton(8, x, 86, w, h, "Boheimite"));
+		//addButton(new GuiButton(8, x, 107, w, h, ""));
+		//addButton(new GuiButton(9, x, 128, w, h, ""));
+		//addButton(new GuiButton(10, x, 149, w, h, ""));
 		addMoveButtons();
 	}
 
 	private void addMoveButtons() {
-		this.field_146292_n.add(new GuiButton(5, this.field_146294_l / 2, 175, 76, 20, ">>>"));
-		this.field_146292_n.add(new GuiButton(6, this.field_146294_l / 2 - 75, 175, 76, 20, "<<<"));
+		addButton(new GuiButton(5, this.field_146294_l / 2, 175, 76, 20, ">>>"));
+		addButton(new GuiButton(6, this.field_146294_l / 2 - 75, 175, 76, 20, "<<<"));
+	}
+
+	private void addButton(GuiButton b) {
+		this.field_146292_n.add(b);
 	}
 
 	private void sendPacket(int race) {

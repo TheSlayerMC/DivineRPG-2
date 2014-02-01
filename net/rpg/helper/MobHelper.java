@@ -9,9 +9,11 @@ public class MobHelper {
 	static int eggID = 25;
 	static int projectileID = 350;
 
+	public static void init() {
+	}
+
 	public static void registerEntity(Class entityClass, String entityName) {
 		int ID = getUniqueID();
-		int entityID = EntityRegistry.findGlobalUniqueEntityId();
 		EntityRegistry.registerGlobalEntityID(entityClass, entityName, ID);
 		EntityList.IDtoClassMapping.put(ID, entityClass);
 		EntityList.entityEggs.put(ID, new EntityEggInfo(ID, 0x000000, 0xFFFFFF));
