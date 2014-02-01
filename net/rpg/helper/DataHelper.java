@@ -15,9 +15,9 @@ public class DataHelper {
 
 	public static void load(World w) {
 		if(Minecraft.getMinecraft().isSingleplayer()) {
-			data = new Configuration(new File("./saves/" + w.getWorldInfo().getWorldName() + "/rpgdata.dat"));
+			data = new Configuration(new File("./saves/" + w.getWorldInfo().getWorldName() + "/rpgdata.dat"), true);
 		} else {
-			data = new Configuration(new File("./" + w.getWorldInfo().getWorldName() + "/rpgdata.dat"));
+			data = new Configuration(new File("./" + w.getWorldInfo().getWorldName() + "/rpgdata.dat"), true);
 		}
 		data.load();
 	}
@@ -27,16 +27,16 @@ public class DataHelper {
 	}
 
 	public static void loadPlayer(EntityPlayer player) {
-		data.get(player.getDisplayName().toLowerCase(), "Race", -1);
-		data.get(player.getDisplayName().toLowerCase(), "Max Health", 10);
-		data.get(player.getDisplayName().toLowerCase(), "Max Divine Energy", 20);
-		data.get(player.getDisplayName().toLowerCase(), "Credits", 0);
-		data.get(player.getDisplayName().toLowerCase(), "Attack", 0);
-		data.get(player.getDisplayName().toLowerCase(), "Defense", 0);
+		data.get(player.getDisplayName(), "Race", -1);
+		data.get(player.getDisplayName(), "Max Health", 10);
+		data.get(player.getDisplayName(), "Max Divine Energy", 20);
+		data.get(player.getDisplayName(), "Credits", 0);
+		data.get(player.getDisplayName(), "Attack", 0);
+		data.get(player.getDisplayName(), "Defense", 0);
 	}
 
 	public static void setRace(EntityPlayer player, int race) {
-		data.get(player.getDisplayName().toLowerCase(), "Race", -1).set(race);
+		data.get(player.getDisplayName(), "Race", -1).set(race);
 		save();
 		PacketStatsToClient ps = new PacketStatsToClient();
 		ps.race = DataHelper.getRace(player);
@@ -51,11 +51,11 @@ public class DataHelper {
 	}
 
 	public static int getRace(EntityPlayer player) {
-		return data.get(player.getDisplayName().toLowerCase(), "Race", -1).getInt();
+		return data.get(player.getDisplayName(), "Race", -1).getInt();
 	}
 
 	public static void setMaxHp(EntityPlayer player, int maxHp) {
-		data.get(player.getDisplayName().toLowerCase(), "Max Health", 10).set(maxHp);
+		data.get(player.getDisplayName(), "Max Health", 10).set(maxHp);
 		save();
 		PacketStatsToClient ps = new PacketStatsToClient();
 		ps.race = DataHelper.getRace(player);
@@ -70,11 +70,11 @@ public class DataHelper {
 	}
 
 	public static int getMaxHp(EntityPlayer player) {
-		return data.get(player.getDisplayName().toLowerCase(), "Max Health", 10).getInt();
+		return data.get(player.getDisplayName(), "Max Health", 10).getInt();
 	}
 
 	public static void setDe(EntityPlayer player, int de) {
-		data.get(player.getDisplayName().toLowerCase(), "Divine Energy", 20).set(de);
+		data.get(player.getDisplayName(), "Divine Energy", 20).set(de);
 		save();
 		PacketStatsToClient ps = new PacketStatsToClient();
 		ps.race = DataHelper.getRace(player);
@@ -89,11 +89,11 @@ public class DataHelper {
 	}
 
 	public static int getDe(EntityPlayer player) {
-		return data.get(player.getDisplayName().toLowerCase(), "Divine Energy", 20).getInt();
+		return data.get(player.getDisplayName(), "Divine Energy", 20).getInt();
 	}
 
 	public static void setMaxDe(EntityPlayer player, int maxDe) {
-		data.get(player.getDisplayName().toLowerCase(), "Max Divine Energy", 20).set(maxDe);
+		data.get(player.getDisplayName(), "Max Divine Energy", 20).set(maxDe);
 		save();
 		PacketStatsToClient ps = new PacketStatsToClient();
 		ps.race = DataHelper.getRace(player);
@@ -108,11 +108,11 @@ public class DataHelper {
 	}
 
 	public static int getMaxDe(EntityPlayer player) {
-		return data.get(player.getDisplayName().toLowerCase(), "Max Divine Energy", 20).getInt();
+		return data.get(player.getDisplayName(), "Max Divine Energy", 20).getInt();
 	}
 
 	public static void setCredits(EntityPlayer player, int amt) {
-		data.get(player.getDisplayName().toLowerCase(), "Credits", 0).set(amt);
+		data.get(player.getDisplayName(), "Credits", 0).set(amt);
 		save();
 		PacketStatsToClient ps = new PacketStatsToClient();
 		ps.race = DataHelper.getRace(player);
@@ -127,11 +127,11 @@ public class DataHelper {
 	}
 
 	public static int getCredits(EntityPlayer player) {
-		return data.get(player.getDisplayName().toLowerCase(), "Credits", 0).getInt();
+		return data.get(player.getDisplayName(), "Credits", 0).getInt();
 	}
 
 	public static void setAttack(EntityPlayer player, int amt) {
-		data.get(player.getDisplayName().toLowerCase(), "Attack", 0).set(amt);
+		data.get(player.getDisplayName(), "Attack", 0).set(amt);
 		save();
 		PacketStatsToClient ps = new PacketStatsToClient();
 		ps.race = DataHelper.getRace(player);
@@ -146,11 +146,11 @@ public class DataHelper {
 	}
 
 	public static int getAttack(EntityPlayer player) {
-		return data.get(player.getDisplayName().toLowerCase(), "Attack", 0).getInt();
+		return data.get(player.getDisplayName(), "Attack", 0).getInt();
 	}
 
 	public static void setDefense(EntityPlayer player, int amt) {
-		data.get(player.getDisplayName().toLowerCase(), "Defense", 0).set(amt);
+		data.get(player.getDisplayName(), "Defense", 0).set(amt);
 		save();
 		PacketStatsToClient ps = new PacketStatsToClient();
 		ps.race = DataHelper.getRace(player);
@@ -165,6 +165,6 @@ public class DataHelper {
 	}
 
 	public static int getDefense(EntityPlayer player) {
-		return data.get(player.getDisplayName().toLowerCase(), "Defense", 0).getInt();
+		return data.get(player.getDisplayName(), "Defense", 0).getInt();
 	}
 }
