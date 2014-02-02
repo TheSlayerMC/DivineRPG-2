@@ -9,7 +9,7 @@ public class Reference {
 	public static final String CLIENT_PROXY = "net.rpg.ClientProxy";
 	public static final String SERVER_PROXY = "net.rpg.ServerProxy";
 	public static final String RESOURCE_PREFIX = "RPG:";
-	public static final String[] RACES = { "Steve", "Villager", "Zombie Pigman", "Cyclops", "Plankling", "Catmen", "Galroid", "Boheimite" };
+	public static final String[] RACES = { "Steve", "Villager", "Zombie Pigman", "Cyclops", "Plankling", "Catmen", "Galroid", "Boheimite", "Cori", "Glacon", "Frost Archer" };
 	public static final Random RANDOM = new Random();
 
 	public static String translateRace(int race) {

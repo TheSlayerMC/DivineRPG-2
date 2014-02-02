@@ -58,7 +58,7 @@ public class ServerEventHandler {
 	public void LivingDropsEvent(LivingDropsEvent event) {
 		EntityLivingBase e = event.entityLiving;
 		if(e instanceof EntityMob) {
-			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1 + e.worldObj.rand.nextInt(4))));
+			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 3 + e.worldObj.rand.nextInt(8))));
 		}
 	}
 }
