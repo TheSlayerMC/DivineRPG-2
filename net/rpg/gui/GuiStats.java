@@ -46,7 +46,7 @@ public class GuiStats extends GuiContainer {
 			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 62, 4210752);
 			s = EnumChatFormatting.YELLOW + "Defense: " + EnumChatFormatting.WHITE + RPG.defense;
 			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 72, 4210752);
-			s = EnumChatFormatting.YELLOW + "Arcana: " + EnumChatFormatting.WHITE + RPG.arcana;
+			s = EnumChatFormatting.YELLOW + "Max Arcana: " + EnumChatFormatting.WHITE + RPG.arcana;
 			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 82, 4210752);
 			s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + RPG.discount + "%";
 			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 92, 4210752);

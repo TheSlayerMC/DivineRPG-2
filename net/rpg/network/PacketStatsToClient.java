@@ -8,7 +8,7 @@ import net.rpg.RPG;
 public class PacketStatsToClient extends AbstractPacket {
 	public int race, maxHp, de, maxDe, credits, attack, defense, arcana, discount, luck, reflex, stamina, speed, ar, maxAr, coolDown;
 	public String ability = "SET ABILITY", denotation = "ABILITY INFO";
-	public boolean goodEffect = true;//True For Now
+	public boolean goodEffect = true, ranged = true;//True For Now
 	
 	@Override
 	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
@@ -72,6 +72,7 @@ public class PacketStatsToClient extends AbstractPacket {
 		RPG.ability = ability;
 		RPG.goodEfect = goodEffect ? "True" : "False";
 		RPG.denotation = denotation;
+		RPG.ranged = ranged ? "True" : "False";
 	}
 
 	@Override

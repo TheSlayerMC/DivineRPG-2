@@ -106,7 +106,7 @@ public class GuiRaceSelection extends GuiContainer {
 		addButton(new GuiButton(1, x, 86, w, h, "Villager"));
 		addButton(new GuiButton(2, x, 107, w, h, "Zombie Pigman"));
 		addButton(new GuiButton(3, x, 128, w, h, "Cyclops"));
-		addButton(new GuiButton(4, x, 149, w, h, "Plankling"));
+		addButton(new GuiButton(4, x, 149, w, h, "Ent"));
 		addMoveButtons();
 	}
 
@@ -117,9 +117,9 @@ public class GuiRaceSelection extends GuiContainer {
 		final int h = 20;
 		addButton(new GuiButton(7, x, 65, w, h, "Galroid"));
 		addButton(new GuiButton(8, x, 86, w, h, "Boheimite"));
-		//addButton(new GuiButton(8, x, 107, w, h, ""));
-		//addButton(new GuiButton(9, x, 128, w, h, ""));
-		//addButton(new GuiButton(10, x, 149, w, h, ""));
+		addButton(new GuiButton(9, x, 107, w, h, "Cori"));
+		addButton(new GuiButton(10, x, 128, w, h, "Glacon"));
+		addButton(new GuiButton(11, x, 149, w, h, "Frost Archer"));
 		addMoveButtons();
 	}
 
