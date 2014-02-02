@@ -13,9 +13,11 @@ import cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent;
 
 public class KeyHandler {
 	private KeyBinding stats = new KeyBinding("Stats", Keyboard.KEY_F, "RPG");
-
+	private KeyBinding abilitys = new KeyBinding("Abilitys", Keyboard.KEY_G, "RPG");
+	
 	public KeyHandler() {
 		ClientRegistry.registerKeyBinding(stats);
+		ClientRegistry.registerKeyBinding(abilitys);
 	}
 
 	@SubscribeEvent
@@ -23,6 +25,12 @@ public class KeyHandler {
 		if(stats.func_151468_f()) {
 			if(Minecraft.getMinecraft().currentScreen == null) {
 				RPG.packetHandler.sendToServer(new PacketOpenGui().setID(1));
+			}
+		}
+		
+		if(abilitys.func_151468_f()) {
+			if(Minecraft.getMinecraft().currentScreen == null) {
+				RPG.packetHandler.sendToServer(new PacketOpenGui().setID(2));
 			}
 		}
 	}

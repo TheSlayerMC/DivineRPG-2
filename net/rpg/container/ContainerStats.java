@@ -18,6 +18,13 @@ public class ContainerStats extends Container {
 			ps.credits = DataHelper.getCredits(p);
 			ps.attack = DataHelper.getAttack(p);
 			ps.defense = DataHelper.getDefense(p);
+			/*ps.maxAr = DataHelper.getMaxArcana(p);
+			ps.ar = DataHelper.getArcana(p);
+			ps.discount = DataHelper.getDiscount(p);
+			ps.luck = DataHelper.getLuck(p);
+			ps.reflex = DataHelper.getReflex(p);
+			ps.stamina = DataHelper.getStamina(p);
+			ps.speed = DataHelper.getSpeed(p);*/
 		}
 	}
 

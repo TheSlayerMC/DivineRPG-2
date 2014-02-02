@@ -1,7 +1,9 @@
 package net.rpg.gui;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -20,10 +22,15 @@ public class GuiRaceSelection extends GuiContainer {
 	private static final ResourceLocation texture = new ResourceLocation("rpg:textures/gui/blank.png");
 	private EntityPlayer p;
 
+	Minecraft mc = Minecraft.getMinecraft();
+	ScaledResolution scaledresolution = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
+	int i = scaledresolution.getScaledWidth();
+	int k = scaledresolution.getScaledHeight();//To set the buttons right later
+	
 	public GuiRaceSelection(EntityPlayer p) {
 		super(new ContainerRaceSelection(p));
 		this.p = p;
-	}
+	}			
 
 	@Override
 	protected void func_146979_b(int p_146979_1_, int p_146979_2_) {

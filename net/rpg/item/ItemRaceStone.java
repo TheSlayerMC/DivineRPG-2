@@ -8,6 +8,12 @@ import net.minecraft.world.World;
 import net.rpg.RPG;
 
 public class ItemRaceStone extends Item {
+	
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack) {
+		return true;
+	}
+	
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
 		if(!par2World.isRemote) {

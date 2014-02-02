@@ -6,8 +6,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.rpg.RPG;
 
 public class PacketStatsToClient extends AbstractPacket {
-	public int race, maxHp, de, maxDe, credits, attack, defense;
-
+	public int race, maxHp, de, maxDe, credits, attack, defense, arcana, discount, luck, reflex, stamina, speed, ar, maxAr, coolDown;
+	public String ability = "SET ABILITY", denotation = "ABILITY INFO";
+	public boolean goodEffect = true;//True For Now
+	
 	@Override
 	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
 		buffer.writeInt(race);
@@ -17,6 +19,15 @@ public class PacketStatsToClient extends AbstractPacket {
 		buffer.writeInt(credits);
 		buffer.writeInt(attack);
 		buffer.writeInt(defense);
+		buffer.writeInt(arcana);
+		buffer.writeInt(discount);
+		buffer.writeInt(luck);
+		buffer.writeInt(reflex);
+		buffer.writeInt(stamina);
+		buffer.writeInt(speed);
+		buffer.writeInt(ar);
+		buffer.writeInt(maxAr);
+		buffer.writeInt(coolDown);
 	}
 
 	@Override
@@ -28,6 +39,15 @@ public class PacketStatsToClient extends AbstractPacket {
 		credits = buffer.readInt();
 		attack = buffer.readInt();
 		defense = buffer.readInt();
+		arcana = buffer.readInt();
+		discount = buffer.readInt();
+		luck = buffer.readInt();
+		reflex = buffer.readInt();
+		stamina = buffer.readInt();
+		speed = buffer.readInt();
+		ar = buffer.readInt();
+		maxAr = buffer.readInt();
+		coolDown = buffer.readInt();
 	}
 
 	@Override
@@ -39,9 +59,21 @@ public class PacketStatsToClient extends AbstractPacket {
 		RPG.credits = credits;
 		RPG.attack = attack;
 		RPG.defense = defense;
+		RPG.arcana = arcana;
+		RPG.discount = discount;
+		RPG.luck = luck;
+		RPG.reflex = reflex;
+		RPG.stamina = stamina;
+		RPG.speed = speed;
+		RPG.ar = ar;
+		RPG.maxAr = maxAr;
+		RPG.coolDown = coolDown;
+		
+		RPG.ability = ability;
+		RPG.goodEfect = goodEffect ? "True" : "False";
+		RPG.denotation = denotation;
 	}
 
 	@Override
-	public void handleServerSide(EntityPlayer player) {
-	}
+	public void handleServerSide(EntityPlayer player) { }
 }

@@ -22,10 +22,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
 public class RPG {
+	
 	@Instance(Reference.MOD_ID)
 	public static RPG instance;
+	
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
 	public static ServerProxy proxy;
+	
 	public static final PacketHandler packetHandler = new PacketHandler();
 
 	@EventHandler
@@ -49,8 +52,9 @@ public class RPG {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static int race = -1, maxHp, de, maxDe, credits, attack, defense;
-
+	public static int race = -1, maxHp, de, maxDe, credits, attack, defense, arcana, discount, luck, reflex, stamina, speed, ar, maxAr, coolDown;
+	public static String ability, goodEfect, denotation;
+	
 	public static void applyStats(EntityPlayer player) {
 		final AttributeModifier health = new AttributeModifier(player.getPersistentID(), "rpg_health", (((double) DataHelper.getMaxHp(player)) / 10) - 1, 1);
 		IAttributeInstance iai = player.getEntityAttribute(SharedMonsterAttributes.maxHealth);

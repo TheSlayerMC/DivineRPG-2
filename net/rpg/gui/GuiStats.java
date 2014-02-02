@@ -46,6 +46,18 @@ public class GuiStats extends GuiContainer {
 			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 62, 4210752);
 			s = EnumChatFormatting.YELLOW + "Defense: " + EnumChatFormatting.WHITE + RPG.defense;
 			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 72, 4210752);
+			s = EnumChatFormatting.YELLOW + "Arcana: " + EnumChatFormatting.WHITE + RPG.arcana;
+			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 82, 4210752);
+			s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + RPG.discount + "%";
+			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 92, 4210752);
+			s = EnumChatFormatting.YELLOW + "Luck: " + EnumChatFormatting.WHITE + RPG.luck;
+			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 102, 4210752);
+			s = EnumChatFormatting.YELLOW + "Reflex: " + EnumChatFormatting.WHITE + RPG.reflex;
+			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 112, 4210752);
+			s = EnumChatFormatting.YELLOW + "Stamina: " + EnumChatFormatting.WHITE + RPG.stamina;
+			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 122, 4210752);
+			s = EnumChatFormatting.YELLOW + "Speed: " + EnumChatFormatting.WHITE + RPG.speed;
+			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 132, 4210752);
 		}
 	}
 
