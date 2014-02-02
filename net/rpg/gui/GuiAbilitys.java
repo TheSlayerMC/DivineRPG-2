@@ -1,7 +1,5 @@
 package net.rpg.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumChatFormatting;
@@ -10,14 +8,13 @@ import net.rpg.RPG;
 import net.rpg.Reference;
 import net.rpg.container.ContainerRaceSelection;
 
-public class GuiAbilitys extends GuiContainer{
-	
+import org.lwjgl.opengl.GL11;
+
+public class GuiAbilitys extends GuiContainer {
 	private static final ResourceLocation texture = new ResourceLocation("rpg:textures/gui/blank.png");
-	private EntityPlayer p;
-	
+
 	public GuiAbilitys(EntityPlayer p) {
 		super(new ContainerRaceSelection(p));
-		this.p = p; 
 	}
 
 	@Override
@@ -46,7 +43,7 @@ public class GuiAbilitys extends GuiContainer{
 			this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 72, 4210752);
 		}
 	}
-	
+
 	@Override
 	protected void func_146976_a(float f, int par1, int par2) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);

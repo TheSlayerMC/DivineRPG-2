@@ -3,7 +3,6 @@ package net.rpg.network;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemBow;
 import net.rpg.RPG;
 import net.rpg.helper.DataHelper;
@@ -33,15 +32,6 @@ public class PacketRace extends AbstractPacket {
 		if(player.inventory.func_146028_b(ItemHelper.getItem("raceStone"))) {
 			player.inventory.func_146026_a(ItemHelper.getItem("raceStone"));
 		}
-		PacketStatsToClient ps = new PacketStatsToClient();
-		ps.race = DataHelper.getRace(player);
-		ps.maxHp = DataHelper.getMaxHp(player);
-		ps.de = DataHelper.getDe(player);
-		ps.maxDe = DataHelper.getMaxDe(player);
-		ps.credits = DataHelper.getCredits(player);
-		ps.attack = DataHelper.getAttack(player);
-		ps.defense = DataHelper.getDefense(player);
-		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
-		RPG.applyStats(player);
+		RPG.sendStats(player);
 	}
 }

@@ -25,7 +25,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class GuiRaceSelection extends GuiContainer {
 	private static final ResourceLocation texture = new ResourceLocation("rpg:textures/gui/blank.png");
 	private EntityPlayer p;
-
 	Minecraft mc = Minecraft.getMinecraft();
 	ScaledResolution scaledresolution = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
 	int i = scaledresolution.getScaledHeight();
@@ -34,7 +33,7 @@ public class GuiRaceSelection extends GuiContainer {
 	public GuiRaceSelection(EntityPlayer p) {
 		super(new ContainerRaceSelection(p));
 		this.p = p;
-	}			
+	}
 
 	@Override
 	protected void func_146979_b(int p_146979_1_, int p_146979_2_) {
@@ -129,18 +128,19 @@ public class GuiRaceSelection extends GuiContainer {
 		addMoveButtons();
 	}
 
-	/*private void page3(){
-		this.field_146292_n.clear();
-		final int x = this.field_146294_l / 2 - 75;
-		final int w = 150;
-		final int h = 20;
-		addButton(new GuiButton(12, x, 65, w, h, "Enderman"));
-		addButton(new GuiButton(13, x, 86, w, h, "Spider"));
-		addButton(new GuiButton(14, x, 107, w, h, "Creeper"));
-		addButton(new GuiButton(15, x, 128, w, h, "Slime"));
-		addMoveButtons();
-	}*/
-
+	/*
+	 * private void page3(){
+	 * this.field_146292_n.clear();
+	 * final int x = this.field_146294_l / 2 - 75;
+	 * final int w = 150;
+	 * final int h = 20;
+	 * addButton(new GuiButton(12, x, 65, w, h, "Enderman"));
+	 * addButton(new GuiButton(13, x, 86, w, h, "Spider"));
+	 * addButton(new GuiButton(14, x, 107, w, h, "Creeper"));
+	 * addButton(new GuiButton(15, x, 128, w, h, "Slime"));
+	 * addMoveButtons();
+	 * }
+	 */
 	private void addMoveButtons() {
 		addButton(new GuiButton(5, this.field_146294_l / 2, 175, 76, 20, ">>>"));
 		addButton(new GuiButton(6, this.field_146294_l / 2 - 75, 175, 76, 20, "<<<"));

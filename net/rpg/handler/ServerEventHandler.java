@@ -8,7 +8,6 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -61,7 +60,6 @@ public class ServerEventHandler {
 	@SubscribeEvent
 	public void LivingDropsEvent(LivingDropsEvent event) {
 		EntityLivingBase e = event.entityLiving;
-		DamageSource s = event.source;
 		if(e instanceof EntityMob) {
 			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1 + e.worldObj.rand.nextInt(4))));
 		}
