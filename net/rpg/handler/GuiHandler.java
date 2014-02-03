@@ -5,6 +5,7 @@ import net.minecraft.world.World;
 import net.rpg.container.ContainerRaceSelection;
 import net.rpg.container.ContainerStats;
 import net.rpg.gui.GuiAbilitys;
+import net.rpg.gui.GuiMerchant;
 import net.rpg.gui.GuiRaceSelection;
 import net.rpg.gui.GuiStats;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -19,6 +20,8 @@ public class GuiHandler implements IGuiHandler {
 			return new ContainerStats(player);
 		case (2):
 			return new ContainerRaceSelection(player);
+		case (3):
+			return new ContainerStats(player);
 		}
 		return null;
 	}
@@ -32,6 +35,8 @@ public class GuiHandler implements IGuiHandler {
 			return new GuiStats(player);
 		case (2):
 			return new GuiAbilitys(player);
+		case (3):
+			return new GuiMerchant(player);
 		}
 		return null;
 	}

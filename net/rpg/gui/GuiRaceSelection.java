@@ -24,9 +24,9 @@ public class GuiRaceSelection extends GuiContainer {
 
 	Minecraft mc = Minecraft.getMinecraft();
 	ScaledResolution scaledresolution = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
-	int i = scaledresolution.getScaledWidth();
-	int k = scaledresolution.getScaledHeight();//To set the buttons right later
-	
+	int i = scaledresolution.getScaledHeight();
+	int height = i;
+
 	public GuiRaceSelection(EntityPlayer p) {
 		super(new ContainerRaceSelection(p));
 		this.p = p;
@@ -56,8 +56,8 @@ public class GuiRaceSelection extends GuiContainer {
 	}
 
 	@Override
-	protected void func_146284_a(GuiButton p_146284_1_) {
-		switch(p_146284_1_.field_146127_k) {
+	protected void func_146284_a(GuiButton button) {
+		switch(button.field_146127_k) {
 		case 0:
 			sendPacket(0);
 			return;
@@ -102,7 +102,7 @@ public class GuiRaceSelection extends GuiContainer {
 		final int x = this.field_146294_l / 2 - 75;
 		final int w = 150;
 		final int h = 20;
-		addButton(new GuiButton(0, x, 65, w, h, "Steve"));
+		addButton(new GuiButton(0, x, 65, w, h, "Minecraftian"));
 		addButton(new GuiButton(1, x, 86, w, h, "Villager"));
 		addButton(new GuiButton(2, x, 107, w, h, "Zombie Pigman"));
 		addButton(new GuiButton(3, x, 128, w, h, "Cyclops"));
@@ -122,7 +122,7 @@ public class GuiRaceSelection extends GuiContainer {
 		addButton(new GuiButton(11, x, 149, w, h, "Frost Archer"));
 		addMoveButtons();
 	}
-	
+
 	/*private void page3(){
 		this.field_146292_n.clear();
 		final int x = this.field_146294_l / 2 - 75;

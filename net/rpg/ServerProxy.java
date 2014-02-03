@@ -7,6 +7,7 @@ import net.rpg.helper.NetworkHelper;
 import net.rpg.helper.ServerEventHelper;
 
 public class ServerProxy {
+	
 	public void doServer() {
 		ConfigHelper.init();
 		ConfigHelper.load();
@@ -17,6 +18,5 @@ public class ServerProxy {
 		ConfigHelper.save();
 	}
 
-	public void doClient() {
-	}
+	public void doClient() { }
 }

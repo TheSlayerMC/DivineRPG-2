@@ -9,9 +9,22 @@ import net.rpg.Reference;
 public class GuiVersion extends Gui{
 
 	public static void init(){
-		String text = Reference.MOD_NAME + " " + Reference.MOD_VERSION;
-		Minecraft.getMinecraft().fontRenderer.drawString(EnumChatFormatting.AQUA + text, 0, 0, 4210752);
-		/*String race = Reference.translateRace(RPG.race);
-		Minecraft.getMinecraft().fontRenderer.drawString(EnumChatFormatting.RED + race, 10, 0, 4210752);*/
+		Minecraft mc = Minecraft.getMinecraft();
+		if(mc.currentScreen == null) {
+			String name = EnumChatFormatting.WHITE + Reference.MOD_NAME;
+			String version = EnumChatFormatting.WHITE + "Version: " + Reference.MOD_VERSION;
+			Minecraft.getMinecraft().fontRenderer.drawString(name, 2, 2, 4210752);
+			Minecraft.getMinecraft().fontRenderer.drawString(version, 2, 15, 4210752);
+			
+			String credits;
+			/*if(RPG.credits == 0)
+				credits = "Credits: " + EnumChatFormatting.RED + RPG.credits;
+			else if(RPG.credits < 30)
+				credits = "Credits: " + EnumChatFormatting.YELLOW + RPG.credits;
+			else*/
+				credits = EnumChatFormatting.WHITE + "Credits: " + RPG.credits;
+			String s = credits;
+			Minecraft.getMinecraft().fontRenderer.drawString(s, 2, 30, 0xFFFFFF);
+		}
 	}
 }

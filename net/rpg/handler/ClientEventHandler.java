@@ -21,9 +21,6 @@ public class ClientEventHandler {
 	
 	@SubscribeEvent
 	public void RenderGameOverlayEvent(RenderGameOverlayEvent event) {
-		if(event.isCancelable() || event.type != ElementType.EXPERIENCE)
-			return;
-		
 		VERSION.init();
 		DE_BAR.draw();
 		AR_BAR.init();
