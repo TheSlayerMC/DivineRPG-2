@@ -10,7 +10,6 @@ public class ClientProxy extends ServerProxy {
 	@Override
 	public void doClient() {
 		ClientEventHelper.init();
-		RenderingRegistry.registerEntityRenderingHandler(EntityClientPlayerMP.class, new RenderPlayerRPG(3.0F));
 		//GuiArcanaBar.init();
 	}
 }

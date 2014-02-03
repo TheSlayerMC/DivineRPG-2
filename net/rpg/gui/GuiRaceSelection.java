@@ -1,19 +1,23 @@
 package net.rpg.gui;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.rpg.RPG;
 import net.rpg.container.ContainerRaceSelection;
+import net.rpg.entity.render.RenderPlayerRPG;
 import net.rpg.helper.ItemHelper;
 import net.rpg.network.PacketRace;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -69,6 +73,8 @@ public class GuiRaceSelection extends GuiContainer {
 			return;
 		case 3:
 			sendPacket(3);
+			p.inventory.addItemStackToInventory(new ItemStack(ItemHelper.getItem("cyclopsianSword"), 1));
+			RenderingRegistry.registerEntityRenderingHandler(EntityClientPlayerMP.class, new RenderPlayerRPG(3.0F));
 			return;
 		case 4:
 			sendPacket(4);
