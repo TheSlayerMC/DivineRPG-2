@@ -123,7 +123,7 @@ public class GuiRaceSelection extends GuiContainer {
 		addMoveButtons();
 	}
 	
-	private void page3(){
+	/*private void page3(){
 		this.field_146292_n.clear();
 		final int x = this.field_146294_l / 2 - 75;
 		final int w = 150;
@@ -133,7 +133,7 @@ public class GuiRaceSelection extends GuiContainer {
 		addButton(new GuiButton(14, x, 107, w, h, "Creeper"));
 		addButton(new GuiButton(15, x, 128, w, h, "Slime"));
 		addMoveButtons();
-	}
+	}*/
 
 	private void addMoveButtons() {
 		addButton(new GuiButton(5, this.field_146294_l / 2, 175, 76, 20, ">>>"));

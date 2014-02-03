@@ -27,10 +27,10 @@ public class GuiArcanaBar extends Gui{
 			int k = scaledresolution.getScaledHeight();
 			mc.getTextureManager().bindTexture(arcana);
 			var26 = k - 18;
-			var29 = i - 111;
+			var29 = i - 220;
 			int w = (int) (121 * ((float) RPG.ar / RPG.maxAr));
-			gig.drawTexturedModalRect(var29, var26, 0, 0, 99, 9);
-			gig.drawTexturedModalRect(var29, var26, 0, 9, (int)(12.5 * w), 18);  
+			gig.drawTexturedModalRect(var29, var26, 0, 0, 201, 17);
+			gig.drawTexturedModalRect(var29, var26, 0, 17, (int)(12.5 * w), 34);  
 		}
 	}
 

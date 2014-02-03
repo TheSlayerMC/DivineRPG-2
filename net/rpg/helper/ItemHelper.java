@@ -34,7 +34,7 @@ public class ItemHelper {
 	public static final CreativeTabs tabItem = new CreativeTabs("rpg.items") {
 		@Override
 		public Item getTabIconItem() {
-			return Items.iron_ingot;
+			return getItem("raceStone");
 		}
 	};
 }
