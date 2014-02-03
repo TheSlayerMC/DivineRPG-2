@@ -21,7 +21,7 @@ public class GuiMerchant extends GuiContainer{
 	private static ResourceLocation texture = new ResourceLocation("rpg:textures/gui/merchant.png");
 
 	private EntityPlayer p = Minecraft.getMinecraft().thePlayer;
-
+	int pageNum, maxPageNums = 2;
 	public GuiMerchant(EntityPlayer p) {
 		super(new ContainerStats(p));
 	}
@@ -32,18 +32,21 @@ public class GuiMerchant extends GuiContainer{
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2 - 20, 6 - 25, 4210752);
 		s = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 		String credits;
-
+		
 		if(RPG.credits == 0)
-			credits = "Credits: " + EnumChatFormatting.RED + RPG.credits;
+			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.RED + RPG.credits;
 		else if(RPG.credits < 30)
-			credits = "Credits: " + EnumChatFormatting.YELLOW + RPG.credits;
+			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.YELLOW + RPG.credits;
 		else
-			credits = "Credits: " + EnumChatFormatting.GREEN + RPG.credits;
+			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.GREEN + RPG.credits;
 
 		s = credits;
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2 + 50, 6 - 25, 4210752);
 		s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + RPG.discount + "%";
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2 - 90, 6 - 25, 4210752);
+		
+		s = EnumChatFormatting.YELLOW + "Page: " + EnumChatFormatting.WHITE + this.pageNum + "/" + maxPageNums;
+		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2 - 25, 1 + 145, 4210752);
 	}
 
 	@Override
@@ -87,6 +90,8 @@ public class GuiMerchant extends GuiContainer{
 		case 7:
 			buy(Items.string, 1, 3);
 			return;
+		case 8:
+			buy(Items.bow, 1, 80);
 		case 9:
 			buy(Items.diamond_sword, 1, 200);
 			return;
@@ -147,16 +152,16 @@ public class GuiMerchant extends GuiContainer{
 		case 28:
 			buy(Items.diamond_boots, 1, 400);
 			return;
-		case 29:
+		case 30:
 			page2();
 			return;
-		case 30:
+		/*case 30:
 			page3();
-			return;
+			return;*/
 		case 31:
 			page1();
 			return;
-		case 32:
+		/*case 32:
 			page4();
 			return;
 		case 33:
@@ -164,7 +169,7 @@ public class GuiMerchant extends GuiContainer{
 			return;
 		case 34:
 			page3();
-			return;
+			return;*/
 		}
 	}
 
@@ -201,7 +206,8 @@ public class GuiMerchant extends GuiContainer{
 		addButton(new GuiButton(12, x + 103, 170, w, h, "Beacon"));
 		addButton(new GuiButton(13, x + 103, 191, w, h, "Dragon Egg"));
 		addButton(new GuiButton(14, x + 103, 212, w, h, "Ender Pearl"));
-		addMoveButton();
+		addMoveButtons();
+		pageNum = 1;
 	}
 
 	private void page2() {
@@ -224,9 +230,10 @@ public class GuiMerchant extends GuiContainer{
 		addButton(new GuiButton(27, x + 103, 191, w, h, "Diamond Leggings"));
 		addButton(new GuiButton(28, x + 103, 212, w, h, "Diamond Boots"));
 		addMoveButtons();
+		pageNum = 2;
 	}
 	
-	private void page3(){
+	/*private void page3(){
 		this.field_146292_n.clear();
 		final int x = this.field_146294_l / 2 - 100;
 		final int w = 96;
@@ -242,25 +249,29 @@ public class GuiMerchant extends GuiContainer{
 		final int h = 20;
 		addButton(new GuiButton(1, x, 86, w, h, "#YOLO"));
 		addMoveButtons3();
-	}
+	}*/
 
-	private void addMoveButton() {
-		addButton(new GuiButton(29, this.field_146294_l / 2 - 94, 255, 184, 20, ">>>"));
-	}
+	/*private void addMoveButton() {
+		final int x = this.field_146294_l / 2 - 100;
+		addButton(new GuiButton(29, x, 255, 192, 20, ">>>"));
+	}*/
 	
 	private void addMoveButtons() {
-		addButton(new GuiButton(30, this.field_146294_l / 2 + 3, 255, 96, 20, ">>>"));
-		addButton(new GuiButton(31, this.field_146294_l / 3 + 15, 255, 96, 20, "<<<"));
+		final int x = this.field_146294_l / 2 - 100;
+		addButton(new GuiButton(30, x + 103, 255, 96, 20, ">>>"));
+		addButton(new GuiButton(31, x, 255, 96, 20, "<<<"));
 	}
 	
-	private void addMoveButtons2() {
-		addButton(new GuiButton(32, this.field_146294_l / 2 + 3, 255, 96, 20, ">>>"));
-		addButton(new GuiButton(33, this.field_146294_l / 3 + 15, 255, 96, 20, "<<<"));
+	/*private void addMoveButtons2() {
+		final int x = this.field_146294_l / 2 - 100;
+		addButton(new GuiButton(32, x + 103, 255, 96, 20, ">>>"));
+		addButton(new GuiButton(33, x, 255, 96, 20, "<<<"));
 	}
 	
 	private void addMoveButtons3() {
-		addButton(new GuiButton(34, this.field_146294_l / 2 - 94, 255, 184, 20, "<<<"));
-	}
+		final int x = this.field_146294_l / 2 - 100;
+		addButton(new GuiButton(34, x, 255, 192, 20, "<<<"));
+	}*/
 
 	private void addButton(GuiButton b) {
 		this.field_146292_n.add(b);

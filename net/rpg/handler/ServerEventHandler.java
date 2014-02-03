@@ -63,13 +63,13 @@ public class ServerEventHandler {
 		EntityLivingBase e = event.entityLiving;
 		DamageSource s = event.source;
 		if(e instanceof EntityMob) {
-			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 2 + e.worldObj.rand.nextInt(4))));
+			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1 + e.worldObj.rand.nextInt(4))));
 		}
 		if(e instanceof EntityAnimal) {
 			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1 + e.worldObj.rand.nextInt(2))));
 		}
 		if(e instanceof EntityCreeper || e instanceof EntityEnderman) {
-			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 2 + e.worldObj.rand.nextInt(6))));
+			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1 + e.worldObj.rand.nextInt(6))));
 		}
 	}
 }
