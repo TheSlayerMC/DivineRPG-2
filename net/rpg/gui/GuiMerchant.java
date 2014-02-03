@@ -151,7 +151,19 @@ public class GuiMerchant extends GuiContainer{
 			page2();
 			return;
 		case 30:
+			page3();
+			return;
+		case 31:
 			page1();
+			return;
+		case 32:
+			page4();
+			return;
+		case 33:
+			page2();
+			return;
+		case 34:
+			page3();
 			return;
 		}
 	}
@@ -189,7 +201,7 @@ public class GuiMerchant extends GuiContainer{
 		addButton(new GuiButton(12, x + 103, 170, w, h, "Beacon"));
 		addButton(new GuiButton(13, x + 103, 191, w, h, "Dragon Egg"));
 		addButton(new GuiButton(14, x + 103, 212, w, h, "Ender Pearl"));
-		addMoveButtons();
+		addMoveButton();
 	}
 
 	private void page2() {
@@ -213,10 +225,41 @@ public class GuiMerchant extends GuiContainer{
 		addButton(new GuiButton(28, x + 103, 212, w, h, "Diamond Boots"));
 		addMoveButtons();
 	}
+	
+	private void page3(){
+		this.field_146292_n.clear();
+		final int x = this.field_146294_l / 2 - 100;
+		final int w = 96;
+		final int h = 20;
+		addButton(new GuiButton(1, x, 86, w, h, "SWAGZ"));
+		addMoveButtons2();
+	}
+	
+	private void page4(){
+		this.field_146292_n.clear();
+		final int x = this.field_146294_l / 2 - 100;
+		final int w = 96;
+		final int h = 20;
+		addButton(new GuiButton(1, x, 86, w, h, "#YOLO"));
+		addMoveButtons3();
+	}
 
+	private void addMoveButton() {
+		addButton(new GuiButton(29, this.field_146294_l / 2 - 94, 255, 184, 20, ">>>"));
+	}
+	
 	private void addMoveButtons() {
-		addButton(new GuiButton(29, this.field_146294_l / 2 + 3, 255, 96, 20, ">>>"));
-		addButton(new GuiButton(30, this.field_146294_l / 3 + 15, 255, 96, 20, "<<<"));
+		addButton(new GuiButton(30, this.field_146294_l / 2 + 3, 255, 96, 20, ">>>"));
+		addButton(new GuiButton(31, this.field_146294_l / 3 + 15, 255, 96, 20, "<<<"));
+	}
+	
+	private void addMoveButtons2() {
+		addButton(new GuiButton(32, this.field_146294_l / 2 + 3, 255, 96, 20, ">>>"));
+		addButton(new GuiButton(33, this.field_146294_l / 3 + 15, 255, 96, 20, "<<<"));
+	}
+	
+	private void addMoveButtons3() {
+		addButton(new GuiButton(34, this.field_146294_l / 2 - 94, 255, 184, 20, "<<<"));
 	}
 
 	private void addButton(GuiButton b) {
