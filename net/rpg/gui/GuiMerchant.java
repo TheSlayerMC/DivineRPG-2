@@ -44,7 +44,7 @@ public class GuiMerchant extends GuiContainer{
 		s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + RPG.discount + "%";
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2 - 90, 6 - 25, 4210752);
 		
-		s = EnumChatFormatting.YELLOW + "Page: " + EnumChatFormatting.WHITE + this.pageNum + "/" + maxPageNums;
+		s = EnumChatFormatting.YELLOW + "Page: " + EnumChatFormatting.WHITE + pageNum + "/" + maxPageNums;
 		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2 - 25, 1 + 145, 4210752);
 	}
 

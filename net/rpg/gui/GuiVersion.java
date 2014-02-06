@@ -5,6 +5,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.rpg.RPG;
 import net.rpg.Reference;
 import net.rpg.Util;
+import net.rpg.helper.DataHelper;
 
 public class GuiVersion {
 	public static void draw() {

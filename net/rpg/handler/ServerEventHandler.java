@@ -6,6 +6,7 @@ import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
@@ -20,9 +21,9 @@ import net.rpg.network.PacketRequestStats;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class ServerEventHandler {
+	
 	@SubscribeEvent
-	public void EntityConstructionEvent(EntityConstructing event) {
-	}
+	public void EntityConstructionEvent(EntityConstructing event) { }
 
 	@SubscribeEvent
 	public void EntityJoinWorldEvent(EntityJoinWorldEvent event) {
@@ -67,6 +68,9 @@ public class ServerEventHandler {
 			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1 + e.worldObj.rand.nextInt(2))));
 		}
 		if(e instanceof EntityCreeper || e instanceof EntityEnderman) {
+			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1 + e.worldObj.rand.nextInt(6))));
+		}
+		if(e instanceof EntityVillager) {
 			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1 + e.worldObj.rand.nextInt(6))));
 		}
 	}
