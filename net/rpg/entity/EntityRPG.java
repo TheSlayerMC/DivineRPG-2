@@ -25,23 +25,23 @@ public abstract class EntityRPG extends EntityCreature {
 	}
 
 	public void setHealth(double health) {
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(health);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(health);
 	}
 
 	public void setStrength(double strength) {
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setAttribute(strength);
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(strength);
 	}
 
 	public void setFollowRange(double range) {
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setAttribute(range);
+		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(range);
 	}
 
 	public void setKnockbackResistance(double knock) {
-		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setAttribute(knock);
+		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(knock);
 	}
 
 	public void setMoveSpeed(double speed) {
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(speed);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(speed);
 	}
 
 	public void getHP() {
@@ -69,7 +69,7 @@ public abstract class EntityRPG extends EntityCreature {
 	public void onDeath(DamageSource d) {
 		super.onDeath(d);
 		EntityPlayer p = Minecraft.getMinecraft().thePlayer;
-		p.func_145747_a(Util.addChatMessage(EnumChatFormatting.DARK_AQUA, p.getDisplayName() + " has slain a " + getName() + "."));
+		p.addChatComponentMessage(Util.addChatMessage(EnumChatFormatting.DARK_AQUA, p.getDisplayName() + " has slain a " + getName() + "."));
 	}
 
 	@Override
