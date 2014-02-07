@@ -16,9 +16,13 @@ public class ClientEventHandler {
 			return;
 		}
 		GuiVersion.draw();
-		if(RPG.race == -1) {
+		if(RPG.race == -1 && canUseMana()) {
 			GuiDeBar.draw();
 			GuiArcanaBar.draw();
 		}
+	}
+	
+	public boolean canUseMana(){
+		return true;
 	}
 }
