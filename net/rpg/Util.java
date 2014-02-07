@@ -30,13 +30,13 @@ public class Util {
 
 	public static ChatComponentTranslation addChatMessage(EnumChatFormatting color, String str, Object... args) {
 		ChatComponentTranslation ret = new ChatComponentTranslation(str, args);
-		ret.func_150256_b().func_150238_a(color);
+		ret.getChatStyle().setColor(color);
 		return ret;
 	}
 
 	public static ChatComponentTranslation addChatMessage(String str, Object... args) {
 		ChatComponentTranslation ret = new ChatComponentTranslation(str, args);
-		ret.func_150256_b().func_150238_a(EnumChatFormatting.WHITE);
+		ret.getChatStyle().setColor(EnumChatFormatting.WHITE);
 		return ret;
 	}
 

@@ -29,8 +29,8 @@ public class PacketRace extends AbstractPacket {
 	@Override
 	public void handleServerSide(EntityPlayer player) {
 		DataHelper.setRace(player, race);
-		if(player.inventory.func_146028_b(ItemHelper.getItem("raceStone"))) {
-			player.inventory.func_146026_a(ItemHelper.getItem("raceStone"));
+		if(player.inventory.hasItem(ItemHelper.getItem("raceStone"))) {
+			player.inventory.consumeInventoryItem(ItemHelper.getItem("raceStone"));
 		}
 		RPG.sendStats(player);
 	}

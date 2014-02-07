@@ -25,18 +25,18 @@ public class KeyHandler {
 
 	@SubscribeEvent
 	public void KeyInputEvent(KeyInputEvent event) {
-		if(stats.func_151468_f()) {
+		if(stats.isPressed()) {
 			if(Minecraft.getMinecraft().currentScreen == null) {
 				RPG.packetHandler.sendToServer(new PacketOpenGui().setID(1));
 			}
 		}
 		
-		if(abilitys.func_151468_f()) {
+		if(abilitys.isPressed()) {
 			if(Minecraft.getMinecraft().currentScreen == null) {
 				RPG.packetHandler.sendToServer(new PacketOpenGui().setID(2));
 			}
 		}
-		if(merchant.func_151468_f()) {
+		if(merchant.isPressed()) {
 			if(Minecraft.getMinecraft().currentScreen == null) {
 				RPG.packetHandler.sendToServer(new PacketOpenGui().setID(3));
 			}

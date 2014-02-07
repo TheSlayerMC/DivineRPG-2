@@ -36,20 +36,20 @@ public class GuiRaceSelection extends GuiContainer {
 	}
 
 	@Override
-	protected void func_146979_b(int p_146979_1_, int p_146979_2_) {
+	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
 		String s = "Race Selection";
-		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 6, 4210752);
+		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
 		s = "~~~~~~~~~~~~~~~~~~~~~~";
-		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2, 17, 4210752);
+		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 17, 4210752);
 	}
 
 	@Override
-	protected void func_146976_a(float p_146976_1_, int p_146976_2_, int p_146976_3_) {
+	protected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		this.field_146297_k.getTextureManager().bindTexture(texture);
-		int k = (this.field_146294_l - this.field_146999_f) / 2;
-		int l = (this.field_146295_m - this.field_147000_g) / 2;
-		this.drawTexturedModalRect(k, l, 0, 0, this.field_146999_f, this.field_147000_g);
+		this.mc.getTextureManager().bindTexture(texture);
+		int k = (this.width - this.xSize) / 2;
+		int l = (this.height - this.ySize) / 2;
+		this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
 	}
 
 	@Override
@@ -59,8 +59,8 @@ public class GuiRaceSelection extends GuiContainer {
 	}
 
 	@Override
-	protected void func_146284_a(GuiButton button) {
-		switch(button.field_146127_k) {
+	protected void actionPerformed(GuiButton button) {
+		switch(button.id) {
 		case 0:
 			sendPacket(0);
 			return;
@@ -103,8 +103,8 @@ public class GuiRaceSelection extends GuiContainer {
 	}
 
 	private void page1() {
-		this.field_146292_n.clear();
-		final int x = this.field_146294_l / 2 - 75;
+		this.buttonList.clear();
+		final int x = this.width / 2 - 75;
 		final int w = 150;
 		final int h = 20;
 		addButton(new GuiButton(0, x, 65, w, h, "Minecraftian"));
@@ -116,8 +116,8 @@ public class GuiRaceSelection extends GuiContainer {
 	}
 
 	private void page2() {
-		this.field_146292_n.clear();
-		final int x = this.field_146294_l / 2 - 75;
+		this.buttonList.clear();
+		final int x = this.width / 2 - 75;
 		final int w = 150;
 		final int h = 20;
 		addButton(new GuiButton(7, x, 65, w, h, "Galroid"));
@@ -130,8 +130,8 @@ public class GuiRaceSelection extends GuiContainer {
 
 	/*
 	 * private void page3(){
-	 * this.field_146292_n.clear();
-	 * final int x = this.field_146294_l / 2 - 75;
+	 * this.buttonList.clear();
+	 * final int x = this.width / 2 - 75;
 	 * final int w = 150;
 	 * final int h = 20;
 	 * addButton(new GuiButton(12, x, 65, w, h, "Enderman"));
@@ -142,21 +142,21 @@ public class GuiRaceSelection extends GuiContainer {
 	 * }
 	 */
 	private void addMoveButtons() {
-		addButton(new GuiButton(5, this.field_146294_l / 2, 175, 76, 20, ">>>"));
-		addButton(new GuiButton(6, this.field_146294_l / 2 - 75, 175, 76, 20, "<<<"));
+		addButton(new GuiButton(5, this.width / 2, 175, 76, 20, ">>>"));
+		addButton(new GuiButton(6, this.width / 2 - 75, 175, 76, 20, "<<<"));
 	}
 
 	private void addButton(GuiButton b) {
-		this.field_146292_n.add(b);
+		this.buttonList.add(b);
 	}
 
 	private void sendPacket(int race) {
 		PacketRace packet = new PacketRace();
 		packet.race = race;
 		RPG.packetHandler.sendToServer(packet);
-		if(p.inventory.func_146028_b(ItemHelper.getItem("raceStone"))) {
-			p.inventory.func_146026_a(ItemHelper.getItem("raceStone"));
+		if(p.inventory.hasItem(ItemHelper.getItem("raceStone"))) {
+			p.inventory.consumeInventoryItem(ItemHelper.getItem("raceStone"));
 		}
-		this.field_146297_k.func_147108_a((GuiScreen) null);
+		this.mc.displayGuiScreen((GuiScreen)null);
 	}
 }

@@ -2,6 +2,7 @@ package net.rpg.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiCommandBlock;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -26,9 +27,9 @@ public class GuiMerchant extends GuiContainer{
 	}
 
 	@Override
-	protected void func_146979_b(int arg1, int arg2) {
+	protected void drawGuiContainerForegroundLayer(int arg1, int arg2) {
 		String s = "Merchant";
-		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2 - 20, 6 - 25, 4210752);
+		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 20, 6 - 25, 4210752);
 		s = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 		String credits;
 		
@@ -40,12 +41,12 @@ public class GuiMerchant extends GuiContainer{
 			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.GREEN + RPG.credits;
 
 		s = credits;
-		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2 + 50, 6 - 25, 4210752);
+		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 + 50, 6 - 25, 4210752);
 		s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + RPG.discount + "%";
-		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2 - 90, 6 - 25, 4210752);
+		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 90, 6 - 25, 4210752);
 		
 		s = EnumChatFormatting.YELLOW + "Page: " + EnumChatFormatting.WHITE + pageNum + "/" + maxPageNums;
-		this.field_146289_q.drawString(s, this.field_146999_f / 2 - this.field_146289_q.getStringWidth(s) / 2 - 25, 1 + 145, 4210752);
+		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 25, 1 + 145, 4210752);
 	}
 
 	@Override
@@ -55,19 +56,19 @@ public class GuiMerchant extends GuiContainer{
 	}
 
 	@Override
-	protected void func_146976_a(float p_146976_1_, int p_146976_2_, int p_146976_3_) {
+	protected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		this.field_146297_k.getTextureManager().bindTexture(texture);
-		this.field_146999_f = 220;
-		this.field_147000_g = 220;
-		int k = (this.field_146294_l - this.field_146999_f) / 2;
-		int l = (this.field_146295_m - this.field_147000_g) / 2;
-		this.drawTexturedModalRect(k, l, 0, 0, this.field_146999_f, this.field_147000_g);
+		this.mc.getTextureManager().bindTexture(texture);
+		this.xSize = 220;
+		this.ySize = 220;
+		int k = (this.width - this.xSize) / 2;
+		int l = (this.height - this.ySize) / 2;
+		this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
 	}
 
 	@Override
-	protected void func_146284_a(GuiButton button) {
-		switch(button.field_146127_k) {
+	protected void actionPerformed(GuiButton button) {
+		switch(button.id) {
 		case 1: 
 			buy(Items.arrow, 1, 7);
 			return;
@@ -98,13 +99,13 @@ public class GuiMerchant extends GuiContainer{
 			buy(Items.golden_sword, 1, 100);
 			return;
 		case 11:
-			buy(Item.func_150898_a(Blocks.diamond_block), 1, 800);
+			buy(Item.getItemFromBlock(Blocks.diamond_block), 1, 800);
 			return;
 		case 12:
-			buy(Item.func_150898_a(Blocks.beacon), 1, 900);
+			buy(Item.getItemFromBlock(Blocks.beacon), 1, 900);
 			return;
 		case 13:
-			buy(Item.func_150898_a(Blocks.dragon_egg), 1, 1500);
+			buy(Item.getItemFromBlock(Blocks.dragon_egg), 1, 1500);
 			return;
 		case 14:
 			buy(Items.ender_pearl, 1, 50);
@@ -187,8 +188,8 @@ public class GuiMerchant extends GuiContainer{
 	}
 
 	private void page1() {
-		this.field_146292_n.clear();
-		final int x = this.field_146294_l / 2 - 100;
+		this.buttonList.clear();
+		final int x = this.width / 2 - 100;
 		final int w = 96;
 		final int h = 20;
 		addButton(new GuiButton(1, x, 86, w, h, "Arrow"));
@@ -210,8 +211,8 @@ public class GuiMerchant extends GuiContainer{
 	}
 
 	private void page2() {
-		this.field_146292_n.clear();
-		final int x = this.field_146294_l / 2 - 100;
+		this.buttonList.clear();
+		final int x = this.width / 2 - 100;
 		final int w = 96;
 		final int h = 20;
 		addButton(new GuiButton(15, x, 86, w, h, "Ender Eye"));
@@ -233,8 +234,8 @@ public class GuiMerchant extends GuiContainer{
 	}
 	
 	/*private void page3(){
-		this.field_146292_n.clear();
-		final int x = this.field_146294_l / 2 - 100;
+		this.buttonList.clear();
+		final int x = this.width / 2 - 100;
 		final int w = 96;
 		final int h = 20;
 		addButton(new GuiButton(1, x, 86, w, h, "SWAGZ"));
@@ -242,8 +243,8 @@ public class GuiMerchant extends GuiContainer{
 	}
 	
 	private void page4(){
-		this.field_146292_n.clear();
-		final int x = this.field_146294_l / 2 - 100;
+		this.buttonList.clear();
+		final int x = this.width / 2 - 100;
 		final int w = 96;
 		final int h = 20;
 		addButton(new GuiButton(1, x, 86, w, h, "#YOLO"));
@@ -251,28 +252,28 @@ public class GuiMerchant extends GuiContainer{
 	}*/
 
 	/*private void addMoveButton() {
-		final int x = this.field_146294_l / 2 - 100;
+		final int x = this.width / 2 - 100;
 		addButton(new GuiButton(29, x, 255, 192, 20, ">>>"));
 	}*/
 	
 	private void addMoveButtons() {
-		final int x = this.field_146294_l / 2 - 100;
+		final int x = this.width / 2 - 100;
 		addButton(new GuiButton(30, x + 103, 255, 96, 20, ">>>"));
 		addButton(new GuiButton(31, x, 255, 96, 20, "<<<"));
 	}
 	
 	/*private void addMoveButtons2() {
-		final int x = this.field_146294_l / 2 - 100;
+		final int x = this.width / 2 - 100;
 		addButton(new GuiButton(32, x + 103, 255, 96, 20, ">>>"));
 		addButton(new GuiButton(33, x, 255, 96, 20, "<<<"));
 	}
 	
 	private void addMoveButtons3() {
-		final int x = this.field_146294_l / 2 - 100;
+		final int x = this.width / 2 - 100;
 		addButton(new GuiButton(34, x, 255, 192, 20, "<<<"));
 	}*/
 
 	private void addButton(GuiButton b) {
-		this.field_146292_n.add(b);
+		this.buttonList.add(b);
 	}
 }
