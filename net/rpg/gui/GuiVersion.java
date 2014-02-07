@@ -8,6 +8,7 @@ import net.rpg.Util;
 import net.rpg.helper.DataHelper;
 
 public class GuiVersion {
+	
 	public static void draw() {
 		FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
 		String name = Util.DARK_GREEN + Reference.MOD_NAME;
