@@ -105,26 +105,28 @@ public class GuiRaceSelection extends GuiContainer {
 	private void page1() {
 		this.buttonList.clear();
 		final int x = this.width / 2 - 75;
+		final int z = this.height / 2 - 125;
 		final int w = 150;
 		final int h = 20;
-		addButton(new GuiButton(0, x, 65, w, h, "Minecraftian"));
-		addButton(new GuiButton(1, x, 86, w, h, "Villager"));
-		addButton(new GuiButton(2, x, 107, w, h, "Zombie Pigman"));
-		addButton(new GuiButton(3, x, 128, w, h, "Cyclops"));
-		addButton(new GuiButton(4, x, 149, w, h, "Ent"));
+		addButton(new GuiButton(0, x, z + 65, w, h, "Minecraftian"));
+		addButton(new GuiButton(1, x, z + 86, w, h, "Villager"));
+		addButton(new GuiButton(2, x, z + 107, w, h, "Zombie Pigman"));
+		addButton(new GuiButton(3, x, z + 128, w, h, "Cyclops"));
+		addButton(new GuiButton(4, x, z + 149, w, h, "Ent")); 
 		addMoveButtons();
 	}
 
 	private void page2() {
 		this.buttonList.clear();
 		final int x = this.width / 2 - 75;
+		final int z = this.height / 2 - 125;
 		final int w = 150;
 		final int h = 20;
-		addButton(new GuiButton(7, x, 65, w, h, "Galroid"));
-		addButton(new GuiButton(8, x, 86, w, h, "Boheimite"));
-		addButton(new GuiButton(9, x, 107, w, h, "Cori"));
-		addButton(new GuiButton(10, x, 128, w, h, "Glacon"));
-		addButton(new GuiButton(11, x, 149, w, h, "Frost Archer"));
+		addButton(new GuiButton(7, x, z + 65, w, h, "Galroid"));
+		addButton(new GuiButton(8, x, z + 86, w, h, "Boheimite"));
+		addButton(new GuiButton(9, x, z + 107, w, h, "Cori"));
+		addButton(new GuiButton(10, x, z + 128, w, h, "Glacon"));
+		addButton(new GuiButton(11, x, z + 149, w, h, "Frost Archer"));
 		addMoveButtons();
 	}
 
@@ -142,8 +144,9 @@ public class GuiRaceSelection extends GuiContainer {
 	 * }
 	 */
 	private void addMoveButtons() {
-		addButton(new GuiButton(5, this.width / 2, 175, 76, 20, ">>>"));
-		addButton(new GuiButton(6, this.width / 2 - 75, 175, 76, 20, "<<<"));
+		final int z = this.height / 2;
+		addButton(new GuiButton(5, this.width / 2, z + 55, 76, 20, ">>>"));
+		addButton(new GuiButton(6, this.width / 2 - 75, z + 55, 76, 20, "<<<"));
 	}
 
 	private void addButton(GuiButton b) {

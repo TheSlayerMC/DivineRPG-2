@@ -190,22 +190,23 @@ public class GuiMerchant extends GuiContainer{
 	private void page1() {
 		this.buttonList.clear();
 		final int x = this.width / 2 - 100;
+		final int z = this.height / 2 - 175;
 		final int w = 96;
 		final int h = 20;
-		addButton(new GuiButton(1, x, 86, w, h, "Arrow"));
-		addButton(new GuiButton(2, x, 107, w, h, "Diamond"));
-		addButton(new GuiButton(3, x, 128, w, h, "Gold Ingot"));
-		addButton(new GuiButton(4, x, 149, w, h, "Iron Ingot"));
-		addButton(new GuiButton(5, x, 170, w, h, "Golden Apple"));
-		addButton(new GuiButton(6, x, 191, w, h, "OP Apple"));
-		addButton(new GuiButton(7, x, 212, w, h, "String"));
-		addButton(new GuiButton(8, x + 103, 86, w, h, "Bow"));
-		addButton(new GuiButton(9, x + 103, 107, w, h, "Diamond Sword"));
-		addButton(new GuiButton(10, x + 103, 128, w, h, "Golden Sword"));
-		addButton(new GuiButton(11, x + 103, 149, w, h, "Diamond Block"));
-		addButton(new GuiButton(12, x + 103, 170, w, h, "Beacon"));
-		addButton(new GuiButton(13, x + 103, 191, w, h, "Dragon Egg"));
-		addButton(new GuiButton(14, x + 103, 212, w, h, "Ender Pearl"));
+		addButton(new GuiButton(1, x, z + 86, w, h, "Arrow"));
+		addButton(new GuiButton(2, x, z + 107, w, h, "Diamond"));
+		addButton(new GuiButton(3, x, z + 128, w, h, "Gold Ingot"));
+		addButton(new GuiButton(4, x, z + 149, w, h, "Iron Ingot"));
+		addButton(new GuiButton(5, x, z + 170, w, h, "Golden Apple"));
+		addButton(new GuiButton(6, x, z + 191, w, h, "OP Apple"));
+		addButton(new GuiButton(7, x, z + 212, w, h, "String"));
+		addButton(new GuiButton(8, x + 103, z + 86, w, h, "Bow"));
+		addButton(new GuiButton(9, x + 103, z + 107, w, h, "Diamond Sword"));
+		addButton(new GuiButton(10, x + 103, z + 128, w, h, "Golden Sword"));
+		addButton(new GuiButton(11, x + 103, z + 149, w, h, "Diamond Block"));
+		addButton(new GuiButton(12, x + 103, z + 170, w, h, "Beacon"));
+		addButton(new GuiButton(13, x + 103, z + 191, w, h, "Dragon Egg"));
+		addButton(new GuiButton(14, x + 103, z + 212, w, h, "Ender Pearl"));
 		addMoveButtons();
 		pageNum = 1;
 	}
@@ -213,22 +214,23 @@ public class GuiMerchant extends GuiContainer{
 	private void page2() {
 		this.buttonList.clear();
 		final int x = this.width / 2 - 100;
+		final int z = this.height / 2 - 175;
 		final int w = 96;
 		final int h = 20;
-		addButton(new GuiButton(15, x, 86, w, h, "Ender Eye"));
-		addButton(new GuiButton(16, x, 107, w, h, "Blaze Rod"));
-		addButton(new GuiButton(17, x, 128, w, h, "Blaze Powder"));
-		addButton(new GuiButton(18, x, 149, w, h, "Slime Ball"));
-		addButton(new GuiButton(19, x, 170, w, h, "Lead"));
-		addButton(new GuiButton(20, x, 191, w, h, "Gold Horse Armor"));
-		addButton(new GuiButton(21, x, 212, w, h, "Stick"));
-		addButton(new GuiButton(22, x + 103, 86, w, h, "Nether Star"));
-		addButton(new GuiButton(23, x + 103, 107, w, h, "Iron Sword"));
-		addButton(new GuiButton(24, x + 103, 128, w, h, "Wood Sword"));
-		addButton(new GuiButton(25, x + 103, 149, w, h, "Diamond Helmet"));
-		addButton(new GuiButton(26, x + 103, 170, w, h, "Diamond Chestplate"));
-		addButton(new GuiButton(27, x + 103, 191, w, h, "Diamond Leggings"));
-		addButton(new GuiButton(28, x + 103, 212, w, h, "Diamond Boots"));
+		addButton(new GuiButton(15, x, z + 86, w, h, "Ender Eye"));
+		addButton(new GuiButton(16, x, z + 107, w, h, "Blaze Rod"));
+		addButton(new GuiButton(17, x, z + 128, w, h, "Blaze Powder"));
+		addButton(new GuiButton(18, x, z + 149, w, h, "Slime Ball"));
+		addButton(new GuiButton(19, x, z + 170, w, h, "Lead"));
+		addButton(new GuiButton(20, x, z + 191, w, h, "Gold Horse Armor"));
+		addButton(new GuiButton(21, x, z + 212, w, h, "Stick"));
+		addButton(new GuiButton(22, x + 103, z + 86, w, h, "Nether Star"));
+		addButton(new GuiButton(23, x + 103, z + 107, w, h, "Iron Sword"));
+		addButton(new GuiButton(24, x + 103, z + 128, w, h, "Wood Sword"));
+		addButton(new GuiButton(25, x + 103, z + 149, w, h, "Diamond Helmet"));
+		addButton(new GuiButton(26, x + 103, z + 170, w, h, "Diamond Chestplate"));
+		addButton(new GuiButton(27, x + 103, z + 191, w, h, "Diamond Leggings"));
+		addButton(new GuiButton(28, x + 103, z + 212, w, h, "Diamond Boots"));
 		addMoveButtons();
 		pageNum = 2;
 	}
@@ -258,8 +260,9 @@ public class GuiMerchant extends GuiContainer{
 	
 	private void addMoveButtons() {
 		final int x = this.width / 2 - 100;
-		addButton(new GuiButton(30, x + 103, 255, 96, 20, ">>>"));
-		addButton(new GuiButton(31, x, 255, 96, 20, "<<<"));
+		final int z = this.height / 2 - 175;
+		addButton(new GuiButton(30, x + 103, z + 255, 96, 20, ">>>"));
+		addButton(new GuiButton(31, x, z + 255, 96, 20, "<<<"));
 	}
 	
 	/*private void addMoveButtons2() {
