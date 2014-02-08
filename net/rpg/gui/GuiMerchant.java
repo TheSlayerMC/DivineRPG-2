@@ -92,6 +92,7 @@ public class GuiMerchant extends GuiContainer{
 			return;
 		case 8:
 			buy(Items.bow, 1, 80);
+			return;
 		case 9:
 			buy(Items.diamond_sword, 1, 200);
 			return;
@@ -180,11 +181,11 @@ public class GuiMerchant extends GuiContainer{
 	}
 	
 	public int useCredits(int howMany){
-		if(RPG.credits < 0)
+		if(RPG.credits >= 0)
 			return RPG.credits -= howMany;
-		else if(RPG.credits <= 0)
+		else if(-1 > RPG.credits)
 			return RPG.credits = 0;
-		return howMany;
+		return RPG.credits;
 	}
 
 	private void page1() {
