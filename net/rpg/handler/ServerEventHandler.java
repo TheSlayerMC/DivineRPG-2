@@ -5,6 +5,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,7 +22,7 @@ import net.rpg.network.PacketRequestStats;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class ServerEventHandler {
-	
+
 	@SubscribeEvent
 	public void EntityConstructionEvent(EntityConstructing event) { }
 
@@ -61,17 +62,25 @@ public class ServerEventHandler {
 	@SubscribeEvent
 	public void LivingDropsEvent(LivingDropsEvent event) {
 		EntityLivingBase e = event.entityLiving;
-		if(e instanceof EntityMob) {
-			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1 + e.worldObj.rand.nextInt(4))));
+		if(e instanceof EntityMob && !(e instanceof EntityCreeper) && !(e instanceof EntityEnderman)) {
+			for(int i = 0; i < 1 + e.worldObj.rand.nextInt(100); i++)
+				event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1)));
 		}
 		if(e instanceof EntityAnimal) {
-			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1 + e.worldObj.rand.nextInt(2))));
+			for(int i = 0; i < 1 + e.worldObj.rand.nextInt(20); i++)
+				event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1)));
 		}
 		if(e instanceof EntityCreeper || e instanceof EntityEnderman) {
-			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1 + e.worldObj.rand.nextInt(6))));
+			for(int i = 0; i < 1 + e.worldObj.rand.nextInt(150); i++)
+				event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1)));
 		}
 		if(e instanceof EntityVillager) {
-			event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1 + e.worldObj.rand.nextInt(6))));
+			for(int i = 0; i < 1 + e.worldObj.rand.nextInt(60); i++)
+				event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1)));
+		}
+		if(e instanceof EntitySlime) {
+			for(int i = 0; i < 1 + e.worldObj.rand.nextInt(60); i++)
+				event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1)));
 		}
 	}
 }

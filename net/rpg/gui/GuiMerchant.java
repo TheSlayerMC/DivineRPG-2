@@ -175,13 +175,13 @@ public class GuiMerchant extends GuiContainer{
 	}
 
 	public void buy(Item i, int amount, int cost){
-		if(RPG.credits > 0)
+		if(RPG.credits >= 0)
 			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
 		useCredits(cost);
 	}
 	
 	public int useCredits(int howMany){
-		if(RPG.credits >= 0)
+		if(RPG.credits > 0)
 			return RPG.credits -= howMany;
 		else if(-1 > RPG.credits)
 			return RPG.credits = 0;
