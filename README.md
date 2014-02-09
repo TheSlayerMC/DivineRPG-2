@@ -4,7 +4,7 @@ RPG
 RPG Mod. The end.
 
 Team Members:
-Coders: The_Slayer, BossLetsPlays, Mazetar, TLHPoE(fgt)
+Coders: The_Slayer, SoccerStud, TLHPoE(fgt)
 
 Modelers: Declan (UKdeccy)
     
