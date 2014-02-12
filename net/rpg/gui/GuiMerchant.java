@@ -2,7 +2,6 @@ package net.rpg.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiCommandBlock;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -12,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.rpg.RPG;
+import net.rpg.Util;
 import net.rpg.container.ContainerStats;
 
 import org.lwjgl.opengl.GL11;
@@ -175,9 +175,14 @@ public class GuiMerchant extends GuiContainer{
 	}
 
 	public void buy(Item i, int amount, int cost){
-		if(RPG.credits >= 0)
+		System.out.println(RPG.credits);
+		if(RPG.credits >= cost) {
 			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
-		useCredits(cost);
+			useCredits(cost);
+		}
+		else {
+			p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED + "You do not have enough credits!"));
+		}
 	}
 	
 	public int useCredits(int howMany){
