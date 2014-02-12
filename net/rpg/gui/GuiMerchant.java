@@ -181,7 +181,8 @@ public class GuiMerchant extends GuiContainer{
 			useCredits(cost);
 		}
 		else {
-			p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED + "You do not have enough credits!"));
+			int more = cost-RPG.credits;
+			p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED + "You need " + EnumChatFormatting.GOLD + more + EnumChatFormatting.RED + " more credits!"));
 		}
 	}
 	

@@ -8,10 +8,14 @@ import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.rpg.RPG;
+import net.rpg.Reference;
+import net.rpg.Util;
 import net.rpg.container.ContainerRaceSelection;
 import net.rpg.entity.render.RenderPlayerRPG;
+import net.rpg.handler.WelcomeHandler;
 import net.rpg.helper.ItemHelper;
 import net.rpg.network.PacketRace;
 
@@ -161,5 +165,6 @@ public class GuiRaceSelection extends GuiContainer {
 			p.inventory.consumeInventoryItem(ItemHelper.getItem("raceStone"));
 		}
 		this.mc.displayGuiScreen((GuiScreen)null);
+		WelcomeHandler.wm(p);
 	}
 }
