@@ -176,8 +176,10 @@ public class GuiMerchant extends GuiContainer{
 	}
 
 	public void buy(Item i, int amount, int cost){
-		System.out.println(RPG.credits);
-		if(RPG.credits >= cost && p.capabilities.isCreativeMode) {
+	    if (p.capabilities.isCreativeMode) {
+            p.inventory.addItemStackToInventory(new ItemStack(i, amount));
+        }
+	    else if(RPG.credits >= cost) {
 			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
 			useCredits(cost);
 		}
@@ -188,8 +190,10 @@ public class GuiMerchant extends GuiContainer{
 	}
 	
 	public void buy(Block i, int amount, int cost){
-		System.out.println(RPG.credits);
-		if(RPG.credits >= cost && p.capabilities.isCreativeMode) {
+	    if (p.capabilities.isCreativeMode) {
+            p.inventory.addItemStackToInventory(new ItemStack(i, amount));
+        }
+	    else if(RPG.credits >= cost) {
 			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
 			useCredits(cost);
 		}
