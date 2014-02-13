@@ -1,25 +1,19 @@
 package net.rpg.handler;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.monster.EntityCreeper;
-import net.minecraft.entity.monster.EntityEnderman;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.passive.EntityVillager;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.boss.*;
+import net.minecraft.entity.item.*;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.passive.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.rpg.RPG;
-import net.rpg.helper.DataHelper;
-import net.rpg.helper.ItemHelper;
-import net.rpg.network.PacketRequestStats;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.event.entity.EntityEvent.*;
+import net.minecraftforge.event.entity.*;
+import net.minecraftforge.event.entity.living.*;
+import net.rpg.*;
+import net.rpg.helper.*;
+import net.rpg.network.*;
+import cpw.mods.fml.common.eventhandler.*;
 
 public class ServerEventHandler {
 
@@ -79,7 +73,11 @@ public class ServerEventHandler {
 				event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1)));
 		}
 		if(e instanceof EntitySlime) {
-			for(int i = 0; i < 1 + e.worldObj.rand.nextInt(60); i++)
+			for(int i = 0; i < 1 + e.worldObj.rand.nextInt(10); i++)
+				event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1)));
+		}
+		if(e instanceof EntityDragon || e instanceof EntityWither) {
+			for(int i = 0; i < 1 + e.worldObj.rand.nextInt(1000); i++)
 				event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1)));
 		}
 	}

@@ -1,5 +1,6 @@
 package net.rpg.gui;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -100,13 +101,13 @@ public class GuiMerchant extends GuiContainer{
 			buy(Items.golden_sword, 1, 100);
 			return;
 		case 11:
-			buy(Item.getItemFromBlock(Blocks.diamond_block), 1, 800);
+			buy(Blocks.diamond_block, 1, 800);
 			return;
 		case 12:
-			buy(Item.getItemFromBlock(Blocks.beacon), 1, 900);
+			buy(Blocks.beacon, 1, 900);
 			return;
 		case 13:
-			buy(Item.getItemFromBlock(Blocks.dragon_egg), 1, 1500);
+			buy(Blocks.dragon_egg, 1, 1500);
 			return;
 		case 14:
 			buy(Items.ender_pearl, 1, 50);
@@ -176,7 +177,19 @@ public class GuiMerchant extends GuiContainer{
 
 	public void buy(Item i, int amount, int cost){
 		System.out.println(RPG.credits);
-		if(RPG.credits >= cost) {
+		if(RPG.credits >= cost && p.capabilities.isCreativeMode) {
+			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
+			useCredits(cost);
+		}
+		else {
+			int more = cost-RPG.credits;
+			p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED + "You need " + EnumChatFormatting.GOLD + more + EnumChatFormatting.RED + " more credits!"));
+		}
+	}
+	
+	public void buy(Block i, int amount, int cost){
+		System.out.println(RPG.credits);
+		if(RPG.credits >= cost && p.capabilities.isCreativeMode) {
 			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
 			useCredits(cost);
 		}

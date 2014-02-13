@@ -17,10 +17,11 @@ public class ClientEventHandler {
 	@SubscribeEvent
 	public void RenderGameOverlayEvent(RenderGameOverlayEvent event) {
 
+		if(!Minecraft.getMinecraft().playerController.shouldDrawHUD() || event.isCancelable() || event.type != ElementType.EXPERIENCE) 
+			return;
+
 		GuiVersion.draw();
-
-		if(!Minecraft.getMinecraft().playerController.shouldDrawHUD() || event.isCancelable() || event.type != ElementType.EXPERIENCE) return;
-
+		
 		if(RPG.race == -1 && canUseMana()) {
 			GuiDeBar.draw();
 			GuiArcanaBar.draw();
