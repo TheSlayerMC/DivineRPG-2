@@ -76,7 +76,7 @@ public class GuiRaceSelection extends GuiContainer {
 			return;
 		case 3:
 			sendPacket(3);
-			p.inventory.addItemStackToInventory(new ItemStack(ItemHelper.getItem("cyclopsianSword"), 1));
+			p.inventory.addItemStackToInventory(new ItemStack(ItemHelper.getItem("cyclopsianSword")));
 			RenderingRegistry.registerEntityRenderingHandler(EntityClientPlayerMP.class, new RenderPlayerRPG(3.0F));
 			return;
 		case 4:

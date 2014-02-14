@@ -2,6 +2,7 @@ package net.rpg.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.util.EnumChatFormatting;
 import net.rpg.RPG;
 import net.rpg.Reference;
 import net.rpg.Util;
@@ -12,8 +13,8 @@ public class GuiVersion {
 	
 	public static void draw() {
 		FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
-		String name = Util.AQUA + Reference.MOD_NAME;
-		String version = Util.DARK_PURPLE + "Version: " + Reference.MOD_VERSION;
+		String name = Util.AQUA + EnumChatFormatting.BOLD + Reference.MOD_NAME;
+		String version = Util.DARK_PURPLE + EnumChatFormatting.ITALIC + "Version: " + EnumChatFormatting.UNDERLINE + Reference.MOD_VERSION;
 		String credits;
 		if(RPG.credits == 0)
 			credits = Util.DARK_RED + "Credits: " + Util.DARK_RED + RPG.credits;
