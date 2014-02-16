@@ -10,6 +10,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.rpg.item.ItemCredit;
 import net.rpg.item.ItemEnergyStaff;
 import net.rpg.item.ItemRaceStone;
+import net.rpg.item.ItemStaff;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemHelper {
@@ -21,6 +22,15 @@ public class ItemHelper {
 		addItem("credit", new ItemCredit());
 		addItem("eStaff", new ItemEnergyStaff());
 		addItem("cyclopsianSword", new ItemSword(cyclopsianSword));
+		addItem("teakerStaff", new ItemStaff(3, 10));
+		addItem("amthrimisStaff", new ItemStaff(5, 10));
+		addItem("darvenStaff", new ItemStaff(8, 10));
+		addItem("cermileStaff", new ItemStaff(12, 10));
+		addItem("pardimalStaff", new ItemStaff(15, 10));
+		addItem("quadroticStaff", new ItemStaff(19, 10));
+		addItem("karosStaff", new ItemStaff(21, 10));
+		addItem("heliosisStaff", new ItemStaff(28, 10));
+		addItem("arksianeStaff", new ItemStaff(3, 10));
 	}
 
 	public static void addItem(String n, Item i) {
