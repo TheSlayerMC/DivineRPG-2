@@ -16,17 +16,17 @@ public class GuiVersion {
 		String version = Util.WHITE + "Version: " + Reference.MOD_VERSION;
 		String credits;
 		if(RPG.credits == 0)
-			credits = Util.WHITE + "Credits: " + Util.DARK_RED + RPG.credits;
+			credits = Util.DARK_RED + "Credits: " + Util.DARK_RED + RPG.credits;
 		else if(RPG.credits < 50)
-			credits = Util.WHITE + "Credits: " + Util.RED + RPG.credits;
+			credits = Util.DARK_RED + "Credits: " + Util.RED + RPG.credits;
 		else if(RPG.credits < 100)
-			credits = Util.WHITE + "Credits: " + Util.GOLD + RPG.credits;
+			credits = Util.DARK_RED + "Credits: " + Util.GOLD + RPG.credits;
 		else if (RPG.credits < 500)
-			credits = Util.WHITE + "Credits: " + Util.YELLOW + RPG.credits;
+			credits = Util.DARK_RED + "Credits: " + Util.YELLOW + RPG.credits;
 		else if (RPG.credits < 1000)
-			credits = Util.WHITE + "Credits: " + Util.AQUA + RPG.credits;
+			credits = Util.DARK_RED + "Credits: " + Util.AQUA + RPG.credits;
 		else
-			credits = Util.WHITE + "Credits: " + Util.GREEN + RPG.credits;
+			credits = Util.DARK_RED + "Credits: " + Util.GREEN + RPG.credits;
 		String s = credits;
 		
 		fontRenderer.drawString(name, 2, 2, 4210752);
