@@ -39,8 +39,7 @@ public class ServerEventHandler {
 	}
 
 	@SubscribeEvent
-	public void LivingDeathEvent(LivingDeathEvent event) {
-	}
+	public void LivingDeathEvent(LivingDeathEvent event) { }
 
 	@SubscribeEvent
 	public void LivingHurtEvent(LivingHurtEvent event) {
