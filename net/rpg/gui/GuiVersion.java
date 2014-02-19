@@ -12,8 +12,8 @@ public class GuiVersion {
 	
 	public static void draw() {
 		FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
-		String name = Util.WHITE + Reference.MOD_NAME;
-		String version = Util.WHITE + "Version: " + Reference.MOD_VERSION;
+		String name = Util.AQUA + Reference.MOD_NAME;
+		String version = Util.DARK_PURPLE + "Version: " + Reference.MOD_VERSION;
 		String credits;
 		if(RPG.credits == 0)
 			credits = Util.DARK_RED + "Credits: " + Util.DARK_RED + RPG.credits;

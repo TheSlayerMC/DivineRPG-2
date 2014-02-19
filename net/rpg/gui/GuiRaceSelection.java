@@ -81,12 +81,15 @@ public class GuiRaceSelection extends GuiContainer {
 			return;
 		case 4:
 			sendPacket(4);
+			p.inventory.addItemStackToInventory(new ItemStack(ItemHelper.getItem("cermileBacksword")));
 			return;
 		case 7:
 			sendPacket(6);
+			p.inventory.addItemStackToInventory(new ItemStack(ItemHelper.getItem("cermileBacksword")));
 			return;
 		case 8:
 			sendPacket(7);
+			p.inventory.addItemStackToInventory(new ItemStack(ItemHelper.getItem("cermileBacksword")));
 			return;
 		case 9:
 			sendPacket(8);
