@@ -31,4 +31,9 @@ public class ClientEventHandler {
 	public boolean canUseMana(){// for later use
 		return true;
 	}
+	
+	@SubscribeEvent
+	public void RenderHandEvent(net.minecraftforge.client.event.RenderHandEvent event){
+
+	}
 }
