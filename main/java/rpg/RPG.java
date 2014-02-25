@@ -10,7 +10,7 @@ import rpg.helper.DataHelper;
 import rpg.network.PacketOpenGui;
 import rpg.network.PacketRace;
 import rpg.network.PacketRequestStats;
-import rpg.network.PacketStatsToClient;
+import rpg.network.PacketRefreshStats;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -42,7 +42,7 @@ public class RPG {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
-		packetHandler.registerPacket(PacketStatsToClient.class);
+		packetHandler.registerPacket(PacketRefreshStats.class);
 		packetHandler.registerPacket(PacketRequestStats.class);
 		packetHandler.registerPacket(PacketRace.class);
 		packetHandler.registerPacket(PacketOpenGui.class);
@@ -74,7 +74,7 @@ public class RPG {
 	}
 
 	public static void sendStats(EntityPlayer player) {
-		PacketStatsToClient ps = new PacketStatsToClient();
+		PacketRefreshStats ps = new PacketRefreshStats();
 		ps.race = DataHelper.getRace(player);
 		ps.maxHp = DataHelper.getMaxHp(player);
 		ps.de = DataHelper.getDe(player);

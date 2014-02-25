@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import rpg.RPG;
 import rpg.helper.DataHelper;
-import rpg.network.PacketStatsToClient;
+import rpg.network.PacketRefreshStats;
 
 public class ContainerStats extends Container {
 	public ContainerStats(EntityPlayer p) {

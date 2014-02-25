@@ -5,7 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import rpg.RPG;
 
-public class PacketStatsToClient extends AbstractPacket {
+public class PacketRefreshStats extends AbstractPacket {
 	public int race, maxHp, de, maxDe, credits, attack, defense, discount, luck, reflex, stamina, speed, ar, maxAr, coolDown, ability;
 
 	@Override
