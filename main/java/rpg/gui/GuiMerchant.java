@@ -1,22 +1,18 @@
 package rpg.gui;
 
-import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.common.registry.GameData;
 import rpg.RPG;
-import rpg.Util;
 import rpg.container.ContainerStats;
+import rpg.network.PacketRequestBuy;
 
 public class GuiMerchant extends GuiContainer {
 	private static ResourceLocation texture = new ResourceLocation("rpg:textures/gui/merchant.png");
@@ -68,88 +64,88 @@ public class GuiMerchant extends GuiContainer {
 	protected void actionPerformed(GuiButton button) {
 		switch(button.id) {
 		case 1:
-			buy(Items.arrow, 1, 7);
+			buy(true, "arrow", 1, 7);
 			return;
 		case 2:
-			buy(Items.diamond, 1, 100);
+			buy(true, "diamond", 1, 100);
 			return;
 		case 3:
-			buy(Items.gold_ingot, 1, 50);
+			buy(true, "gold_ingot", 1, 50);
 			return;
 		case 4:
-			buy(Items.iron_ingot, 1, 70);
+			buy(true, "iron_ingot", 1, 70);
 			return;
 		case 5:
-			buy(Items.golden_apple, 1, 100);
+			buy(true, "golden_apple", 1, 100);
 			return;
 		case 6:
-			buy(Items.golden_apple, 1, 300);
+			buy(true, "golden_apple", 1, 300);
 			return;
 		case 7:
-			buy(Items.string, 1, 3);
+			buy(true, "string", 1, 3);
 			return;
 		case 8:
-			buy(Items.bow, 1, 80);
+			buy(true, "bow", 1, 80);
 			return;
 		case 9:
-			buy(Items.diamond_sword, 1, 200);
+			buy(true, "diamond_sword", 1, 200);
 			return;
 		case 10:
-			buy(Items.golden_sword, 1, 100);
+			buy(true, "golden_sword", 1, 100);
 			return;
 		case 11:
-			buy(Blocks.diamond_block, 1, 800);
+			buy(false, "diamond_block", 1, 800);
 			return;
 		case 12:
-			buy(Blocks.beacon, 1, 900);
+			buy(false, "beacon", 1, 900);
 			return;
 		case 13:
-			buy(Blocks.dragon_egg, 1, 1500);
+			buy(false, "dragon_egg", 1, 1500);
 			return;
 		case 14:
-			buy(Items.ender_pearl, 1, 50);
+			buy(true, "ender_pearl", 1, 50);
 			return;
 		case 15:
-			buy(Items.ender_eye, 1, 200);
+			buy(true, "ender_eye", 1, 200);
 			return;
 		case 16:
-			buy(Items.blaze_rod, 1, 250);
+			buy(true, "blaze_rod", 1, 250);
 			return;
 		case 17:
-			buy(Items.blaze_powder, 1, 125);
+			buy(true, "blaze_powder", 1, 125);
 			return;
 		case 18:
-			buy(Items.slime_ball, 1, 50);
+			buy(true, "slime_ball", 1, 50);
 			return;
 		case 19:
-			buy(Items.lead, 1, 75);
+			buy(true, "lead", 1, 75);
 			return;
 		case 20:
-			buy(Items.golden_horse_armor, 1, 200);
+			buy(true, "golden_horse_armor", 1, 200);
 			return;
 		case 21:
-			buy(Items.stick, 1, 5);
+			buy(true, "stick", 1, 5);
 			return;
 		case 22:
-			buy(Items.nether_star, 1, 500);
+			buy(true, "nether_star", 1, 500);
 			return;
 		case 23:
-			buy(Items.iron_sword, 1, 100);
+			buy(true, "iron_sword", 1, 100);
 			return;
 		case 24:
-			buy(Items.wooden_sword, 1, 50);
+			buy(true, "wooden_sword", 1, 50);
 			return;
 		case 25:
-			buy(Items.diamond_helmet, 1, 500);
+			buy(true, "diamond_helmet", 1, 500);
 			return;
 		case 26:
-			buy(Items.diamond_chestplate, 1, 800);
+			buy(true, "diamond_chestplate", 1, 800);
 			return;
 		case 27:
-			buy(Items.diamond_leggings, 1, 700);
+			buy(true, "diamond_leggings", 1, 700);
 			return;
 		case 28:
-			buy(Items.diamond_boots, 1, 400);
+			buy(true, "diamond_boots", 1, 400);
 			return;
 		case 30:
 			page2();
@@ -176,36 +172,13 @@ public class GuiMerchant extends GuiContainer {
 		}
 	}
 
-	public void buy(Item i, int amount, int cost) {
-		if(p.capabilities.isCreativeMode) {
-			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
-		} else if(RPG.credits >= cost) {
-			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
-			useCredits(cost);
-		} else {
-			int more = cost - RPG.credits;
-			p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED + "You need " + EnumChatFormatting.GOLD + more + EnumChatFormatting.RED + " more credits!"));
-		}
-	}
-
-	public void buy(Block i, int amount, int cost) {
-		if(p.capabilities.isCreativeMode) {
-			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
-		} else if(RPG.credits >= cost) {
-			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
-			useCredits(cost);
-		} else {
-			int more = cost - RPG.credits;
-			p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED + "You need " + EnumChatFormatting.GOLD + more + EnumChatFormatting.RED + " more credits!"));
-		}
-	}
-
-	public int useCredits(int howMany) {
-		if(RPG.credits > 0)
-			return RPG.credits -= howMany;
-		else if(-1 > RPG.credits)
-			return RPG.credits = 0;
-		return RPG.credits;
+	private static void buy(boolean item, String name, int amount, int cost) {
+		PacketRequestBuy packet = new PacketRequestBuy();
+		packet.item = item;
+		packet.name = name;
+		packet.amount = amount;
+		packet.cost = cost;
+		RPG.packetHandler.sendToServer(packet);
 	}
 
 	private void page1() {

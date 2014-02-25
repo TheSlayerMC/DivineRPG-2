@@ -9,8 +9,9 @@ import rpg.handler.PacketHandler;
 import rpg.helper.DataHelper;
 import rpg.network.PacketOpenGui;
 import rpg.network.PacketRace;
-import rpg.network.PacketRequestStats;
 import rpg.network.PacketRefreshStats;
+import rpg.network.PacketRequestBuy;
+import rpg.network.PacketRequestStats;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -46,6 +47,7 @@ public class RPG {
 		packetHandler.registerPacket(PacketRequestStats.class);
 		packetHandler.registerPacket(PacketRace.class);
 		packetHandler.registerPacket(PacketOpenGui.class);
+		packetHandler.registerPacket(PacketRequestBuy.class);
 		packetHandler.postInit();
 	}
 
