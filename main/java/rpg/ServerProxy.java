@@ -17,6 +17,5 @@ public class ServerProxy {
 		ConfigHelper.save();
 	}
 
-	public void doClient() {
-	}
+	public void doClient() { }
 }
