@@ -1,13 +1,13 @@
-package net.rpg.entity.render;
+package rpg.entity.render;
 
 import net.minecraft.client.renderer.entity.RendererLivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-import net.rpg.entity.model.ModelCori;
 
 import org.lwjgl.opengl.GL11;
 
+import rpg.entity.model.ModelCori;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

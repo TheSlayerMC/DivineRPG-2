@@ -1,4 +1,4 @@
-package net.rpg.gui;
+package rpg.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
@@ -8,19 +8,16 @@ import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
-import net.rpg.RPG;
-import net.rpg.Reference;
-import net.rpg.Util;
-import net.rpg.container.ContainerRaceSelection;
-import net.rpg.entity.render.RenderPlayerRPG;
-import net.rpg.handler.WelcomeHandler;
-import net.rpg.helper.ItemHelper;
-import net.rpg.network.PacketRace;
 
 import org.lwjgl.opengl.GL11;
 
+import rpg.RPG;
+import rpg.container.ContainerRaceSelection;
+import rpg.entity.render.RenderPlayerRPG;
+import rpg.handler.WelcomeHandler;
+import rpg.helper.ItemHelper;
+import rpg.network.PacketRace;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -119,7 +116,7 @@ public class GuiRaceSelection extends GuiContainer {
 		addButton(new GuiButton(1, x, z + 86, w, h, "Villager"));
 		addButton(new GuiButton(2, x, z + 107, w, h, "Zombie Pigman"));
 		addButton(new GuiButton(3, x, z + 128, w, h, "Cyclops"));
-		addButton(new GuiButton(4, x, z + 149, w, h, "Ent")); 
+		addButton(new GuiButton(4, x, z + 149, w, h, "Ent"));
 		addMoveButtons();
 	}
 
@@ -167,7 +164,7 @@ public class GuiRaceSelection extends GuiContainer {
 		if(p.inventory.hasItem(ItemHelper.getItem("raceStone"))) {
 			p.inventory.consumeInventoryItem(ItemHelper.getItem("raceStone"));
 		}
-		this.mc.displayGuiScreen((GuiScreen)null);
+		this.mc.displayGuiScreen((GuiScreen) null);
 		WelcomeHandler.wm(p);
 	}
 }

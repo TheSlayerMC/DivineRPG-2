@@ -1,13 +1,13 @@
-package net.rpg.handler;
+package rpg.handler;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import net.rpg.container.ContainerRaceSelection;
-import net.rpg.container.ContainerStats;
-import net.rpg.gui.GuiAbilitys;
-import net.rpg.gui.GuiMerchant;
-import net.rpg.gui.GuiRaceSelection;
-import net.rpg.gui.GuiStats;
+import rpg.container.ContainerRaceSelection;
+import rpg.container.ContainerStats;
+import rpg.gui.GuiAbilitys;
+import rpg.gui.GuiMerchant;
+import rpg.gui.GuiRaceSelection;
+import rpg.gui.GuiStats;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler {

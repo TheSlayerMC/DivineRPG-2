@@ -1,24 +1,32 @@
-package net.rpg.handler;
+package rpg.handler;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.boss.*;
-import net.minecraft.entity.item.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.passive.*;
-import net.minecraft.entity.player.*;
+import net.minecraft.entity.boss.EntityDragon;
+import net.minecraft.entity.boss.EntityWither;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.monster.EntityEnderman;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.event.entity.EntityEvent.*;
-import net.minecraftforge.event.entity.*;
-import net.minecraftforge.event.entity.living.*;
-import net.rpg.*;
-import net.rpg.helper.*;
-import net.rpg.network.*;
-import cpw.mods.fml.common.eventhandler.*;
+import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import rpg.RPG;
+import rpg.helper.DataHelper;
+import rpg.helper.ItemHelper;
+import rpg.network.PacketRequestStats;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class ServerEventHandler {
-
 	@SubscribeEvent
-	public void EntityConstructionEvent(EntityConstructing event) { }
+	public void EntityConstructionEvent(EntityConstructing event) {
+	}
 
 	@SubscribeEvent
 	public void EntityJoinWorldEvent(EntityJoinWorldEvent event) {
@@ -39,7 +47,8 @@ public class ServerEventHandler {
 	}
 
 	@SubscribeEvent
-	public void LivingDeathEvent(LivingDeathEvent event) { }
+	public void LivingDeathEvent(LivingDeathEvent event) {
+	}
 
 	@SubscribeEvent
 	public void LivingHurtEvent(LivingHurtEvent event) {

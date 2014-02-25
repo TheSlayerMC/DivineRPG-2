@@ -1,4 +1,4 @@
-package net.rpg.helper;
+package rpg.helper;
 
 import java.util.HashMap;
 

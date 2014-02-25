@@ -1,13 +1,12 @@
-package net.rpg;
+package rpg;
 
-import net.rpg.helper.BlockHelper;
-import net.rpg.helper.ConfigHelper;
-import net.rpg.helper.ItemHelper;
-import net.rpg.helper.NetworkHelper;
-import net.rpg.helper.ServerEventHelper;
+import rpg.helper.BlockHelper;
+import rpg.helper.ConfigHelper;
+import rpg.helper.ItemHelper;
+import rpg.helper.NetworkHelper;
+import rpg.helper.ServerEventHelper;
 
 public class ServerProxy {
-	
 	public void doServer() {
 		ConfigHelper.init();
 		ConfigHelper.load();
@@ -18,5 +17,6 @@ public class ServerProxy {
 		ConfigHelper.save();
 	}
 
-	public void doClient() { }
+	public void doClient() {
+	}
 }

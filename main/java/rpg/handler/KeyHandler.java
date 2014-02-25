@@ -1,12 +1,12 @@
-package net.rpg.handler;
+package rpg.handler;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
-import net.rpg.RPG;
-import net.rpg.network.PacketOpenGui;
 
 import org.lwjgl.input.Keyboard;
 
+import rpg.RPG;
+import rpg.network.PacketOpenGui;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent;
@@ -20,7 +20,6 @@ public class KeyHandler {
 		ClientRegistry.registerKeyBinding(stats);
 		ClientRegistry.registerKeyBinding(abilitys);
 		ClientRegistry.registerKeyBinding(merchant);
-
 	}
 
 	@SubscribeEvent
@@ -30,7 +29,6 @@ public class KeyHandler {
 				RPG.packetHandler.sendToServer(new PacketOpenGui().setID(1));
 			}
 		}
-		
 		if(abilitys.isPressed()) {
 			if(Minecraft.getMinecraft().currentScreen == null) {
 				RPG.packetHandler.sendToServer(new PacketOpenGui().setID(2));

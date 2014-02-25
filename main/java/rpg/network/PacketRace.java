@@ -1,12 +1,12 @@
-package net.rpg.network;
+package rpg.network;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBow;
-import net.rpg.RPG;
-import net.rpg.helper.DataHelper;
-import net.rpg.helper.ItemHelper;
+import rpg.RPG;
+import rpg.helper.DataHelper;
+import rpg.helper.ItemHelper;
 
 public class PacketRace extends AbstractPacket {
 	public int race;

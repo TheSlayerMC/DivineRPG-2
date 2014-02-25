@@ -1,8 +1,8 @@
-package net.rpg.helper;
+package rpg.helper;
 
 import net.minecraftforge.common.MinecraftForge;
-import net.rpg.handler.ClientEventHandler;
-import net.rpg.handler.KeyHandler;
+import rpg.handler.ClientEventHandler;
+import rpg.handler.KeyHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.EventBus;
 

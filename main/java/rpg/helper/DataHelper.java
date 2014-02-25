@@ -1,4 +1,4 @@
-package net.rpg.helper;
+package rpg.helper;
 
 import java.io.File;
 
@@ -6,7 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
-import net.rpg.RPG;
+import rpg.RPG;
 
 public class DataHelper {
 	private static Configuration data;

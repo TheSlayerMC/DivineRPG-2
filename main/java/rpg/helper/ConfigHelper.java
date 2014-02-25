@@ -1,9 +1,9 @@
-package net.rpg.helper;
+package rpg.helper;
 
 import java.io.File;
 
 import net.minecraftforge.common.config.Configuration;
-import net.rpg.Reference;
+import rpg.Reference;
 
 public class ConfigHelper {
 	public static Configuration config;

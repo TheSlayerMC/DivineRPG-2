@@ -1,7 +1,7 @@
-package net.rpg.helper;
+package rpg.helper;
 
 import net.minecraftforge.common.MinecraftForge;
-import net.rpg.handler.ServerEventHandler;
+import rpg.handler.ServerEventHandler;
 import cpw.mods.fml.common.eventhandler.EventBus;
 
 public class ServerEventHelper {

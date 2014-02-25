@@ -1,19 +1,18 @@
-package net.rpg.item;
+package rpg.item;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.rpg.RPG;
+import rpg.RPG;
 
 public class ItemRaceStone extends Item {
-	
 	@Override
 	public boolean hasEffect(ItemStack par1ItemStack) {
 		return true;
 	}
-	
+
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
 		if(!par2World.isRemote) {

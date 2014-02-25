@@ -1,9 +1,9 @@
-package net.rpg.network;
+package rpg.network;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
-import net.rpg.RPG;
+import rpg.RPG;
 
 public class PacketRequestStats extends AbstractPacket {
 	@Override

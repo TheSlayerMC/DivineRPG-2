@@ -1,9 +1,9 @@
-package net.rpg.container;
+package rpg.container;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
-import net.rpg.helper.DataHelper;
-import net.rpg.network.PacketStatsToClient;
+import rpg.helper.DataHelper;
+import rpg.network.PacketStatsToClient;
 
 public class ContainerStats extends Container {
 	public int coins, attack, defense;

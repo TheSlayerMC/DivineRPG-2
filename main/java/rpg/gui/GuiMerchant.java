@@ -1,4 +1,4 @@
-package net.rpg.gui;
+package rpg.gui;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -11,18 +11,18 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
-import net.rpg.RPG;
-import net.rpg.Util;
-import net.rpg.container.ContainerStats;
 
 import org.lwjgl.opengl.GL11;
 
-public class GuiMerchant extends GuiContainer{
+import rpg.RPG;
+import rpg.Util;
+import rpg.container.ContainerStats;
 
+public class GuiMerchant extends GuiContainer {
 	private static ResourceLocation texture = new ResourceLocation("rpg:textures/gui/merchant.png");
-
 	private EntityPlayer p = Minecraft.getMinecraft().thePlayer;
 	int pageNum, maxPageNums = 2;
+
 	public GuiMerchant(EntityPlayer p) {
 		super(new ContainerStats(p));
 	}
@@ -33,19 +33,16 @@ public class GuiMerchant extends GuiContainer{
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 20, 6 - 25, 4210752);
 		s = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 		String credits;
-		
 		if(RPG.credits == 0)
 			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.RED + RPG.credits;
 		else if(RPG.credits < 30)
 			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.YELLOW + RPG.credits;
 		else
 			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.GREEN + RPG.credits;
-
 		s = credits;
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 + 50, 6 - 25, 4210752);
 		s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + RPG.discount + "%";
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 90, 6 - 25, 4210752);
-		
 		s = EnumChatFormatting.YELLOW + "Page: " + EnumChatFormatting.WHITE + pageNum + "/" + maxPageNums;
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 25, 1 + 147, 4210752);
 	}
@@ -70,7 +67,7 @@ public class GuiMerchant extends GuiContainer{
 	@Override
 	protected void actionPerformed(GuiButton button) {
 		switch(button.id) {
-		case 1: 
+		case 1:
 			buy(Items.arrow, 1, 7);
 			return;
 		case 2:
@@ -157,53 +154,53 @@ public class GuiMerchant extends GuiContainer{
 		case 30:
 			page2();
 			return;
-		/*case 30:
-			page3();
-			return;*/
+			/*
+			 * case 30:
+			 * page3();
+			 * return;
+			 */
 		case 31:
 			page1();
 			return;
-		/*case 32:
-			page4();
-			return;
-		case 33:
-			page2();
-			return;
-		case 34:
-			page3();
-			return;*/
+			/*
+			 * case 32:
+			 * page4();
+			 * return;
+			 * case 33:
+			 * page2();
+			 * return;
+			 * case 34:
+			 * page3();
+			 * return;
+			 */
 		}
 	}
 
-	public void buy(Item i, int amount, int cost){
-	    if (p.capabilities.isCreativeMode) {
-            p.inventory.addItemStackToInventory(new ItemStack(i, amount));
-        }
-	    else if(RPG.credits >= cost) {
+	public void buy(Item i, int amount, int cost) {
+		if(p.capabilities.isCreativeMode) {
+			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
+		} else if(RPG.credits >= cost) {
 			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
 			useCredits(cost);
-		}
-		else {
-			int more = cost-RPG.credits;
+		} else {
+			int more = cost - RPG.credits;
 			p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED + "You need " + EnumChatFormatting.GOLD + more + EnumChatFormatting.RED + " more credits!"));
 		}
 	}
-	
-	public void buy(Block i, int amount, int cost){
-	    if (p.capabilities.isCreativeMode) {
-            p.inventory.addItemStackToInventory(new ItemStack(i, amount));
-        }
-	    else if(RPG.credits >= cost) {
+
+	public void buy(Block i, int amount, int cost) {
+		if(p.capabilities.isCreativeMode) {
+			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
+		} else if(RPG.credits >= cost) {
 			p.inventory.addItemStackToInventory(new ItemStack(i, amount));
 			useCredits(cost);
-		}
-		else {
-			int more = cost-RPG.credits;
+		} else {
+			int more = cost - RPG.credits;
 			p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED + "You need " + EnumChatFormatting.GOLD + more + EnumChatFormatting.RED + " more credits!"));
 		}
 	}
-	
-	public int useCredits(int howMany){
+
+	public int useCredits(int howMany) {
 		if(RPG.credits > 0)
 			return RPG.credits -= howMany;
 		else if(-1 > RPG.credits)
@@ -258,48 +255,49 @@ public class GuiMerchant extends GuiContainer{
 		addMoveButtons();
 		pageNum = 2;
 	}
-	
-	/*private void page3(){
-		this.buttonList.clear();
-		final int x = this.width / 2 - 100;
-		final int w = 96;
-		final int h = 20;
-		addButton(new GuiButton(1, x, 86, w, h, "SWAGZ"));
-		addMoveButtons2();
-	}
-	
-	private void page4(){
-		this.buttonList.clear();
-		final int x = this.width / 2 - 100;
-		final int w = 96;
-		final int h = 20;
-		addButton(new GuiButton(1, x, 86, w, h, "#YOLO"));
-		addMoveButtons3();
-	}*/
 
-	/*private void addMoveButton() {
-		final int x = this.width / 2 - 100;
-		addButton(new GuiButton(29, x, 255, 192, 20, ">>>"));
-	}*/
-	
+	/*
+	 * private void page3(){
+	 * this.buttonList.clear();
+	 * final int x = this.width / 2 - 100;
+	 * final int w = 96;
+	 * final int h = 20;
+	 * addButton(new GuiButton(1, x, 86, w, h, "SWAGZ"));
+	 * addMoveButtons2();
+	 * }
+	 * private void page4(){
+	 * this.buttonList.clear();
+	 * final int x = this.width / 2 - 100;
+	 * final int w = 96;
+	 * final int h = 20;
+	 * addButton(new GuiButton(1, x, 86, w, h, "#YOLO"));
+	 * addMoveButtons3();
+	 * }
+	 */
+	/*
+	 * private void addMoveButton() {
+	 * final int x = this.width / 2 - 100;
+	 * addButton(new GuiButton(29, x, 255, 192, 20, ">>>"));
+	 * }
+	 */
 	private void addMoveButtons() {
 		final int x = this.width / 2 - 100;
 		final int z = this.height / 2 - 175;
 		addButton(new GuiButton(30, x + 103, z + 255, 96, 20, ">>>"));
 		addButton(new GuiButton(31, x, z + 255, 96, 20, "<<<"));
 	}
-	
-	/*private void addMoveButtons2() {
-		final int x = this.width / 2 - 100;
-		addButton(new GuiButton(32, x + 103, 255, 96, 20, ">>>"));
-		addButton(new GuiButton(33, x, 255, 96, 20, "<<<"));
-	}
-	
-	private void addMoveButtons3() {
-		final int x = this.width / 2 - 100;
-		addButton(new GuiButton(34, x, 255, 192, 20, "<<<"));
-	}*/
 
+	/*
+	 * private void addMoveButtons2() {
+	 * final int x = this.width / 2 - 100;
+	 * addButton(new GuiButton(32, x + 103, 255, 96, 20, ">>>"));
+	 * addButton(new GuiButton(33, x, 255, 96, 20, "<<<"));
+	 * }
+	 * private void addMoveButtons3() {
+	 * final int x = this.width / 2 - 100;
+	 * addButton(new GuiButton(34, x, 255, 192, 20, "<<<"));
+	 * }
+	 */
 	private void addButton(GuiButton b) {
 		this.buttonList.add(b);
 	}

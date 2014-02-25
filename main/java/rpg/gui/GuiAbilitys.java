@@ -1,14 +1,15 @@
-package net.rpg.gui;
+package rpg.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
-import net.rpg.RPG;
-import net.rpg.Reference;
-import net.rpg.container.ContainerRaceSelection;
 
 import org.lwjgl.opengl.GL11;
+
+import rpg.RPG;
+import rpg.Reference;
+import rpg.container.ContainerRaceSelection;
 
 public class GuiAbilitys extends GuiContainer {
 	private static final ResourceLocation texture = new ResourceLocation("rpg:textures/gui/blank.png");

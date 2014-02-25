@@ -1,4 +1,4 @@
-package net.rpg.entity;
+package rpg.entity;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityCreature;
@@ -12,7 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
-import net.rpg.Util;
+import rpg.Util;
 
 public abstract class EntityRPG extends EntityCreature {
 	public EntityRPG(World par1World) {

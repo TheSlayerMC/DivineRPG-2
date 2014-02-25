@@ -1,8 +1,8 @@
-package net.rpg.helper;
+package rpg.helper;
 
-import net.rpg.RPG;
-import net.rpg.handler.GuiHandler;
-import net.rpg.handler.PacketHandler;
+import rpg.RPG;
+import rpg.handler.GuiHandler;
+import rpg.handler.PacketHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
 public class NetworkHelper {

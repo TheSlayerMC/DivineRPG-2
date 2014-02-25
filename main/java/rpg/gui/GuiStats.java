@@ -1,16 +1,15 @@
-package net.rpg.gui;
+package rpg.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.gui.inventory.GuiCrafting;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
-import net.rpg.RPG;
-import net.rpg.Reference;
-import net.rpg.container.ContainerStats;
 
 import org.lwjgl.opengl.GL11;
 
+import rpg.RPG;
+import rpg.Reference;
+import rpg.container.ContainerStats;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

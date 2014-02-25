@@ -1,10 +1,10 @@
-package net.rpg.gui;
+package rpg.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.ResourceLocation;
-import net.rpg.RPG;
+import rpg.RPG;
 
 public class GuiDeBar {
 	public static ResourceLocation texture = new ResourceLocation("rpg:textures/gui/deSheet.png");

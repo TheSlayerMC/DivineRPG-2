@@ -1,4 +1,4 @@
-package net.rpg.network;
+package rpg.network;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

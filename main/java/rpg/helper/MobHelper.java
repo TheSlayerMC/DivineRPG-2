@@ -1,8 +1,8 @@
-package net.rpg.helper;
+package rpg.helper;
 
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityList.EntityEggInfo;
-import net.rpg.RPG;
+import rpg.RPG;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class MobHelper {
