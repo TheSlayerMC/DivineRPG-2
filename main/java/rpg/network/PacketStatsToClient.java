@@ -6,9 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import rpg.RPG;
 
 public class PacketStatsToClient extends AbstractPacket {
-	public int race, maxHp, de, maxDe, credits, attack, defense, discount, luck, reflex, stamina, speed, ar, maxAr, coolDown;
-	public String ability = "SET ABILITY", denotation = "ABILITY INFO";
-	public boolean goodEffect = true, ranged = true;//True For Now
+	public int race, maxHp, de, maxDe, credits, attack, defense, discount, luck, reflex, stamina, speed, ar, maxAr, coolDown, ability;
 
 	@Override
 	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
@@ -27,6 +25,7 @@ public class PacketStatsToClient extends AbstractPacket {
 		buffer.writeInt(ar);
 		buffer.writeInt(maxAr);
 		buffer.writeInt(coolDown);
+		buffer.writeInt(ability);
 	}
 
 	@Override
@@ -46,6 +45,7 @@ public class PacketStatsToClient extends AbstractPacket {
 		ar = buffer.readInt();
 		maxAr = buffer.readInt();
 		coolDown = buffer.readInt();
+		ability = buffer.readInt();
 	}
 
 	@Override
@@ -66,9 +66,6 @@ public class PacketStatsToClient extends AbstractPacket {
 		RPG.maxAr = maxAr;
 		RPG.coolDown = coolDown;
 		RPG.ability = ability;
-		RPG.goodEfect = goodEffect ? "True" : "False";
-		RPG.denotation = denotation;
-		RPG.ranged = ranged ? "True" : "False";
 	}
 
 	@Override

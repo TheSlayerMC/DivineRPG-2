@@ -50,9 +50,9 @@ public class RPG {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static int race = -1, maxHp, de, maxDe, credits, attack, defense, discount, luck, reflex, stamina, speed, arcana, maxAr, coolDown;
-	public static String ability, goodEfect, denotation, ranged;
+	public static int race = -1, maxHp, de, maxDe, credits, attack, defense, discount, luck, reflex, stamina, speed, arcana, maxAr, coolDown, ability;
 
+	//public static String ability, goodEfect, denotation, ranged;
 	public static void applyStats(EntityPlayer player) {
 		final AttributeModifier health = new AttributeModifier(player.getPersistentID(), "rpg_health", (((double) DataHelper.getMaxHp(player)) / 10) - 1, 1);
 		IAttributeInstance iaiHealth = player.getEntityAttribute(SharedMonsterAttributes.maxHealth);
@@ -90,6 +90,7 @@ public class RPG {
 		ps.ar = DataHelper.getArcana(player);
 		ps.maxAr = DataHelper.getMaxArcana(player);
 		ps.coolDown = DataHelper.getCooldown(player);
+		ps.ability = DataHelper.getAbility(player);
 		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
 		RPG.applyStats(player);
 	}

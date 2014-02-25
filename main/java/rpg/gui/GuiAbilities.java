@@ -9,13 +9,14 @@ import org.lwjgl.opengl.GL11;
 
 import rpg.RPG;
 import rpg.Reference;
-import rpg.container.ContainerRaceSelection;
+import rpg.container.ContainerStats;
+import rpg.helper.AbilityHelper;
 
 public class GuiAbilities extends GuiContainer {
 	private static final ResourceLocation texture = new ResourceLocation("rpg:textures/gui/blank.png");
 
 	public GuiAbilities(EntityPlayer p) {
-		super(new ContainerRaceSelection(p));
+		super(new ContainerStats(p));
 	}
 
 	@Override
@@ -32,15 +33,15 @@ public class GuiAbilities extends GuiContainer {
 		} else {
 			s = EnumChatFormatting.YELLOW + "Race: " + EnumChatFormatting.WHITE + Reference.translateRace(RPG.race);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 22, 4210752);
-			s = EnumChatFormatting.YELLOW + "Ability: " + EnumChatFormatting.WHITE + RPG.ability;
+			s = EnumChatFormatting.YELLOW + "Ability: " + EnumChatFormatting.WHITE + AbilityHelper.getName(RPG.ability);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 32, 4210752);
-			s = EnumChatFormatting.YELLOW + "Good effect: " + EnumChatFormatting.WHITE + RPG.goodEfect;
+			s = EnumChatFormatting.YELLOW + "Good effect: " + EnumChatFormatting.WHITE + AbilityHelper.isGoodEffect(RPG.ability);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 42, 4210752);
-			s = EnumChatFormatting.YELLOW + "Denotation: " + EnumChatFormatting.WHITE + RPG.denotation;
+			s = EnumChatFormatting.YELLOW + "Denotation: " + EnumChatFormatting.WHITE + AbilityHelper.getDenotation(RPG.ability);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 52, 4210752);
 			s = EnumChatFormatting.YELLOW + "Cool down: " + EnumChatFormatting.WHITE + RPG.coolDown;
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 62, 4210752);
-			s = EnumChatFormatting.YELLOW + "Ranged: " + EnumChatFormatting.WHITE + RPG.ranged;
+			s = EnumChatFormatting.YELLOW + "Ranged: " + EnumChatFormatting.WHITE + AbilityHelper.isRanged(RPG.ability);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 72, 4210752);
 		}
 	}

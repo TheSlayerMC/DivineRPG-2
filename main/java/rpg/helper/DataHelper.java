@@ -41,6 +41,7 @@ public class DataHelper {
 		data.get(n, "Stamina", 0);
 		data.get(n, "Speed", 0);
 		data.get(n, "Cooldown", 0);
+		data.get(n, "Ability", 0);
 	}
 
 	public static void setRace(EntityPlayer player, int race) {
@@ -191,5 +192,15 @@ public class DataHelper {
 
 	public static int getCooldown(EntityPlayer player) {
 		return data.get(player.getDisplayName(), "Cooldown", 0).getInt();
+	}
+
+	public static void setAbility(EntityPlayer player, int amt) {
+		data.get(player.getDisplayName(), "Ability", 0).set(amt);
+		save();
+		RPG.sendStats(player);
+	}
+
+	public static int getAbility(EntityPlayer player) {
+		return data.get(player.getDisplayName(), "Ability", 0).getInt();
 	}
 }
