@@ -19,7 +19,7 @@ public class GuiHandler implements IGuiHandler {
 		case (1):
 			return new ContainerStats(player);
 		case (2):
-			return new ContainerRaceSelection(player);
+			return new ContainerStats(player);
 		case (3):
 			return new ContainerStats(player);
 		}
