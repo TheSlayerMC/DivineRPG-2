@@ -11,16 +11,16 @@ import rpg.RPG;
 import rpg.Reference;
 import rpg.container.ContainerRaceSelection;
 
-public class GuiAbilitys extends GuiContainer {
+public class GuiAbilities extends GuiContainer {
 	private static final ResourceLocation texture = new ResourceLocation("rpg:textures/gui/blank.png");
 
-	public GuiAbilitys(EntityPlayer p) {
+	public GuiAbilities(EntityPlayer p) {
 		super(new ContainerRaceSelection(p));
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {
-		String s = "Abilitys";
+		String s = "Abilities";
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
 		s = "~~~~~~~~~~~~~~~~~~~~~~";
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 17, 4210752);

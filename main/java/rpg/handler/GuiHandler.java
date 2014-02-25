@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import rpg.container.ContainerRaceSelection;
 import rpg.container.ContainerStats;
-import rpg.gui.GuiAbilitys;
+import rpg.gui.GuiAbilities;
 import rpg.gui.GuiMerchant;
 import rpg.gui.GuiRaceSelection;
 import rpg.gui.GuiStats;
@@ -34,7 +34,7 @@ public class GuiHandler implements IGuiHandler {
 		case (1):
 			return new GuiStats(player);
 		case (2):
-			return new GuiAbilitys(player);
+			return new GuiAbilities(player);
 		case (3):
 			return new GuiMerchant(player);
 		}
