@@ -5,15 +5,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import rpg.RPG;
 import rpg.helper.DataHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemCredit extends Item {
-	public ItemCredit() {
-		this.setMaxStackSize(1);
-	}
-
 	@Override
 	public void onUpdate(ItemStack is, World w, Entity e, int par4, boolean par5) {
 		if(!w.isRemote) {
