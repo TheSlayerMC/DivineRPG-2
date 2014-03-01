@@ -67,12 +67,9 @@ public class ServerEventHandler {
 	public void LivingDropsEvent(LivingDropsEvent event) {
 		EntityLivingBase e = event.entityLiving;
 		
-		int a = 3 + e.worldObj.rand.nextInt(5) + e.worldObj.rand.nextInt(5);
-		int j = EntityCredit.getCreditSplit(a);
 		if(e instanceof EntityMob && !(e instanceof EntityCreeper) && !(e instanceof EntityEnderman)) {
 			for(int i = 0; i < 1 + e.worldObj.rand.nextInt(100); i++)
-				//event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1)));
-				e.worldObj.spawnEntityInWorld(new EntityCredit(e.worldObj, e.posX, e.posY - 3, e.posZ, j));
+				event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1)));
 		}
 		if(e instanceof EntityAnimal) {
 			for(int i = 0; i < 1 + e.worldObj.rand.nextInt(20); i++)

@@ -39,7 +39,10 @@ public class ItemStaff extends Item {
 	public ItemStack onItemRightClick(ItemStack par1, World par2, EntityPlayer par3) {
 		if(!par2.isRemote /* && ArcanaHelper.useBar(par3, this.cost) */) {
 			//par2.playSoundAtEntity(par3, Sounds.Staff, 1.0F, 1.0F);
-			par2.spawnEntityInWorld(new EntityBouncingProjectile(par2, par3, this.damage));
+			//par2.spawnEntityInWorld(new EntityBouncingProjectile(par2, par3, this.damage));
+			int a = 3 + par2.rand.nextInt(5) + par2.rand.nextInt(5);
+			int j = EntityCredit.getCreditSplit(a);
+			par2.spawnEntityInWorld(new EntityCredit(par2, par3.posX + 3, par3.posY + 1, par3.posZ, j));
 		}
 		return par1;
 	}
