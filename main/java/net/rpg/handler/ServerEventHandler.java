@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityMob;
@@ -18,6 +19,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.rpg.RPG;
+import net.rpg.entity.EntityCredit;
 import net.rpg.helper.DataHelper;
 import net.rpg.helper.ItemHelper;
 import net.rpg.network.PacketRequestStats;
@@ -64,9 +66,13 @@ public class ServerEventHandler {
 	@SubscribeEvent
 	public void LivingDropsEvent(LivingDropsEvent event) {
 		EntityLivingBase e = event.entityLiving;
+		
+		int a = 3 + e.worldObj.rand.nextInt(5) + e.worldObj.rand.nextInt(5);
+		int j = EntityCredit.getCreditSplit(a);
 		if(e instanceof EntityMob && !(e instanceof EntityCreeper) && !(e instanceof EntityEnderman)) {
 			for(int i = 0; i < 1 + e.worldObj.rand.nextInt(100); i++)
-				event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1)));
+				//event.drops.add(new EntityItem(e.worldObj, e.posX, e.posY, e.posZ, new ItemStack(ItemHelper.getItem("credit"), 1)));
+				e.worldObj.spawnEntityInWorld(new EntityCredit(e.worldObj, e.posX, e.posY - 3, e.posZ, j));
 		}
 		if(e instanceof EntityAnimal) {
 			for(int i = 0; i < 1 + e.worldObj.rand.nextInt(20); i++)

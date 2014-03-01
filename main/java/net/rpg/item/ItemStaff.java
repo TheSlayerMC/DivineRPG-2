@@ -2,11 +2,13 @@ package net.rpg.item;
 
 import java.util.List;
 
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.rpg.Util;
+import net.rpg.entity.EntityCredit;
 import net.rpg.entity.projectile.EntityBouncingProjectile;
 import net.rpg.helper.ItemHelper;
 import cpw.mods.fml.relauncher.Side;
