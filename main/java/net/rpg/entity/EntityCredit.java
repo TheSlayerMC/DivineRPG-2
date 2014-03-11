@@ -45,22 +45,19 @@ public class EntityCredit extends Entity {
 	public int getBrightnessForRender(float par1) {
 		float f1 = 0.5F;
 
-		if (f1 < 0.0F) {
+		if (f1 < 0.0F) 
 			f1 = 0.0F;
-		}
 
-		if (f1 > 1.0F) {
+		if (f1 > 1.0F) 
 			f1 = 1.0F;
-		}
 
 		int i = super.getBrightnessForRender(par1);
 		int j = i & 255;
 		int k = i >> 16 & 255;
 		j += (int)(f1 * 15.0F * 16.0F);
 
-		if (j > 240) {
+		if (j > 240) 
 			j = 240;
-		}
 
 		return j | k << 16;
 	}
@@ -72,19 +69,12 @@ public class EntityCredit extends Entity {
 			--this.field_70532_c;
 		}
 
-		if (this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ)).getMaterial() == Material.lava) {
+		if (this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ)).getMaterial() == Material.lava) 
 			this.playSound("random.fizz", 0.4F, 2.0F + this.rand.nextFloat() * 0.4F);
-		}
 
-		this.func_145771_j(this.posX, (this.boundingBox.minY + this.boundingBox.maxY) / 2.0D, this.posZ);
-		double d0 = 8.0D;
-
-		if (this.CreditTargetColor < this.CreditColor - 20 + this.getEntityId() % 100) {
-
-
+		if (this.CreditTargetColor < this.CreditColor - 20 + this.getEntityId() % 100) 
 			this.CreditTargetColor = this.CreditColor;
-		}
-
+		
 		++this.CreditColor;
 	}
 
