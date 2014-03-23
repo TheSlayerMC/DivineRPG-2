@@ -8,6 +8,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.rpg.RPG;
 import net.rpg.container.ContainerStats;
+import net.rpg.helper.DataHelper;
 import net.rpg.network.PacketRequestBuy;
 
 import org.lwjgl.opengl.GL11;
@@ -25,19 +26,20 @@ public class GuiMerchant extends GuiContainer {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int arg1, int arg2) {
+		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
 		String s = "Merchant";
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 20, 6 - 25, 4210752);
 		s = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 		String credits;
-		if(RPG.credits == 0)
-			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.RED + RPG.credits;
-		else if(RPG.credits < 30)
-			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.YELLOW + RPG.credits;
+		if(DataHelper.getCredits(player) == 0)
+			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.RED + DataHelper.getCredits(player);
+		else if(DataHelper.getCredits(player) < 30)
+			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.YELLOW + DataHelper.getCredits(player);
 		else
-			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.GREEN + RPG.credits;
+			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.GREEN + DataHelper.getCredits(player);
 		s = credits;
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 + 50, 6 - 25, 4210752);
-		s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + RPG.discount + "%";
+		s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + DataHelper.getDiscount(player) + "%";
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 90, 6 - 25, 4210752);
 		s = EnumChatFormatting.YELLOW + "Page: " + EnumChatFormatting.WHITE + pageNum + "/" + maxPageNums;
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 25, 1 + 147, 4210752);

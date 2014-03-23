@@ -4,21 +4,21 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-import net.rpg.RPG;
 import net.rpg.gui.GuiArcanaBar;
 import net.rpg.gui.GuiDeBar;
 import net.rpg.gui.GuiVersion;
+import net.rpg.helper.DataHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class ClientEventHandler {
-	private EntityPlayer p = Minecraft.getMinecraft().thePlayer;
+	private EntityPlayer player = Minecraft.getMinecraft().thePlayer;
 
 	@SubscribeEvent
 	public void RenderGameOverlayEvent(RenderGameOverlayEvent event) {
 		GuiVersion.draw();
 		if(!Minecraft.getMinecraft().playerController.shouldDrawHUD() || event.isCancelable() || event.type != ElementType.EXPERIENCE)
 			return;
-		if(RPG.race == -1 && canUseMana()) {
+		if(DataHelper.isNewPlayer(player) && canUseMana()) {
 			GuiDeBar.draw();
 			GuiArcanaBar.draw();
 		}

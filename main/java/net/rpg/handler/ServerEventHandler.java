@@ -32,7 +32,7 @@ public class ServerEventHandler {
 		if(event.entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entity;
 			if(!player.worldObj.isRemote) {
-				if(DataHelper.getRace(player) == -1 && !player.inventory.hasItem(ItemHelper.getItem("raceStone"))) {
+				if(DataHelper.isNewPlayer(player) && !player.inventory.hasItem(ItemHelper.getItem("raceStone"))) {
 					int es = player.inventory.getFirstEmptyStack();
 					player.inventory.setInventorySlotContents(es, new ItemStack(ItemHelper.getItem("raceStone"), 1));
 				} else {

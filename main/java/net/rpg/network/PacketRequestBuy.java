@@ -46,7 +46,7 @@ public class PacketRequestBuy extends AbstractPacket {
 		}
 		if(player.capabilities.isCreativeMode) {
 			player.inventory.addItemStackToInventory(is);
-		} else if(RPG.credits >= cost) {
+		} else if(DataHelper.getCredits(player) >= cost) {
 			player.inventory.addItemStackToInventory(is);
 			useCredits(player, cost);
 		} else {
