@@ -20,7 +20,7 @@ public class ServerProxy {
 		NetworkHelper.init();
 		ConfigHelper.save();
 		EntityRegistry.registerModEntity(EntityBouncingProjectile.class, "Bouncing", 22, RPG.instance, 250, 110, true);
-		EntityRegistry.registerModEntity(EntityCredit.class, "Credit", 22, RPG.instance, 250, 110, true);
+		EntityRegistry.registerModEntity(EntityCredit.class, "Credit", 23, RPG.instance, 250, 110, true);
 	}
 
 	public void doClient() { }
