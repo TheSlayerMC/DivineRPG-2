@@ -1,5 +1,6 @@
 package net.rpg.gui;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumChatFormatting;
@@ -7,6 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import net.rpg.RPG;
 import net.rpg.Reference;
 import net.rpg.container.ContainerStats;
+import net.rpg.helper.DataHelper;
 
 import org.lwjgl.opengl.GL11;
 
@@ -24,39 +26,40 @@ public class GuiStats extends GuiContainer {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
+		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
 		String s = "Stats";
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
 		s = "~~~~~~~~~~~~~~~~~~~~~~";
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 17, 4210752);
-		if(RPG.race == -1) {
+		if(DataHelper.isNewPlayer(player)) {
 			s = EnumChatFormatting.DARK_RED + "Use the Race Stone";
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 22, 4210752);
 			s = EnumChatFormatting.DARK_RED + "to begin your adventure!";
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 32, 4210752);
 		} else {
-			s = EnumChatFormatting.YELLOW + "Race: " + EnumChatFormatting.WHITE + Reference.translateRace(RPG.race);
+			s = EnumChatFormatting.YELLOW + "Race: " + EnumChatFormatting.WHITE + Reference.translateRace(DataHelper.getRace(player));
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 22, 4210752);
-			s = EnumChatFormatting.YELLOW + "Max Health: " + EnumChatFormatting.WHITE + RPG.maxHp;
+			s = EnumChatFormatting.YELLOW + "Max Health: " + EnumChatFormatting.WHITE + DataHelper.getMaxHp(player);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 32, 4210752);
-			s = EnumChatFormatting.YELLOW + "Max Divine Energy: " + EnumChatFormatting.WHITE + RPG.maxDe;
+			s = EnumChatFormatting.YELLOW + "Max Divine Energy: " + EnumChatFormatting.WHITE + DataHelper.getMaxDe(player);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 42, 4210752);
-			s = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.WHITE + RPG.credits;
+			s = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.WHITE + DataHelper.getCredits(player);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 52, 4210752);
-			s = EnumChatFormatting.YELLOW + "Attack: " + EnumChatFormatting.WHITE + RPG.attack;
+			s = EnumChatFormatting.YELLOW + "Attack: " + EnumChatFormatting.WHITE + DataHelper.getAttack(player);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 62, 4210752);
-			s = EnumChatFormatting.YELLOW + "Defense: " + EnumChatFormatting.WHITE + RPG.defense;
+			s = EnumChatFormatting.YELLOW + "Defense: " + EnumChatFormatting.WHITE + DataHelper.getDefense(player);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 72, 4210752);
-			s = EnumChatFormatting.YELLOW + "Max Arcana: " + EnumChatFormatting.WHITE + RPG.arcana;
+			s = EnumChatFormatting.YELLOW + "Max Arcana: " + EnumChatFormatting.WHITE + DataHelper.getArcana(player);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 82, 4210752);
-			s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + RPG.discount + "%";
+			s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + DataHelper.getDiscount(player) + "%";
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 92, 4210752);
-			s = EnumChatFormatting.YELLOW + "Luck: " + EnumChatFormatting.WHITE + RPG.luck;
+			s = EnumChatFormatting.YELLOW + "Luck: " + EnumChatFormatting.WHITE + DataHelper.getLuck(player);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 102, 4210752);
-			s = EnumChatFormatting.YELLOW + "Reflex: " + EnumChatFormatting.WHITE + RPG.reflex;
+			s = EnumChatFormatting.YELLOW + "Reflex: " + EnumChatFormatting.WHITE + DataHelper.getReflex(player);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 112, 4210752);
-			s = EnumChatFormatting.YELLOW + "Stamina: " + EnumChatFormatting.WHITE + RPG.stamina;
+			s = EnumChatFormatting.YELLOW + "Stamina: " + EnumChatFormatting.WHITE + DataHelper.getStamina(player);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 122, 4210752);
-			s = EnumChatFormatting.YELLOW + "Speed: " + EnumChatFormatting.WHITE + RPG.speed;
+			s = EnumChatFormatting.YELLOW + "Speed: " + EnumChatFormatting.WHITE + DataHelper.getSpeed(player);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 132, 4210752);
 		}
 	}

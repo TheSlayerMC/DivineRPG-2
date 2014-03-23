@@ -32,6 +32,5 @@ public class PacketRace extends AbstractPacket {
 		if(player.inventory.hasItem(ItemHelper.getItem("raceStone"))) {
 			player.inventory.consumeInventoryItem(ItemHelper.getItem("raceStone"));
 		}
-		RPG.sendStats(player);
 	}
 }

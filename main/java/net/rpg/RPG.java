@@ -4,14 +4,11 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.rpg.handler.PacketHandler;
 import net.rpg.helper.DataHelper;
 import net.rpg.network.PacketOpenGui;
 import net.rpg.network.PacketRace;
-import net.rpg.network.PacketRefreshStats;
 import net.rpg.network.PacketRequestBuy;
-import net.rpg.network.PacketRequestStats;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -43,16 +40,11 @@ public class RPG {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
-		packetHandler.registerPacket(PacketRefreshStats.class);
-		packetHandler.registerPacket(PacketRequestStats.class);
 		packetHandler.registerPacket(PacketRace.class);
 		packetHandler.registerPacket(PacketOpenGui.class);
 		packetHandler.registerPacket(PacketRequestBuy.class);
 		packetHandler.postInit();
 	}
-
-	@SideOnly(Side.CLIENT)
-	public static int race = -1, maxHp, de, maxDe, credits, attack, defense, discount, luck, reflex, stamina, speed, arcana, maxAr, coolDown, ability;
 
 	//public static String ability, goodEfect, denotation, ranged;
 	public static void applyStats(EntityPlayer player) {
@@ -73,27 +65,5 @@ public class RPG {
 			iaiSpeed.removeModifier(speed);
 			iaiSpeed.applyModifier(speed);
 		}
-	}
-
-	public static void sendStats(EntityPlayer player) {
-		PacketRefreshStats ps = new PacketRefreshStats();
-		ps.race = DataHelper.getRace(player);
-		ps.maxHp = DataHelper.getMaxHp(player);
-		ps.de = DataHelper.getDe(player);
-		ps.maxDe = DataHelper.getMaxDe(player);
-		ps.credits = DataHelper.getCredits(player);
-		ps.attack = DataHelper.getAttack(player);
-		ps.defense = DataHelper.getDefense(player);
-		ps.discount = DataHelper.getDiscount(player);
-		ps.luck = DataHelper.getLuck(player);
-		ps.reflex = DataHelper.getReflex(player);
-		ps.stamina = DataHelper.getStamina(player);
-		ps.speed = DataHelper.getSpeed(player);
-		ps.ar = DataHelper.getArcana(player);
-		ps.maxAr = DataHelper.getMaxArcana(player);
-		ps.coolDown = DataHelper.getCooldown(player);
-		ps.ability = DataHelper.getAbility(player);
-		RPG.packetHandler.sendTo(ps, (EntityPlayerMP) player);
-		RPG.applyStats(player);
 	}
 }

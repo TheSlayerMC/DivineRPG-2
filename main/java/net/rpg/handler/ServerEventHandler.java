@@ -20,7 +20,6 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.rpg.RPG;
 import net.rpg.helper.DataHelper;
 import net.rpg.helper.ItemHelper;
-import net.rpg.network.PacketRequestStats;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class ServerEventHandler {
@@ -33,9 +32,7 @@ public class ServerEventHandler {
 		if(event.entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entity;
 			if(!player.worldObj.isRemote) {
-				DataHelper.loadPlayer(player);
-				RPG.packetHandler.sendToServer(new PacketRequestStats());
-				if(DataHelper.getRace(player) == -1 && !player.inventory.hasItem(ItemHelper.getItem("raceStone"))) {
+				if(DataHelper.isNewPlayer(player) && !player.inventory.hasItem(ItemHelper.getItem("raceStone"))) {
 					int es = player.inventory.getFirstEmptyStack();
 					player.inventory.setInventorySlotContents(es, new ItemStack(ItemHelper.getItem("raceStone"), 1));
 				} else {

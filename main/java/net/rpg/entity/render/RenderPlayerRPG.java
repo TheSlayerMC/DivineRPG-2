@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.rpg.RPG;
+import net.rpg.helper.DataHelper;
 
 import org.lwjgl.opengl.GL11;
 
@@ -36,9 +37,9 @@ public class RenderPlayerRPG extends RenderPlayer {
 	}
 
 	@Override
-	public void renderFirstPersonArm(EntityPlayer par1EntityPlayer) {
-		if(RPG.race == -1 || RPG.race == 0) {
-			super.renderFirstPersonArm(par1EntityPlayer);
+	public void renderFirstPersonArm(EntityPlayer player) {
+		if(DataHelper.isNewPlayer(player)) {
+			super.renderFirstPersonArm(player);
 		}
 	}
 }
