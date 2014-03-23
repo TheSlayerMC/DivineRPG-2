@@ -3,13 +3,11 @@ package net.rpg.entity;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.rpg.helper.DataHelper;
-import net.rpg.helper.ItemHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -19,7 +17,6 @@ public class EntityCredit extends Entity {
 	public int CreditValue;
 	private EntityPlayer closestPlayer;
 	private int CreditTargetColor;
-	private ItemStack stack;
 
 	public EntityCredit(World par1World, double par2, double par4, double par6, int par8) {
 		super(par1World);
@@ -39,42 +36,34 @@ public class EntityCredit extends Entity {
 		this.yOffset = this.height / 2.0F;
 	}
 
-	protected void entityInit() {}
+	protected void entityInit() {
+	}
 
 	@SideOnly(Side.CLIENT)
 	public int getBrightnessForRender(float par1) {
 		float f1 = 0.5F;
-
-		if (f1 < 0.0F) 
+		if(f1 < 0.0F)
 			f1 = 0.0F;
-
-		if (f1 > 1.0F) 
+		if(f1 > 1.0F)
 			f1 = 1.0F;
-
 		int i = super.getBrightnessForRender(par1);
 		int j = i & 255;
 		int k = i >> 16 & 255;
-		j += (int)(f1 * 15.0F * 16.0F);
-
-		if (j > 240) 
+		j += (int) (f1 * 15.0F * 16.0F);
+		if(j > 240)
 			j = 240;
-
 		return j | k << 16;
 	}
 
 	public void onUpdate() {
 		super.onUpdate();
-
-		if (this.field_70532_c > 0) {
+		if(this.field_70532_c > 0) {
 			--this.field_70532_c;
 		}
-
-		if (this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ)).getMaterial() == Material.lava) 
+		if(this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ)).getMaterial() == Material.lava)
 			this.playSound("random.fizz", 0.4F, 2.0F + this.rand.nextFloat() * 0.4F);
-
-		if (this.CreditTargetColor < this.CreditColor - 20 + this.getEntityId() % 100) 
+		if(this.CreditTargetColor < this.CreditColor - 20 + this.getEntityId() % 100)
 			this.CreditTargetColor = this.CreditColor;
-		
 		++this.CreditColor;
 	}
 
@@ -83,11 +72,11 @@ public class EntityCredit extends Entity {
 	}
 
 	protected void dealFireDamage(int par1) {
-		this.attackEntityFrom(DamageSource.inFire, (float)par1);
+		this.attackEntityFrom(DamageSource.inFire, (float) par1);
 	}
 
 	public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
-		if (this.isEntityInvulnerable()) {
+		if(this.isEntityInvulnerable()) {
 			return false;
 		} else {
 			this.setBeenAttacked();
@@ -96,7 +85,7 @@ public class EntityCredit extends Entity {
 	}
 
 	public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
-		par1NBTTagCompound.setShort("Value", (short)this.CreditValue);
+		par1NBTTagCompound.setShort("Value", (short) this.CreditValue);
 	}
 
 	public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
@@ -104,28 +93,17 @@ public class EntityCredit extends Entity {
 	}
 
 	public void onCollideWithPlayer(EntityPlayer par1EntityPlayer) {
-		if (!this.worldObj.isRemote) {
-			if (this.field_70532_c == 0) {
+		if(!this.worldObj.isRemote) {
+			if(this.field_70532_c == 0) {
 				this.worldObj.playSoundAtEntity(par1EntityPlayer, "random.orb", 0.1F, 0.5F * ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.7F + 1.8F));
 				par1EntityPlayer.onItemPickup(this, 1);
 				this.setDead();
 			}
 		}
-		stack = new ItemStack(ItemHelper.getItem("credit"));
 		if(!worldObj.isRemote) {
 			if(par1EntityPlayer instanceof EntityPlayer) {
 				EntityPlayer p = (EntityPlayer) par1EntityPlayer;
-				DataHelper.setCredits(p, DataHelper.getCredits(p) + stack.stackSize);
-				p.inventory.addItemStackToInventory(stack);
-			} else {
-				stack = null;
-			}
-		} else {
-			if(par1EntityPlayer instanceof EntityPlayer) {
-				EntityPlayer p = (EntityPlayer) par1EntityPlayer;
-				p.inventory.addItemStackToInventory(stack);
-			} else {
-				stack = null;
+				DataHelper.setCredits(p, DataHelper.getCredits(p) + this.CreditValue);
 			}
 		}
 	}

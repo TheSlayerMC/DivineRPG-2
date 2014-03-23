@@ -7,7 +7,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.util.EnumHelper;
-import net.rpg.item.ItemCredit;
 import net.rpg.item.ItemRaceStone;
 import net.rpg.item.ItemStaff;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -19,7 +18,6 @@ public class ItemHelper {
 
 	public static void init() {
 		addItem("raceStone", new ItemRaceStone());
-		addItem("credit", new ItemCredit());
 		addItem("cyclopsianSword", new ItemSword(cyclopsianSword));
 		addItem("cermileBacksword", new ItemSword(cermileMat));
 		addItem("teakerStaff", new ItemStaff(3, 10));
