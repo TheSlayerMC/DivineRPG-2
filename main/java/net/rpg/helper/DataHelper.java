@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public class DataHelper {
 	public static boolean isNewPlayer(EntityPlayer player) {
-		return player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).hasKey("Race");
+		return !player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).hasKey("Race");
 	}
 
 	public static void setRace(EntityPlayer player, int race) {
