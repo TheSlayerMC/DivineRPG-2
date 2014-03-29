@@ -54,6 +54,7 @@ public class PacketStats extends AbstractPacket {
 	@Override
 	public void handleClientSide(EntityPlayer player) {
 		RPG.race = race;
+		RPG.maxHp = maxHp;
 		RPG.de = de;
 		RPG.maxDe = maxDe;
 		RPG.credits = credits;
