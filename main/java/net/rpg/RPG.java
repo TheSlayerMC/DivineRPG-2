@@ -81,5 +81,5 @@ public class RPG {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static int race = -1, maxHp, de, maxDe, credits, attack, defense, maxArcana, arcana, discount, luck, reflex, stamina, speed, cooldown, ability;
+	public static int race, maxHp, de, maxDe, credits, attack, defense, maxArcana, arcana, discount, luck, reflex, stamina, speed, cooldown, ability;
 }

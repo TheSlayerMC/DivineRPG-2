@@ -63,39 +63,38 @@ public class GuiRaceSelection extends GuiContainer {
 	protected void actionPerformed(GuiButton button) {
 		switch(button.id) {
 		case 0:
-			sendPacket(0);
-			return;
-		case 1:
 			sendPacket(1);
 			return;
-		case 2:
+		case 1:
 			sendPacket(2);
 			return;
-		case 3:
+		case 2:
 			sendPacket(3);
+			return;
+		case 3:
+			sendPacket(4);
 			p.inventory.addItemStackToInventory(new ItemStack(ItemHelper.getItem("cyclopsianSword")));
-			RenderingRegistry.registerEntityRenderingHandler(EntityClientPlayerMP.class, new RenderPlayerRPG(3.0F));
 			return;
 		case 4:
-			sendPacket(4);
+			sendPacket(5);
 			p.inventory.addItemStackToInventory(new ItemStack(ItemHelper.getItem("cermileBacksword")));
 			return;
 		case 7:
-			sendPacket(6);
-			p.inventory.addItemStackToInventory(new ItemStack(ItemHelper.getItem("cermileBacksword")));
-			return;
-		case 8:
 			sendPacket(7);
 			p.inventory.addItemStackToInventory(new ItemStack(ItemHelper.getItem("cermileBacksword")));
 			return;
-		case 9:
+		case 8:
 			sendPacket(8);
+			p.inventory.addItemStackToInventory(new ItemStack(ItemHelper.getItem("cermileBacksword")));
 			return;
-		case 10:
+		case 9:
 			sendPacket(9);
 			return;
-		case 11:
+		case 10:
 			sendPacket(10);
+			return;
+		case 11:
+			sendPacket(11);
 			return;
 		case 5:
 			page2();

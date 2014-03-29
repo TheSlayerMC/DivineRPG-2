@@ -6,7 +6,8 @@ import net.rpg.RPG;
 
 public class DataHelper {
 	public static boolean isNewPlayer(EntityPlayer player) {
-		return player.worldObj.isRemote ? !(RPG.race != -1) : !getNBT(player).hasKey("Race");
+		System.err.println("RACE: " + RPG.race);
+		return player.worldObj.isRemote ? RPG.race == 0 : getRace(player) == 0;
 	}
 
 	public static void setRace(EntityPlayer player, int race) {
