@@ -11,6 +11,7 @@ public class DataHelper {
 
 	public static void setRace(EntityPlayer player, int race) {
 		getNBT(player).setInteger("Race", race);
+		RPG.sendStats(player);
 	}
 
 	public static int getRace(EntityPlayer player) {
@@ -19,6 +20,7 @@ public class DataHelper {
 
 	public static void setMaxHp(EntityPlayer player, int maxHp) {
 		getNBT(player).setInteger("Max Health", maxHp);
+		RPG.sendStats(player);
 	}
 
 	public static int getMaxHp(EntityPlayer player) {
@@ -27,6 +29,7 @@ public class DataHelper {
 
 	public static void setDe(EntityPlayer player, int de) {
 		getNBT(player).setInteger("Divine Energy", de);
+		RPG.sendStats(player);
 	}
 
 	public static int getDe(EntityPlayer player) {
@@ -35,6 +38,7 @@ public class DataHelper {
 
 	public static void setMaxDe(EntityPlayer player, int maxDe) {
 		getNBT(player).setInteger("Max Divine Energy", maxDe);
+		RPG.sendStats(player);
 	}
 
 	public static int getMaxDe(EntityPlayer player) {
@@ -43,6 +47,7 @@ public class DataHelper {
 
 	public static void setCredits(EntityPlayer player, int amt) {
 		getNBT(player).setInteger("Credits", amt);
+		RPG.sendStats(player);
 	}
 
 	public static int getCredits(EntityPlayer player) {
@@ -51,6 +56,7 @@ public class DataHelper {
 
 	public static void setAttack(EntityPlayer player, int amt) {
 		getNBT(player).setInteger("Attack", amt);
+		RPG.sendStats(player);
 	}
 
 	public static int getAttack(EntityPlayer player) {
@@ -59,6 +65,7 @@ public class DataHelper {
 
 	public static void setDefense(EntityPlayer player, int amt) {
 		getNBT(player).setInteger("Defense", amt);
+		RPG.sendStats(player);
 	}
 
 	public static int getDefense(EntityPlayer player) {
@@ -67,10 +74,12 @@ public class DataHelper {
 
 	public static void setMaxArcana(EntityPlayer player, int amt) {
 		getNBT(player).setInteger("Max Arcana", amt);
+		RPG.sendStats(player);
 	}
 
 	public static void setArcana(EntityPlayer player, int amt) {
 		getNBT(player).getInteger("Arcana");
+		RPG.sendStats(player);
 	}
 
 	public static int getArcana(EntityPlayer player) {
@@ -83,6 +92,7 @@ public class DataHelper {
 
 	public static void setDiscount(EntityPlayer player, int amt) {
 		getNBT(player).setInteger("Discount", amt);
+		RPG.sendStats(player);
 	}
 
 	public static int getDiscount(EntityPlayer player) {
@@ -91,6 +101,7 @@ public class DataHelper {
 
 	public static void setLuck(EntityPlayer player, int amt) {
 		getNBT(player).setInteger("Luck", amt);
+		RPG.sendStats(player);
 	}
 
 	public static int getLuck(EntityPlayer player) {
@@ -99,6 +110,7 @@ public class DataHelper {
 
 	public static void setReflex(EntityPlayer player, int amt) {
 		getNBT(player).setInteger("Reflex", amt);
+		RPG.sendStats(player);
 	}
 
 	public static int getReflex(EntityPlayer player) {
@@ -107,6 +119,7 @@ public class DataHelper {
 
 	public static void setStamina(EntityPlayer player, int amt) {
 		getNBT(player).setInteger("Stamina", amt);
+		RPG.sendStats(player);
 	}
 
 	public static int getStamina(EntityPlayer player) {
@@ -115,6 +128,7 @@ public class DataHelper {
 
 	public static void setSpeed(EntityPlayer player, int amt) {
 		getNBT(player).setInteger("Speed", amt);
+		RPG.sendStats(player);
 	}
 
 	public static int getSpeed(EntityPlayer player) {
@@ -123,6 +137,7 @@ public class DataHelper {
 
 	public static void setCooldown(EntityPlayer player, int amt) {
 		getNBT(player).setInteger("Cooldown", amt);
+		RPG.sendStats(player);
 	}
 
 	public static int getCooldown(EntityPlayer player) {
@@ -131,6 +146,7 @@ public class DataHelper {
 
 	public static void setAbility(EntityPlayer player, int amt) {
 		getNBT(player).setInteger("Ability", amt);
+		RPG.sendStats(player);
 	}
 
 	public static int getAbility(EntityPlayer player) {
