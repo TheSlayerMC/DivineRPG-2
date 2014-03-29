@@ -4,11 +4,14 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.rpg.handler.PacketHandler;
 import net.rpg.helper.DataHelper;
 import net.rpg.network.PacketOpenGui;
 import net.rpg.network.PacketRace;
 import net.rpg.network.PacketRequestBuy;
+import net.rpg.network.PacketRequestStats;
+import net.rpg.network.PacketStats;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -40,10 +43,20 @@ public class RPG {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
+		packetHandler.registerPacket(PacketStats.class);
+		packetHandler.registerPacket(PacketRequestStats.class);
 		packetHandler.registerPacket(PacketRace.class);
 		packetHandler.registerPacket(PacketOpenGui.class);
 		packetHandler.registerPacket(PacketRequestBuy.class);
 		packetHandler.postInit();
+	}
+
+	public static void sendStats(EntityPlayer player) {
+		packetHandler.sendTo(new PacketStats().applyStats(player), (EntityPlayerMP) player);
+	}
+
+	public static void requestStats() {
+		packetHandler.sendToServer(new PacketRequestStats());
 	}
 
 	//public static String ability, goodEfect, denotation, ranged;
@@ -66,4 +79,7 @@ public class RPG {
 			iaiSpeed.applyModifier(speed);
 		}
 	}
+
+	@SideOnly(Side.CLIENT)
+	public static int race = -1, maxHp, de, maxDe, credits, attack, defense, maxArcana, arcana, discount, luck, reflex, stamina, speed, cooldown, ability;
 }

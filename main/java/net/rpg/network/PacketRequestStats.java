@@ -3,23 +3,21 @@ package net.rpg.network;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.rpg.RPG;
+import net.rpg.Util;
 import net.rpg.helper.DataHelper;
-import net.rpg.helper.ItemHelper;
+import cpw.mods.fml.common.network.ByteBufUtils;
+import cpw.mods.fml.common.registry.GameData;
 
-public class PacketRace extends AbstractPacket {
-	public int race;
-
+public class PacketRequestStats extends AbstractPacket {
 	@Override
 	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
-		buffer.writeInt(race);
 	}
 
 	@Override
 	public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
-		race = buffer.readInt();
-		new ItemBow();
 	}
 
 	@Override
@@ -28,10 +26,6 @@ public class PacketRace extends AbstractPacket {
 
 	@Override
 	public void handleServerSide(EntityPlayer player) {
-		DataHelper.setRace(player, race);
-		if(player.inventory.hasItem(ItemHelper.getItem("raceStone"))) {
-			player.inventory.consumeInventoryItem(ItemHelper.getItem("raceStone"));
-		}
 		RPG.sendStats(player);
 	}
 }
