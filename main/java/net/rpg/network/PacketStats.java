@@ -11,7 +11,6 @@ public class PacketStats extends AbstractPacket {
 
 	@Override
 	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
-		System.err.println("ENCODING");
 		buffer.writeInt(race);
 		buffer.writeInt(maxHp);
 		buffer.writeInt(de);
@@ -32,7 +31,6 @@ public class PacketStats extends AbstractPacket {
 
 	@Override
 	public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
-		System.err.println("DECODING");
 		race = buffer.readInt();
 		maxHp = buffer.readInt();
 		de = buffer.readInt();
@@ -76,7 +74,6 @@ public class PacketStats extends AbstractPacket {
 	}
 
 	public PacketStats applyStats(EntityPlayer player) {
-		System.err.println("APPLYING STATS");
 		race = DataHelper.getRace(player);
 		maxHp = DataHelper.getMaxHp(player);
 		de = DataHelper.getDe(player);
