@@ -5,9 +5,8 @@ import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
-import net.rpg.RPG;
+import net.rpg.Reference;
 import net.rpg.Util;
-import net.rpg.helper.DataHelper;
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.registry.GameData;
 
@@ -39,29 +38,30 @@ public class PacketRequestBuy extends AbstractPacket {
 	@Override
 	public void handleServerSide(EntityPlayer player) {
 		ItemStack is = null;
+		int credits = Util.getIntegerStat(player, Reference.CREDITS);
 		if(item) {
-			is = new ItemStack(GameData.itemRegistry.get(name));
+			is = new ItemStack(GameData.getItemRegistry().getObject(name));
 		} else {
-			is = new ItemStack(GameData.blockRegistry.get(name));
+			is = new ItemStack(GameData.getBlockRegistry().getObject(name));
 		}
 		if(player.capabilities.isCreativeMode) {
 			player.inventory.addItemStackToInventory(is);
-		} else if(DataHelper.getCredits(player) >= cost) {
+		} else if(credits >= cost) {
 			player.inventory.addItemStackToInventory(is);
 			useCredits(player, cost);
 		} else {
-			int more = cost - DataHelper.getCredits(player);
+			int more = cost - credits;
 			player.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED + "You need " + EnumChatFormatting.GOLD + more + EnumChatFormatting.RED + " more credits!"));
 		}
 	}
 
 	public static int useCredits(EntityPlayer player, int credits) {
-		int playerCredits = DataHelper.getCredits(player);
+		int playerCredits = Util.getIntegerStat(player, Reference.CREDITS);
 		if(playerCredits > 0) {
-			DataHelper.setCredits(player, playerCredits - credits);
-			return DataHelper.getCredits(player);
+			Util.setIntegerStat(player, Reference.CREDITS, playerCredits - credits);
+			return Util.getIntegerStat(player, Reference.CREDITS);
 		} else if(-1 > playerCredits) {
-			DataHelper.setCredits(player, 0);
+			Util.setIntegerStat(player, Reference.CREDITS, 0);
 			return 0;
 		}
 		return playerCredits;

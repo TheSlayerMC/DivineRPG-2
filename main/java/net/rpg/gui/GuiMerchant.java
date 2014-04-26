@@ -8,12 +8,9 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.rpg.RPG;
 import net.rpg.container.ContainerStats;
-import net.rpg.helper.DataHelper;
 import net.rpg.network.PacketRequestBuy;
 
 import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.common.registry.GameData;
 
 public class GuiMerchant extends GuiContainer {
 	private static ResourceLocation texture = new ResourceLocation("rpg:textures/gui/merchant.png");
@@ -31,15 +28,16 @@ public class GuiMerchant extends GuiContainer {
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 20, 6 - 25, 4210752);
 		s = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 		String credits;
-		if(DataHelper.getCredits(player) == 0)
-			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.RED + DataHelper.getCredits(player);
-		else if(DataHelper.getCredits(player) < 30)
-			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.YELLOW + DataHelper.getCredits(player);
+		int current = RPG.credits;
+		if(current == 0)
+			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.RED + current;
+		else if(current < 30)
+			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.YELLOW + current;
 		else
-			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.GREEN + DataHelper.getCredits(player);
+			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.GREEN + current;
 		s = credits;
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 + 50, 6 - 25, 4210752);
-		s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + DataHelper.getDiscount(player) + "%";
+		s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + RPG.discount + "%";
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 90, 6 - 25, 4210752);
 		s = EnumChatFormatting.YELLOW + "Page: " + EnumChatFormatting.WHITE + pageNum + "/" + maxPageNums;
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 25, 1 + 147, 4210752);

@@ -5,10 +5,11 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
+import net.rpg.RPG;
 import net.rpg.Reference;
+import net.rpg.Util;
 import net.rpg.container.ContainerStats;
 import net.rpg.helper.AbilityHelper;
-import net.rpg.helper.DataHelper;
 
 import org.lwjgl.opengl.GL11;
 
@@ -26,23 +27,24 @@ public class GuiAbilities extends GuiContainer {
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
 		s = "~~~~~~~~~~~~~~~~~~~~~~";
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 17, 4210752);
-		if(DataHelper.isNewPlayer(player)) {
+		if(Util.isNewPlayer(player)) {
 			s = EnumChatFormatting.DARK_RED + "Use the Race Stone";
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 22, 4210752);
 			s = EnumChatFormatting.DARK_RED + "to begin your adventure!";
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 32, 4210752);
 		} else {
-			s = EnumChatFormatting.YELLOW + "Race: " + EnumChatFormatting.WHITE + Reference.translateRace(DataHelper.getRace(player));
+			int ability = RPG.ability;
+			s = EnumChatFormatting.YELLOW + "Race: " + EnumChatFormatting.WHITE + Reference.translateRace(RPG.race);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 22, 4210752);
-			s = EnumChatFormatting.YELLOW + "Ability: " + EnumChatFormatting.WHITE + AbilityHelper.getName(DataHelper.getAbility(player));
+			s = EnumChatFormatting.YELLOW + "Ability: " + EnumChatFormatting.WHITE + AbilityHelper.getName(ability);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 32, 4210752);
-			s = EnumChatFormatting.YELLOW + "Good effect: " + EnumChatFormatting.WHITE + AbilityHelper.isGoodEffect(DataHelper.getAbility(player));
+			s = EnumChatFormatting.YELLOW + "Good effect: " + EnumChatFormatting.WHITE + AbilityHelper.isGoodEffect(ability);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 42, 4210752);
-			s = EnumChatFormatting.YELLOW + "Denotation: " + EnumChatFormatting.WHITE + AbilityHelper.getDenotation(DataHelper.getAbility(player));
+			s = EnumChatFormatting.YELLOW + "Denotation: " + EnumChatFormatting.WHITE + AbilityHelper.getDenotation(ability);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 52, 4210752);
-			s = EnumChatFormatting.YELLOW + "Cool down: " + EnumChatFormatting.WHITE + DataHelper.getCooldown(player);
+			s = EnumChatFormatting.YELLOW + "Cool down: " + EnumChatFormatting.WHITE + RPG.cooldown;
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 62, 4210752);
-			s = EnumChatFormatting.YELLOW + "Ranged: " + EnumChatFormatting.WHITE + AbilityHelper.isRanged(DataHelper.getAbility(player));
+			s = EnumChatFormatting.YELLOW + "Ranged: " + EnumChatFormatting.WHITE + AbilityHelper.isRanged(ability);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 72, 4210752);
 		}
 	}

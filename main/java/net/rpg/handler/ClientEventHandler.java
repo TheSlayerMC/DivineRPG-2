@@ -4,10 +4,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
+import net.rpg.Util;
 import net.rpg.gui.GuiArcanaBar;
 import net.rpg.gui.GuiDeBar;
 import net.rpg.gui.GuiVersion;
-import net.rpg.helper.DataHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class ClientEventHandler {
@@ -18,7 +18,7 @@ public class ClientEventHandler {
 		GuiVersion.draw();
 		if(!Minecraft.getMinecraft().playerController.shouldDrawHUD() || event.isCancelable() || event.type != ElementType.EXPERIENCE)
 			return;
-		if(DataHelper.isNewPlayer(player) && canUseMana()) {
+		if(Util.isNewPlayer(player) && canUseMana()) {
 			GuiDeBar.draw();
 			GuiArcanaBar.draw();
 		}

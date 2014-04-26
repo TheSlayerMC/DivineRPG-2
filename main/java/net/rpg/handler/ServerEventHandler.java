@@ -17,8 +17,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.rpg.RPG;
-import net.rpg.helper.DataHelper;
+import net.rpg.Util;
 import net.rpg.helper.ItemHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
@@ -32,11 +31,11 @@ public class ServerEventHandler {
 		if(event.entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entity;
 			if(!player.worldObj.isRemote) {
-				if(DataHelper.isNewPlayer(player) && !player.inventory.hasItem(ItemHelper.getItem("raceStone"))) {
+				if(Util.isNewPlayer(player)) {
 					int es = player.inventory.getFirstEmptyStack();
 					player.inventory.setInventorySlotContents(es, new ItemStack(ItemHelper.getItem("raceStone"), 1));
 				} else {
-					RPG.applyStats(player);
+					Util.applyStats(player);
 				}
 			}
 		}
@@ -50,10 +49,12 @@ public class ServerEventHandler {
 	public void LivingHurtEvent(LivingHurtEvent event) {
 		if(event.entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entityLiving;
-			event.ammount -= (event.ammount * (DataHelper.getDefense(player) / 100));
+			int d = Util.getIntegerStat(player, "Defense");
+			event.ammount -= (event.ammount * (d / 100));
 		} else if(event.source.getSourceOfDamage() instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.source.getSourceOfDamage();
-			event.ammount += (event.ammount * (DataHelper.getAttack(player) / 100));
+			int a = Util.getIntegerStat(player, "Attack");
+			event.ammount += (event.ammount * (a / 100));
 		}
 	}
 

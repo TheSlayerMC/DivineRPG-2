@@ -4,8 +4,8 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBow;
-import net.rpg.RPG;
-import net.rpg.helper.DataHelper;
+import net.rpg.Reference;
+import net.rpg.Util;
 import net.rpg.helper.ItemHelper;
 
 public class PacketRace extends AbstractPacket {
@@ -28,10 +28,10 @@ public class PacketRace extends AbstractPacket {
 
 	@Override
 	public void handleServerSide(EntityPlayer player) {
-		DataHelper.setRace(player, race);
+		Util.setIntegerStat(player, Reference.RACE, race);
 		if(player.inventory.hasItem(ItemHelper.getItem("raceStone"))) {
 			player.inventory.consumeInventoryItem(ItemHelper.getItem("raceStone"));
 		}
-		RPG.sendStats(player);
+		Util.sendStats(player);
 	}
 }

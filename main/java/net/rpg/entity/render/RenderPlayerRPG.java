@@ -5,8 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-import net.rpg.RPG;
-import net.rpg.helper.DataHelper;
+import net.rpg.Util;
 
 import org.lwjgl.opengl.GL11;
 
@@ -38,7 +37,7 @@ public class RenderPlayerRPG extends RenderPlayer {
 
 	@Override
 	public void renderFirstPersonArm(EntityPlayer player) {
-		if(DataHelper.isNewPlayer(player)) {
+		if(Util.isNewPlayer(player)) {
 			super.renderFirstPersonArm(player);
 		}
 	}

@@ -7,7 +7,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.rpg.helper.DataHelper;
+import net.rpg.Reference;
+import net.rpg.Util;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -103,7 +104,7 @@ public class EntityCredit extends Entity {
 		if(!worldObj.isRemote) {
 			if(par1EntityPlayer instanceof EntityPlayer) {
 				EntityPlayer p = (EntityPlayer) par1EntityPlayer;
-				DataHelper.setCredits(p, DataHelper.getCredits(p) + this.CreditValue);
+				Util.setIntegerStat(p, Reference.CREDITS, Util.getIntegerStat(p, Reference.CREDITS) + this.CreditValue);
 			}
 		}
 	}
