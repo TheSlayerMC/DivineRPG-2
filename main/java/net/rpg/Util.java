@@ -8,6 +8,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.ResourceLocation;
+import net.rpg.network.PacketPlayerRaces;
+import net.rpg.network.PacketRequestPlayerRaces;
 import net.rpg.network.PacketRequestStats;
 import net.rpg.network.PacketStats;
 
@@ -36,6 +39,10 @@ public class Util {
 		System.out.println(text);
 	}
 
+	public static ResourceLocation newResource(String dir) {
+		return new ResourceLocation(Reference.RESOURCE_PREFIX + dir);
+	}
+
 	public static ChatComponentTranslation addChatMessage(EnumChatFormatting color, String str, Object... args) {
 		ChatComponentTranslation ret = new ChatComponentTranslation(str, args);
 		ret.getChatStyle().setColor(color);
@@ -62,7 +69,7 @@ public class Util {
 	}
 
 	public static boolean isNewPlayer(EntityPlayer player) {
-		return player.worldObj.isRemote ? RPG.race == 0 : !getRPGNBT(player).hasKey("Race") || getIntegerStat(player, "Race") == 0;
+		return player.worldObj.isRemote ? (player.getDisplayName().equals(Reference.MC.thePlayer.getDisplayName()) ? Reference.race == 0 : Reference.playerRaces.get(player.getDisplayName()) == 0) : !getRPGNBT(player).hasKey("Race") || getIntegerStat(player, "Race") == 0;
 	}
 
 	public static int getIntegerStat(EntityPlayer player, String name) {
@@ -84,6 +91,18 @@ public class Util {
 
 	public static void requestStats() {
 		RPG.packetHandler.sendToServer(new PacketRequestStats());
+	}
+
+	public static void sendPlayerRaces(EntityPlayer player) {
+		RPG.packetHandler.sendTo(new PacketPlayerRaces().applyPlayers(), (EntityPlayerMP) player);
+	}
+
+	public static void sendPlayerRacesToAll() {
+		RPG.packetHandler.sendToAll(new PacketPlayerRaces().applyPlayers());
+	}
+
+	public static void requestPlayerRaces() {
+		RPG.packetHandler.sendToServer(new PacketRequestPlayerRaces());
 	}
 
 	public static void applyStats(EntityPlayer player) {
@@ -109,8 +128,20 @@ public class Util {
 		}
 	}
 
-	public static String BLACK = "\u00a70", DARK_BLUE = "\u00a71", DARK_GREEN = "\u00a72", DARK_AQUA = "\u00a73", DARK_RED = "\u00a74";
-	public static String DARK_PURPLE = "\u00a75", GOLD = "\u00a76", GRAY = "\u00a77", DARK_GRAY = "\u00a78", BLUE = "\u00a79";
-	public static String GREEN = "\u00a7a", AQUA = "\u00a7b", RED = "\u00a7c", LIGHT_PURPLE = "\u00a7d", YELLOW = "\u00a7e";
-	public static String WHITE = "\u00a7f";
+	public static String translateRace(int race) {
+		return Reference.RACES[race];
+	}
+
+	public static int translateRace(String race) {
+		for(int i = 0; i < Reference.RACES.length; i++) {
+			if(Reference.RACES[i].equals(race)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	public static ResourceLocation getRaceTexture(int race) {
+		return Reference.RACE_TEXTURES[race];
+	}
 }

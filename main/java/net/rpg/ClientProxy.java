@@ -1,10 +1,12 @@
 package net.rpg;
 
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.MinecraftForge;
 import net.rpg.entity.EntityCredit;
 import net.rpg.entity.projectile.EntityBouncingProjectile;
 import net.rpg.entity.render.RenderCredit;
 import net.rpg.entity.render.RenderProjectile;
+import net.rpg.handler.PlayerRenderHandler;
 import net.rpg.helper.ClientEventHelper;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -16,5 +18,6 @@ public class ClientProxy extends ServerProxy {
 		ClientEventHelper.init();
 		RenderingRegistry.registerEntityRenderingHandler(EntityBouncingProjectile.class, new RenderProjectile(staffProjectile));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCredit.class, new RenderCredit());
+		MinecraftForge.EVENT_BUS.register(new PlayerRenderHandler());
 	}
 }

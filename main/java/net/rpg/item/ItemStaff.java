@@ -2,14 +2,12 @@ package net.rpg.item;
 
 import java.util.List;
 
-import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.rpg.Util;
+import net.rpg.Reference;
 import net.rpg.entity.EntityCredit;
-import net.rpg.entity.projectile.EntityBouncingProjectile;
 import net.rpg.helper.ItemHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -32,7 +30,7 @@ public class ItemStaff extends Item {
 		par3List.add("Deals " + this.damage + " Arcana Damage");
 		par3List.add("Bouncing Projectile");
 		par3List.add("Consumes " + this.cost + " Arcana");
-		par3List.add(Util.GREEN + "Vethean");
+		par3List.add(Reference.GREEN + "Vethean");
 	}
 
 	@Override

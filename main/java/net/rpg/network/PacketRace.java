@@ -33,5 +33,6 @@ public class PacketRace extends AbstractPacket {
 			player.inventory.consumeInventoryItem(ItemHelper.getItem("raceStone"));
 		}
 		Util.sendStats(player);
+		Util.sendPlayerRacesToAll();
 	}
 }

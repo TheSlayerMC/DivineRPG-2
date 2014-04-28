@@ -3,24 +3,15 @@ package net.rpg.network;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
-import net.rpg.RPG;
+import net.rpg.Util;
 
-public class PacketOpenGui extends AbstractPacket {
-	private int id;
-
-	public PacketOpenGui setID(int id) {
-		this.id = id;
-		return this;
-	}
-
+public class PacketRequestPlayerRaces extends AbstractPacket {
 	@Override
 	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
-		buffer.writeInt(id);
 	}
 
 	@Override
 	public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
-		id = buffer.readInt();
 	}
 
 	@Override
@@ -29,6 +20,6 @@ public class PacketOpenGui extends AbstractPacket {
 
 	@Override
 	public void handleServerSide(EntityPlayer player) {
-		player.openGui(RPG.instance, id, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
+		Util.sendStats(player);
 	}
 }

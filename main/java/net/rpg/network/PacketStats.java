@@ -26,22 +26,22 @@ public class PacketStats extends AbstractPacket {
 
 	@Override
 	public void handleClientSide(EntityPlayer player) {
-		RPG.race = stats[0];
-		RPG.maxHp = stats[1];
-		RPG.de = stats[2];
-		RPG.maxDe = stats[3];
-		RPG.arcana = stats[4];
-		RPG.maxArcana = stats[5];
-		RPG.credits = stats[6];
-		RPG.attack = stats[7];
-		RPG.defense = stats[8];
-		RPG.discount = stats[9];
-		RPG.luck = stats[10];
-		RPG.reflex = stats[11];
-		RPG.stamina = stats[12];
-		RPG.speed = stats[13];
-		RPG.cooldown = stats[14];
-		RPG.ability = stats[15];
+		Reference.race = stats[0];
+		Reference.maxHp = stats[1];
+		Reference.de = stats[2];
+		Reference.maxDe = stats[3];
+		Reference.arcana = stats[4];
+		Reference.maxArcana = stats[5];
+		Reference.credits = stats[6];
+		Reference.attack = stats[7];
+		Reference.defense = stats[8];
+		Reference.discount = stats[9];
+		Reference.luck = stats[10];
+		Reference.reflex = stats[11];
+		Reference.stamina = stats[12];
+		Reference.speed = stats[13];
+		Reference.cooldown = stats[14];
+		Reference.ability = stats[15];
 	}
 
 	@Override

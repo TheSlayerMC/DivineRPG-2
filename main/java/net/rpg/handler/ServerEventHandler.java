@@ -37,6 +37,7 @@ public class ServerEventHandler {
 				} else {
 					Util.applyStats(player);
 				}
+				Util.sendPlayerRaces(player);
 			}
 		}
 	}

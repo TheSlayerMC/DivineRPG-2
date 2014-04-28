@@ -5,7 +5,6 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
-import net.rpg.RPG;
 import net.rpg.Reference;
 import net.rpg.Util;
 import net.rpg.container.ContainerStats;
@@ -33,8 +32,8 @@ public class GuiAbilities extends GuiContainer {
 			s = EnumChatFormatting.DARK_RED + "to begin your adventure!";
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 32, 4210752);
 		} else {
-			int ability = RPG.ability;
-			s = EnumChatFormatting.YELLOW + "Race: " + EnumChatFormatting.WHITE + Reference.translateRace(RPG.race);
+			int ability = Reference.ability;
+			s = EnumChatFormatting.YELLOW + "Race: " + EnumChatFormatting.WHITE + Util.translateRace(Reference.race);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 22, 4210752);
 			s = EnumChatFormatting.YELLOW + "Ability: " + EnumChatFormatting.WHITE + AbilityHelper.getName(ability);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 32, 4210752);
@@ -42,7 +41,7 @@ public class GuiAbilities extends GuiContainer {
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 42, 4210752);
 			s = EnumChatFormatting.YELLOW + "Denotation: " + EnumChatFormatting.WHITE + AbilityHelper.getDenotation(ability);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 52, 4210752);
-			s = EnumChatFormatting.YELLOW + "Cool down: " + EnumChatFormatting.WHITE + RPG.cooldown;
+			s = EnumChatFormatting.YELLOW + "Cool down: " + EnumChatFormatting.WHITE + Reference.cooldown;
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 62, 4210752);
 			s = EnumChatFormatting.YELLOW + "Ranged: " + EnumChatFormatting.WHITE + AbilityHelper.isRanged(ability);
 			this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 72, 4210752);

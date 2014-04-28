@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.rpg.RPG;
+import net.rpg.Reference;
 import net.rpg.container.ContainerStats;
 import net.rpg.network.PacketRequestBuy;
 
@@ -28,7 +29,7 @@ public class GuiMerchant extends GuiContainer {
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 20, 6 - 25, 4210752);
 		s = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 		String credits;
-		int current = RPG.credits;
+		int current = Reference.credits;
 		if(current == 0)
 			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.RED + current;
 		else if(current < 30)
@@ -37,7 +38,7 @@ public class GuiMerchant extends GuiContainer {
 			credits = EnumChatFormatting.YELLOW + "Credits: " + EnumChatFormatting.GREEN + current;
 		s = credits;
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 + 50, 6 - 25, 4210752);
-		s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + RPG.discount + "%";
+		s = EnumChatFormatting.YELLOW + "Discount: " + EnumChatFormatting.WHITE + Reference.discount + "%";
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 90, 6 - 25, 4210752);
 		s = EnumChatFormatting.YELLOW + "Page: " + EnumChatFormatting.WHITE + pageNum + "/" + maxPageNums;
 		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2 - 25, 1 + 147, 4210752);

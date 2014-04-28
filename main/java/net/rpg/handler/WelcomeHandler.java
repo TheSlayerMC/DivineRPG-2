@@ -22,7 +22,7 @@ public class WelcomeHandler {
 					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.DARK_PURPLE, "Oh hey! A DivineRPG 2 Developer!"));
 					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.LIGHT_PURPLE, "Your internet crashed from how awesome you are."));
 				} else {
-					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you " + p.getDisplayName() + ", for downloading and playing" + Util.GREEN + " DivineRPG 2!"));
+					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you " + p.getDisplayName() + ", for downloading and playing" + Reference.GREEN + " DivineRPG 2!"));
 					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "[Version: " + Reference.MOD_VERSION + "]"));
 					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.LIGHT_PURPLE, "Unable to check for latest version, you may want to check your internet connection!"));
 				}
@@ -37,7 +37,7 @@ public class WelcomeHandler {
 				} else {
 					BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL("https://raw.github.com/TheSlayerMC/RPG/master/Version").openStream()));
 					String curVersion = versionFile.readLine();
-					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you " + p.getDisplayName() + ", for downloading and playing" + Util.GREEN + " DivineRPG 2!"));
+					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you " + p.getDisplayName() + ", for downloading and playing" + Reference.GREEN + " DivineRPG 2!"));
 					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "[Version: " + Reference.MOD_VERSION + "]"));
 					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.YELLOW, "A DivineRPG update is avaliable."));
 					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.YELLOW, "[New Version: " + curVersion + "]"));
@@ -49,7 +49,7 @@ public class WelcomeHandler {
 				} else if(p.getDisplayName().equals("deathman12e3") || p.getDisplayName().equals("The_SlayerMC") || p.getDisplayName().equals("Mazetar") || p.getDisplayName().equals("itzakillshot") || p.getDisplayName().equals("geekclb") || p.getDisplayName().equals("Instanity414all")) {
 					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.DARK_PURPLE, "Oh hey! A DivineRPG 2 Developer!"));
 				} else {
-					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you " + p.getDisplayName() + ", for downloading and playing" + Util.GREEN + " DivineRPG 2!"));
+					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you " + p.getDisplayName() + ", for downloading and playing" + Reference.GREEN + " DivineRPG 2!"));
 					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "[Version: " + Reference.MOD_VERSION + "]"));
 					p.addChatMessage(Util.addChatMessage(EnumChatFormatting.GREEN, "DivineRPG is up to date."));
 				}

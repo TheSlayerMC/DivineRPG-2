@@ -1,13 +1,11 @@
 package net.rpg;
 
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.IAttributeInstance;
-import net.minecraft.entity.player.EntityPlayer;
 import net.rpg.handler.PacketHandler;
 import net.rpg.network.PacketOpenGui;
+import net.rpg.network.PacketPlayerRaces;
 import net.rpg.network.PacketRace;
 import net.rpg.network.PacketRequestBuy;
+import net.rpg.network.PacketRequestPlayerRaces;
 import net.rpg.network.PacketRequestStats;
 import net.rpg.network.PacketStats;
 import cpw.mods.fml.common.Mod;
@@ -17,8 +15,6 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
 public class RPG {
@@ -46,8 +42,8 @@ public class RPG {
 		packetHandler.registerPacket(PacketRace.class);
 		packetHandler.registerPacket(PacketOpenGui.class);
 		packetHandler.registerPacket(PacketRequestBuy.class);
+		packetHandler.registerPacket(PacketPlayerRaces.class);
+		packetHandler.registerPacket(PacketRequestPlayerRaces.class);
 		packetHandler.postInit();
 	}
-
-	public static int race = 0, maxHp, de, maxDe, arcana, maxArcana, credits, attack, defense, discount, luck, reflex, stamina, speed, cooldown, ability;
 }
